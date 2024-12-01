@@ -2,8 +2,8 @@
 
 namespace LiesOfPEnemyRandomizer.ViewModels
 {
-    public class ViewModelBase : ObservableObject
+    public partial class ViewModelBase : ObservableObject
     {
-
+       
     }
 }

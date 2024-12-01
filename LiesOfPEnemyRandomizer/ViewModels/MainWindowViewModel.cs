@@ -1,6 +1,7 @@
 ﻿using Avalonia.Input;
 using Avalonia.Interactivity;
 using CommunityToolkit.Mvvm.Input;
+using LiesOfPEnemyRandomizer.src;
 using System;
 using System.Linq;
 using System.Windows.Input;
@@ -15,13 +16,13 @@ namespace LiesOfPEnemyRandomizer.ViewModels
     public partial class MainWindowViewModel : ViewModelBase
     {
         public string Greeting { get; } = "Welcome to Avalonia!";
-       
-        public ICommand ButtonRandomizedClicked { get; }
+
+        public ICommand ButtonRandomizedClicked { get; set; }
 
         private float _wanderingBossChance;
         public float WanderingBossChance
         {
-            get => _wanderingBossChance; 
+            get => _wanderingBossChance;
             set
             {
                 if (_wanderingBossChance != value)
@@ -31,7 +32,32 @@ namespace LiesOfPEnemyRandomizer.ViewModels
                 }
             }
         }
-        
+
+        private bool _randomizePuppetsCarcass;
+        public bool RandomizePuppetsCarcass
+        {
+            get => _randomizePuppetsCarcass;
+            set
+            {
+                _randomizePuppetsCarcass = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string? _seed;
+        public string? Seed
+        {
+            get => _seed;
+            set
+            {
+                if (_seed != value)
+                {
+                    _seed = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+  
             
         
 
@@ -44,21 +70,33 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
         void OnButtonRandomizedClicked()
         {
-            Usmap mapping = new Usmap("D:\\FModel\\Outputs\\Exports\\unrealpak\\pakchunk2_s3-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_InnerKrat\\Mappings.usmap");
-            UAsset myAsset = new UAsset("D:\\FModel\\Outputs\\Exports\\unrealpak\\pakchunk2_s3-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_InnerKrat\\LV_Inner_UpperStreet_DSN.umap",
-                EngineVersion.VER_UE4_27, mapping);
+            Randomizer randomizer = new Randomizer();
+            int result;
+            bool hasSeed = int.TryParse(Seed, out result);
 
-            NormalExport? npc = (NormalExport?) myAsset.Exports.Where(x => x.ObjectName.ToString() == "Npc-LV_Inner_UpperStreet_DSN-1").FirstOrDefault();
+            int mySeed = randomizer.GenerateSeed();
 
-           if(npc == null) { return; }
+            randomizer.RandomizeEnemies(true,true,false,0.00f,mySeed);
+
+
+
+ // randomizer.RandomizeEnemies(true, true, true, WanderingBossChance, seed);
+
+            // Usmap mapping = new Usmap("D:\\FModel\\Outputs\\Exports\\unrealpak\\pakchunk2_s3-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_InnerKrat\\Mappings.usmap");
+            // UAsset myAsset = new UAsset("D:\\FModel\\Outputs\\Exports\\unrealpak\\pakchunk2_s3-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_InnerKrat\\LV_Inner_UpperStreet_DSN.umap",
+            //     EngineVersion.VER_UE4_27, mapping);
+
+            // NormalExport? npc = (NormalExport?) myAsset.Exports.Where(x => x.ObjectName.ToString() == "Npc-LV_Inner_UpperStreet_DSN-1").FirstOrDefault();
+
+            //if(npc == null) { return; }
 
 
             //NamePropertyData test = new NamePropertyData() { RawValue = "TEST" };
             //npc.Data[5].RawValue = test;
             //myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
 
-            npc.Data[5].RawValue = FName.FromString(myAsset, "Npc-LV_Inner_UpperStreet_DSN-2");
-            myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
+            //npc.Data[5].RawValue = FName.FromString(myAsset, "Npc-LV_Inner_UpperStreet_DSN-2");
+            //myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
             //     myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
 
 
