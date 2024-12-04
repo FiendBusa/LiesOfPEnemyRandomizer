@@ -33,14 +33,45 @@ namespace LiesOfPEnemyRandomizer.ViewModels
             }
         }
 
+        private bool _wanderingBoss;
+        public bool WanderingBoss
+        {
+            get => _wanderingBoss;
+            set
+            {
+                if (_wanderingBoss != value)
+                {
+                    _wanderingBoss = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         private bool _randomizePuppetsCarcass;
         public bool RandomizePuppetsCarcass
         {
             get => _randomizePuppetsCarcass;
             set
             {
-                _randomizePuppetsCarcass = value;
-                OnPropertyChanged();
+                if (_randomizePuppetsCarcass != value)
+                {
+                    _randomizePuppetsCarcass = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _factionProtection;
+        public bool FactionProtection
+        {
+            get => _factionProtection;
+            set
+            {
+                if (_factionProtection != value)
+                {
+                    _factionProtection = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -57,26 +88,31 @@ namespace LiesOfPEnemyRandomizer.ViewModels
                 }
             }
         }
-  
-            
-        
+
+
+
 
         public MainWindowViewModel()
         {
             ButtonRandomizedClicked = new RelayCommand(OnButtonRandomizedClicked);
-           
+
         }
 
 
         void OnButtonRandomizedClicked()
         {
-            Randomizer randomizer = new Randomizer();
+            Randomizer randomizer = new Randomizer(true, true, true, true, false, false, false, false, false, 0.00f);
             int result;
             bool hasSeed = int.TryParse(Seed, out result);
 
             int mySeed = randomizer.GenerateSeed();
+            randomizer.RandomizeEnemies(mySeed);
 
-            randomizer.RandomizeEnemies(true,true,false,0.00f,mySeed);
+
+        }
+
+    }
+}
 
 
 
@@ -114,9 +150,3 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
 
 
-
-
-        }
-
-    }
-}
