@@ -9,6 +9,7 @@ using UAssetAPI;
 using System.Reflection.Metadata;
 using System.Reflection;
 using Tmds.DBus.Protocol;
+using System.Diagnostics;
 
 
 namespace LiesOfPEnemyRandomizer.src
@@ -39,6 +40,12 @@ namespace LiesOfPEnemyRandomizer.src
 
         List<Dictionary<string, string[]>> pakChunkCollection;
 
+        public readonly string[] pakBaseDirectory = {
+            "pakchunk0_s4-WindowsNoEditor_P",
+            "pakchunk2_s3-WindowsNoEditor_P",
+            "pakchunk2_s4-WindowsNoEditor_P"
+        };
+
              
 
 
@@ -50,31 +57,31 @@ namespace LiesOfPEnemyRandomizer.src
 
             pakChunk0_s4 = new Dictionary<string, string[]>
             {
-                {Path.Combine(this.tempPath,"pakchunk0_s4-WindowsNoEditor_P\\LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] {"BP_NpcSpot.uasset","BP_ItemSpot.uasset","BP_BossRoomSpot.uasset","BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath,"pakchunk0_s4-WindowsNoEditor_P\\LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk0_s4-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_CentralStation"), new string[] { "LD_Outer_Station_DSN.umap", "LD_Outer_Station_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] {"BP_NpcSpot.uasset","BP_ItemSpot.uasset","BP_BossRoomSpot.uasset","BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_CentralStation"), new string[] { "LD_Outer_Station_DSN.umap", "LD_Outer_Station_DSN.uexp" } },
             };
 
                         pakChunk2_s3 = new Dictionary<string, string[]>
             {
-                {Path.Combine(this.tempPath,"pakchunk2_s3\\LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath,"pakchunk2_s3\\LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s3\\LiesofP\\Content\\MapRelease\\LV_CentralStation_B"), new string[] { "LV_Outer_CentralStatinB_DSN.umap", "LV_Outer_CentralStatinB_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s3\\LiesofP\\Content\\MapRelease\\LV_InnerKrat"), new string[] { "LV_Inner_UpperStreet_DSN.umap", "LV_Inner_UpperStreet_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s3\\LiesofP\\Content\\MapRelease\\LV_Krat_Cathedral"), new string[] { "LV_Inner_Cathedral_DSN.umap", "LV_Inner_Cathedral_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s3\\LiesofP\\Content\\MapRelease\\LV_Krat_Exhibition"), new string[] { "LV_Outer_Exhibition_DSN.umap", "LV_Outer_Exhibition_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s3\\LiesofP\\Content\\MapRelease\\LV_Krat_Factory"), new string[] { "LV_Inner_Factory_DSN.umap", "LV_Inner_Factory_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s3\\LiesofP\\Content\\MapRelease\\LV_Krat_Grave"), new string[] { "LV_Outer_Grave_DSN.umap", "LV_Outer_Grave_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_CentralStation_B"), new string[] { "LV_Outer_CentralStatinB_DSN.umap", "LV_Outer_CentralStatinB_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_InnerKrat"), new string[] { "LV_Inner_UpperStreet_DSN.umap", "LV_Inner_UpperStreet_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_Krat_Cathedral"), new string[] { "LV_Inner_Cathedral_DSN.umap", "LV_Inner_Cathedral_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_Krat_Exhibition"), new string[] { "LV_Outer_Exhibition_DSN.umap", "LV_Outer_Exhibition_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_Krat_Factory"), new string[] { "LV_Inner_Factory_DSN.umap", "LV_Inner_Factory_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_Krat_Grave"), new string[] { "LV_Outer_Grave_DSN.umap", "LV_Outer_Grave_DSN.uexp" } },
             };
 
                         pakChunk2_s4 = new Dictionary<string, string[]>
             {
-                {Path.Combine(this.tempPath,"pakchunk2_s4\\LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath,"pakchunk2_s4\\LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s4\\LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Old_Town"), new string[] { "LV_Krat_Old_Town_DSN.umap", "LV_Krat_Old_Town_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s4\\LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Underdark"), new string[] { "LV_Outer_Underdark_A_DSN.umap", "LV_Outer_Underdark_A_DSN.uexp", "LV_Outer_Underdark_DSN.umap", "LV_Outer_Underdark_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s4\\LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Outer_EastEndWard"), new string[] { "LV_Krat_EastEndWard_DSN.umap", "LV_Krat_EastEndWard_DSN.uexp" } },
-                {Path.Combine(this.tempPath, "pakchunk2_s4\\LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Zone_D"), new string[] { "LV_Monastery_A_DSN.umap", "LV_Monastery_A_DSN.uexp", "LV_Monastery_B_DSN.umap", "LV_Monastery_B_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Old_Town"), new string[] { "LV_Krat_Old_Town_DSN.umap", "LV_Krat_Old_Town_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Underdark"), new string[] { "LV_Outer_Underdark_A_DSN.umap", "LV_Outer_Underdark_A_DSN.uexp", "LV_Outer_Underdark_DSN.umap", "LV_Outer_Underdark_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Outer_EastEndWard"), new string[] { "LV_Krat_EastEndWard_DSN.umap", "LV_Krat_EastEndWard_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Zone_D"), new string[] { "LV_Monastery_A_DSN.umap", "LV_Monastery_A_DSN.uexp", "LV_Monastery_B_DSN.umap", "LV_Monastery_B_DSN.uexp" } },
             };
 
 
@@ -154,6 +161,82 @@ namespace LiesOfPEnemyRandomizer.src
 
             return true;
         }
+
+        public async Task<bool> UnrealPak(string[] baseDirectories, string outputDir)
+        {
+            for (int i = 0; i < baseDirectories.Length; i++)
+            {
+                string pakFolder = baseDirectories[i];
+                string unrealpakExe = Path.Combine(tempPath, "UnrealPak.exe");
+                if (!File.Exists(unrealpakExe))
+                {
+                    Console.WriteLine("UnrealPak.exe not found.");
+                    return false;
+                }
+
+                // Generate filelist.txt
+                string filelistPath = Path.Combine(tempPath, "filelist.txt");
+                string sourcePattern = Path.Combine(pakFolder, "*.*");
+                string targetPattern = Path.Combine("..\\..\\..", "*.*");
+                File.WriteAllText(filelistPath, $"\"{sourcePattern}\" \"{targetPattern}\"");
+
+                // Ensure the output directory exists
+                if (!Directory.Exists(outputDir))
+                {
+                    Directory.CreateDirectory(outputDir);
+                }
+
+                // Specify output pak file path in the output directory
+                string pakName = Path.GetFileName(pakFolder) + ".pak"; // Use the folder name as the pak file name
+                string outputPakPath = Path.Combine(outputDir, pakName);
+
+                // Arguments for UnrealPak.exe
+                string arguments = $"\"{outputPakPath}\" -create=\"{filelistPath}\" -compress";
+
+                // Run UnrealPak.exe
+                ProcessStartInfo processInfo = new ProcessStartInfo
+                {
+                    FileName = unrealpakExe,
+                    Arguments = arguments,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                try
+                {
+                    using (Process process = Process.Start(processInfo))
+                    {
+                        string output = await process.StandardOutput.ReadToEndAsync();
+                        string error = await process.StandardError.ReadToEndAsync();
+
+                        process.WaitForExit();
+
+                        Console.WriteLine("UnrealPak Output:");
+                        Console.WriteLine(output);
+
+                        if (!string.IsNullOrEmpty(error))
+                        {
+                            Console.WriteLine("UnrealPak Errors:");
+                            Console.WriteLine(error);
+                            return false; // Exit on error
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred while executing UnrealPak.exe: {ex.Message}");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+
+
 
 
 
