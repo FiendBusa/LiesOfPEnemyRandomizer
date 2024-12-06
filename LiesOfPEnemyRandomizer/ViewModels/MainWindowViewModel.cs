@@ -101,7 +101,7 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
         void OnButtonRandomizedClicked()
         {
-            Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, false, 0.00f);
+            Randomizer randomizer = new Randomizer(true, true, true, true, false, false, false, false, false, 0.00F);
             int result;
             bool hasSeed = int.TryParse(Seed, out result);
 

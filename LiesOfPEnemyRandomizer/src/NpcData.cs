@@ -158,6 +158,16 @@ namespace LiesOfPEnemyRandomizer.src
 
         };
 
+        public enum FactionType
+        {
+            E_MONSTER_PUPPET,
+            E_MONSTER_CARCASS,
+            E_MONSTER_CARCASSNPUPPET,
+            E_ENEMY_TOONLYPLAYER,
+            E_MONSTER_STALKER,
+            E_NEUTRAL
+        }
+
 
 
 
@@ -181,10 +191,10 @@ namespace LiesOfPEnemyRandomizer.src
             "CH04_Carcass_FallenArchBishop_Boss_00",
             "CH04_Carcass_FallenArchBishop_Boss_01",
             //Black Rabbit Human
-            "CH05_Stalker_BRabbit_Female_Boss_00",
-            "CH05_Stalker_BRabbit_NormalMale_Boss_00",
+            //"CH05_Stalker_BRabbit_Female_Boss_00",
+            //"CH05_Stalker_BRabbit_NormalMale_Boss_00",
             "CH05_Stalker_BRabbit_StrongMale_Boss_00",
-            "CH05_Stalker_BRabbit_TallMale_Boss_00",
+            //"CH05_Stalker_BRabbit_TallMale_Boss_00",
 
             "CH06_Puppet_PuppetKing_Boss_00",
             "CH06_Puppet_PuppetKingP3_Boss_00",
@@ -199,10 +209,10 @@ namespace LiesOfPEnemyRandomizer.src
             "CH09_Carcass_GraveKeeper_Seed_00",
 
             //Black Rabbit Carcass
-            "CH11_Stalker_BRabbit_Female_Boss_00",
-            "CH11_Stalker_BRabbit_NormalMale_Boss_00",
+            //"CH11_Stalker_BRabbit_Female_Boss_00",
+            //"CH11_Stalker_BRabbit_NormalMale_Boss_00",
             "CH11_Stalker_BRabbit_StrongMale_Boss_00",
-            "CH11_Stalker_BRabbit_TallMale_Boss_00",
+            //"CH11_Stalker_BRabbit_TallMale_Boss_00",
 
             "CH12_Reborner_Raxasia_Boss_00",
             "CH12_Reborner_Raxasia_Boss_01",
@@ -303,7 +313,6 @@ namespace LiesOfPEnemyRandomizer.src
             "CH03_Puppet_ButtlerMidRange_Proto_Normal_00",
             "CH03_Puppet_ButtlerThrower_MidRange_Normal_00",
             "CH03_Puppet_DefenseWall_Named_00",
-            "CH03_Puppet_FireEater_Boss_00",
             "CH03_Puppet_FireStoker_Named_00",
             "CH03_Puppet_FireStoker_Named_01",
             "CH03_Puppet_Horseman_Wheel_Elite_00",
