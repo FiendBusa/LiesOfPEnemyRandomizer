@@ -17,7 +17,7 @@ Welcome to the early alpha build of the **Lies of P Enemy Randomizer**! Your fee
 
 ### 4. Move Files to Mods Folder:
 - Copy the randomized files to your `~mods` folder.  
-  If the folder doesn’t exist, create it at the following path:  
+  If the folder doesn’t exist, create it at the following path (EXAMPLE)
 D:\Steam\steamapps\common\Lies of P\LiesofP\Content\Paks~mods
 
 markdown
