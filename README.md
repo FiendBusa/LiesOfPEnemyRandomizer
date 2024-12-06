@@ -20,9 +20,6 @@ Welcome to the early alpha build of the **Lies of P Enemy Randomizer**! Your fee
   If the folder doesn’t exist, create it at the following path (EXAMPLE)
 D:\Steam\steamapps\common\Lies of P\LiesofP\Content\Paks~mods
 
-markdown
-Copy code
-
 ### 5. Launch and Enjoy:
 - Start the game, and your randomized content will be applied.
 
