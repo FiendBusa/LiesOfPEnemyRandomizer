@@ -134,7 +134,8 @@ namespace LiesOfPEnemyRandomizer.src
             {
                 pool.AddRange(NpcData.Npc[NpcData.NpcType.MiniBossPuppet]);
             }
-            if (includeBosses || includeWanderingBoss)
+            //TEMP
+            if (includeBosses)
             {
                 pool.AddRange(NpcData.Npc[NpcData.NpcType.Boss]);
 
