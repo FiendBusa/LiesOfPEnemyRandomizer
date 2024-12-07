@@ -537,7 +537,7 @@ namespace LiesOfPEnemyRandomizer.src
             }
             uAsset.Write(filePath);
             //string enemiesGeneratedFilePath = Path.Combine("D:\\Steam\\steamapps\\common\\Lies of P\\LiesofP\\Content\\Paks\\~mods", "GeneratedEnemies.txt");
-            WriteEnemiesGeneratedToFile(enemiesGenerated, enemiesGeneratedFilePath);
+            //WriteEnemiesGeneratedToFile(enemiesGenerated, enemiesGeneratedFilePath);
             return true;
 
 
