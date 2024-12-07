@@ -138,7 +138,15 @@ namespace LiesOfPEnemyRandomizer.src
             CH13_Reborner_Simon_Boss_01,
             CH13_Reborner_ErgoControl_Named_001,
             CH13_Stalker_Fox_00,
-            CH13_HelpMate_Exile
+            CH13_HelpMate_Exile,
+            CH04_RedButterFly_Red_00,
+            CH04_HelpMate_Exile,
+            CH04_Carcass_GeneralLeader_Elite_NoRespawn_00,
+            CH04_Carcass_OneArmed_Shield_Named_00,
+            CH04_Carcass_GeneralMale3_Normal_00,
+            CH04_Puppet_FireStoker_Named_00,
+            CH04_RedButterFly_Red_01
+
 
 
 
@@ -570,7 +578,17 @@ namespace LiesOfPEnemyRandomizer.src
         public static readonly List<NpcSpotData> NpcLVInnerCathedral = new List<NpcSpotData>()
         {
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_00 },
-             new NpcSpotData{ exportID = 1559, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-59", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_01 }
+             new NpcSpotData{ exportID = 1559, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-59", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_01 },
+
+             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-15", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH04_RedButterFly_Red_01, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-16", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH04_RedButterFly_Red_00, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH04_HelpMate_Exile, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-35", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_GeneralLeader_Elite_NoRespawn_00, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH04_HelpMate_Exile, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-75", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_OneArmed_Shield_Named_00, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-83", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_GeneralMale3_Normal_00, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-9", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH04_Puppet_FireStoker_Named_00, npcImportant = true},
         };
 
         //CHAPTER 05
