@@ -258,10 +258,10 @@ namespace LiesOfPEnemyRandomizer.src
             "CH05_Stalker_BRabbit_TallMale_Boss_00",*/
             } },
             {NpcType.MiniBossPuppet, new[]{
-            "CH03_Puppet_Tomorrow_Seed_00",
+            //"CH03_Puppet_Tomorrow_Seed_00",
             "CH06_Puppet_Clown_Seed_00",
             "CH08_Puppet_Clown_Proto_Named_00",
-            "CH08_Puppet_Tomorrow_Electronic_Named_00",
+            //"CH08_Puppet_Tomorrow_Electronic_Named_00",
 
 
             } },
@@ -597,9 +597,9 @@ namespace LiesOfPEnemyRandomizer.src
         {
              //BLACK RABBIT BROTHERHOOD
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-1", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_Female_Boss_00},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-2", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_StrongMale_Boss_00},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-3", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_NormalMale_Boss_00 },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-4", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_TallMale_Boss_00 },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-2", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_StrongMale_Boss_00, npcImportant = true},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-3", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_NormalMale_Boss_00, npcImportant = true },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-4", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_TallMale_Boss_00, npcImportant = true },
 
             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-14", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_MutantBear_Elite_00, npcImportant=true},

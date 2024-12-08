@@ -319,7 +319,7 @@ namespace LiesOfPEnemyRandomizer.src
                         importantNpcs = NpcData.NpcLVMonasteryB;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Monastery_B_DSN).ToString();
-
+                        
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
                         SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
                         break;
@@ -416,7 +416,7 @@ namespace LiesOfPEnemyRandomizer.src
 
                     if (enemyPool.Count <= 0)
                     {
-                        enemyPool = ShufflePool(GeneratePool(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss), random);
+                        enemyPool = ShufflePool(GeneratePool(true,true,true,true,true,false,false,false,false), random);
                     }
                     if (bossPool.Count <= 0)
                     {
@@ -499,7 +499,7 @@ namespace LiesOfPEnemyRandomizer.src
                                 continue;
                             }
                             //BOSS
-                            if (match.npcType == NpcData.NpcType.Boss || match.npcType == NpcData.NpcType.BossCarcass || match.npcType == NpcData.NpcType.BossHuman)
+                            if ((match.npcType == NpcData.NpcType.Boss || match.npcType == NpcData.NpcType.BossCarcass || match.npcType == NpcData.NpcType.BossHuman) && NpcData.Npc[NpcData.NpcType.Boss].Contains(match.spotCodeNameOriginal.ToString()))
                             {
                                 string raxasia = "CH12_Reborner_Raxasia_Boss_00";
                                 data.RawValue = FName.FromString(uAsset, bossSelected);
