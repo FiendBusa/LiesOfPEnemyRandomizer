@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UAssetAPI;
 using UAssetAPI.ExportTypes;
@@ -389,163 +390,122 @@ namespace LiesOfPEnemyRandomizer.src
             }
             uasset.Write(filePath);
         }
-        bool GenerateEnemies(string pakChunk, UAsset uAsset, Usmap mapping, EngineVersion engineVersion, List<NpcData.NpcSpotData> importantNpcs, List<NormalExport> npcs, 
-            bool skipButterfly, bool skipImportantNpcs, bool skipExiledNpc, bool skipProjectile, bool removeNpcFromPool, bool scaleEnemies, bool scaleBosses, string fileName, string filePath)
+        bool GenerateEnemies(string pakChunk, UAsset uAsset, Usmap mapping, EngineVersion engineVersion, List<NpcData.NpcSpotData> importantNpcs, List<NormalExport> npcs,
+    bool skipButterfly, bool skipImportantNpcs, bool skipExiledNpc, bool skipProjectile, bool removeNpcFromPool, bool scaleEnemies, bool scaleBosses, string fileName, string filePath)
         {
-            npcs = uAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LD", StringComparison.OrdinalIgnoreCase) || x.ObjectName.ToString().StartsWith("Npc-LV", StringComparison.OrdinalIgnoreCase)).ToList();
-            List<string?>enemiesGenerated = new List<string>();
+            npcs = uAsset.Exports.OfType<NormalExport>()
+                .Where(x => x.ObjectName.ToString().StartsWith("Npc-LD", StringComparison.OrdinalIgnoreCase) || x.ObjectName.ToString().StartsWith("Npc-LV", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+            List<string?> enemiesGenerated = new List<string>();
 
-            if (npcs == null) { return false; }
+            if (npcs == null) return false;
 
+            // Debug logs for initial pool states
             Console.WriteLine($"Initial enemyPool: {string.Join(", ", enemyPool)}");
             Console.WriteLine($"Initial bossPool: {string.Join(", ", bossPool)}");
             Console.WriteLine($"Initial wanderingPool: {string.Join(", ", wanderingPool)}");
 
-
             foreach (NormalExport npcExport in npcs)
             {
-                
+                var matchingNpcs = importantNpcs.Where(npc => npcExport.ObjectName.ToString().Contains(npc.spotUniqueID)).ToList();
+
+                // Skip important NPCs if required
+                if (matchingNpcs.Any(match => match.npcImportant == true))
+                {
+                    Console.WriteLine($"Skipping important NPC: {npcExport.ObjectName}");
+                    continue;
+                }
 
                 foreach (PropertyData data in npcExport.Data)
                 {
-                    if (data.Name.ToString() != "SpotCodeName") { continue; }
+                    if (data.Name.ToString() != "SpotCodeName") continue;
 
-                    //if (enemyPool.Count <= 0) { enemyPool = GeneratePool(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss); }
-                    //if (bossPool.Count <= 0) { bossPool = GeneratePool(false, false, false, true, true, true, true, true, false); }
-                    //if (wanderingPool.Count <= 0) { GeneratePool(false, false, false, true, true, true, true, true, true); }
+                    // Refill pools when empty
+                    if (enemyPool.Count == 0)
+                        enemyPool = ShufflePool(GeneratePool(true, true, true, true, true, false, false, false, false), random);
 
-                    if (enemyPool.Count <= 0)
-                    {
-                        enemyPool = ShufflePool(GeneratePool(true,true,true,true,true,false,false,false,false), random);
-                    }
-                    if (bossPool.Count <= 0)
-                    {
-                        bossPool = ShufflePool(GeneratePool(false, false, false, true, true, true, true, true, false), random);
-                    }
-                    if (wanderingPool.Count <= 0)
-                    {
+                    if (bossPool.Count == 0)
+                        bossPool = ShufflePool(GeneratePool(false, false, false, false, false, true, false, false, false), random);
+
+                    if (wanderingPool.Count == 0)
                         wanderingPool = ShufflePool(GeneratePool(false, false, false, true, true, true, true, true, true), random);
-                    }
 
                     string bossSelected = bossPool[random.Next(bossPool.Count)];
                     string wanderingSelected = wanderingPool[random.Next(wanderingPool.Count)];
                     string enemySelected = enemyPool[random.Next(enemyPool.Count)];
 
-                    ////REMOVE BEFORE SCALING DUE TO STRING MANIPULATION
-                    //if (removeNpcFromPool)
-                    //{
-                    //    bossPool.Remove(bossSelected);
-                    //    enemyPool.Remove(enemySelected);
-                    //    wanderingPool.Remove(wanderingSelected);
-                    //}
-
+                    // Remove NPC from pool before scaling to avoid duplications
                     bossPool.Remove(bossSelected);
                     enemyPool.Remove(enemySelected);
                     wanderingPool.Remove(wanderingSelected);
 
-                    if (scaleBosses && bossSelected.ToLower().StartsWith("ch")) { bossSelected = bossSelected.Substring(bossSelected.IndexOf("CH") + 5); }
+                    // Scale logic
+                    if (scaleBosses && bossSelected.ToLower().StartsWith("ch"))
+                        bossSelected = bossSelected.Substring(bossSelected.IndexOf("CH") + 5);
 
-                    if(scaleBosses && wanderingSelected.ToLower().StartsWith("ch")) { wanderingSelected = wanderingSelected.Substring(wanderingSelected.IndexOf("CH") + 5); }
-                
+                    if (scaleBosses && wanderingSelected.ToLower().StartsWith("ch"))
+                        wanderingSelected = wanderingSelected.Substring(wanderingSelected.IndexOf("CH") + 5);
 
-
-                    if (scaleEnemies && enemySelected.ToLower().StartsWith("ch")) { enemySelected = enemySelected.Substring(enemySelected.IndexOf("CH") + 5); }
-
-
-
-
-                    
-
+                    if (scaleEnemies && enemySelected.ToLower().StartsWith("ch"))
+                        enemySelected = enemySelected.Substring(enemySelected.IndexOf("CH") + 5);
 
                     
+                    bool assignedValue = false;
 
-                    //CHECK IMPORTANT NPCS && BOSSESS
-                    List<NpcData.NpcSpotData> matchingNpcs = importantNpcs.Where(npc => npcExport.ObjectName.ToString().Contains(npc.spotUniqueID)).ToList();
-                    if (matchingNpcs.Any())
+                    foreach (var match in matchingNpcs)
                     {
-                        foreach (NpcData.NpcSpotData match in matchingNpcs)
+                        if (match.npcType == NpcData.NpcType.Boss)
                         {
-                            //BUTTERFLY SKIP
-                            if (match.npcType == NpcData.NpcType.ButterFly && skipButterfly)
-                            {
-                                data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
-                                enemiesGenerated.Add(data.RawValue.ToString());
-                                Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
-                                Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
-                                Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
-
-                                continue;
-                            }
-                            //HELP MATE
-                            if (match.npcType == NpcData.NpcType.HelpMate && skipExiledNpc)
-                            {
-                                data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
-                                enemiesGenerated.Add(data.RawValue.ToString());
-                                Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
-                                Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
-                                Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
-
-                                continue;
-                            }
-                            //PROJECTILE
-                            if (match.npcType == NpcData.NpcType.Projectile && skipProjectile)
-                            {
-                                data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
-                                enemiesGenerated.Add(data.RawValue.ToString());
-                                Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
-                                Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
-                                Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
-
-                                continue;
-                            }
-                            //BOSS
-                            if ((match.npcType == NpcData.NpcType.Boss || match.npcType == NpcData.NpcType.BossCarcass || match.npcType == NpcData.NpcType.BossHuman) && NpcData.Npc[NpcData.NpcType.Boss].Contains(match.spotCodeNameOriginal.ToString()))
-                            {
-                                string raxasia = "CH12_Reborner_Raxasia_Boss_00";
-                                data.RawValue = FName.FromString(uAsset, bossSelected);
-                                enemiesGenerated.Add(data.RawValue.ToString());
-                                Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
-                                Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
-                                Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
-
-                                continue;
-                            }
-                            //ALL ELSE
-                            if (match.npcImportant.HasValue && match.npcImportant.Value)
-                            {
-                                data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
-                                enemiesGenerated.Add(data.RawValue.ToString());
-                                Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
-                                Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
-                                Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
-
-
-                                continue;
-                            }
+                            data.RawValue = FName.FromString(uAsset, bossSelected);
+                            assignedValue = true;
+                            continue;
+                        }
+                        else if (match.npcType == NpcData.NpcType.ButterFly && skipButterfly)
+                        {
+                            data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
+                            assignedValue = true;
+                            continue;
+                        }
+                        else if (match.npcType == NpcData.NpcType.HelpMate && skipExiledNpc)
+                        {
+                            data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
+                            assignedValue = true;
+                            continue;
+                        }
+                        else if (match.npcType == NpcData.NpcType.Projectile && skipProjectile)
+                        {
+                            data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
+                            assignedValue = true;
+                            continue;
                         }
                     }
-                    else
-                    {
-                        
-                        data.RawValue = FName.FromString(uAsset, enemySelected);
-                        enemiesGenerated.Add(data.RawValue.ToString());
-                        Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
-                        Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
-                        Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
+                    
 
+                    if (!assignedValue)
+                    {
+                        data.RawValue = FName.FromString(uAsset, enemySelected);
                     }
+
+                    enemiesGenerated.Add(data.RawValue.ToString());
+
+                    // Debug remaining pools
+                    Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
+                    Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
+                    Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
                 }
             }
+
+            // Write updated UAsset file
             uAsset.Write(filePath);
-            //string enemiesGeneratedFilePath = Path.Combine("D:\\Steam\\steamapps\\common\\Lies of P\\LiesofP\\Content\\Paks\\~mods", "GeneratedEnemies.txt");
+
+            // Optional: Write generated enemies to a file for debugging
+            //string enemiesGeneratedFilePath = Path.Combine("D:\\GeneratedEnemies", $"{fileName}_GeneratedEnemies.txt");
             //WriteEnemiesGeneratedToFile(enemiesGenerated, enemiesGeneratedFilePath);
+
             return true;
-
-
-
-
-
         }
+
+
         public int GenerateSeed()
         {
             return new Random(Guid.NewGuid().GetHashCode()).Next();

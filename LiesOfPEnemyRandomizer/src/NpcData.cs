@@ -241,9 +241,9 @@ namespace LiesOfPEnemyRandomizer.src
             "Stalker_Weasel_00",
             "Stalker_Cat_00",
             "Stalker_Fox_00",
-            "Stalker_BRabbit_NormalMale_Boss_00",
-            "Stalker_BRabbit_StrongMale_Boss_00",
-            "Stalker_BRabbit_TallMale_Boss_00",
+            //"Stalker_BRabbit_NormalMale_Boss_00",
+            //"Stalker_BRabbit_StrongMale_Boss_00",
+            //"Stalker_BRabbit_TallMale_Boss_00",
 
             /*"CH02_Stalker_MadStalker_00",
             "CH03_Stalker_SurvivorStalker_00",
@@ -293,7 +293,7 @@ namespace LiesOfPEnemyRandomizer.src
             "CH01_Puppet_Police_Named_00",
             "CH01_Puppet_Watchdog_Aggro_Normal_00",
             "CH01_Puppet_Watchdog_Normal_00",
-            "CH01_Puppet_Watchdog_Test_00",
+            
 
 
             "CH02_Puppet_ButtlerMelee_ArmLess_Normal_00",
@@ -394,7 +394,6 @@ namespace LiesOfPEnemyRandomizer.src
             "CH08_Puppet_ButtlerMidRange_Normal_03",
             "CH08_Puppet_FailDoll_Named_01",
             "CH08_Puppet_FireStoker_Elite_00",
-            "CH08_Puppet_HorsemanStone_Elite_Test_00",
             "CH08_Puppet_Police_Proto_Elite_00",
             "CH08_Puppet_SoldierRifle_Normal_00",
             "CH08_Puppet_SoldierSword_Elite_00",
@@ -544,7 +543,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S0_04
         public static readonly List<NpcSpotData> NpcLDOuterStation = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00, npcImportant = true },
+            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00},
             //KRAT CENTRAL KEY DON'T REPLACE UNTIL I CAN CHANGE STARTING ITEM (key_1)
             new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-10", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Police_Named_00, npcImportant = true },
 
@@ -566,7 +565,7 @@ namespace LiesOfPEnemyRandomizer.src
         public static readonly List<NpcSpotData> NpcLVInnerFactory = new List<NpcSpotData>()
         {
              new NpcSpotData{ exportID = 1476, spotUniqueID = "Npc-LV_Inner_Factory_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireEater_Boss_00 },
-             new NpcSpotData{ exportID = 1488, spotUniqueID = "Npc-LV_Inner_Factory_DSN-21", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_DefenseWall_Named_00 },
+             new NpcSpotData{ exportID = 1488, spotUniqueID = "Npc-LV_Inner_Factory_DSN-21", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_DefenseWall_Named_00, npcImportant=true },
              new NpcSpotData{ exportID = 1494, spotUniqueID = "Npc-LV_Inner_Factory_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH03_HelpMate_Exile , npcImportant = true},
              new NpcSpotData{ exportID = 1493, spotUniqueID = "Npc-LV_Inner_Factory_DSN-26", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Tomorrow_Seed_00, npcImportant=true },
              new NpcSpotData{ exportID = 1534, spotUniqueID = "Npc-LV_Inner_Factory_DSN-70", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_00, npcImportant = true },
@@ -712,9 +711,9 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S4 
         public static readonly List<NpcSpotData> NpcLVOuterUnderdark = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-50", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_Female_Boss_00},
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-52", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_NormalMale_Boss_00},
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-53", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_TallMale_Boss_00},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-50", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_Female_Boss_00,npcImportant=true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-52", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_NormalMale_Boss_00, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-53", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_TallMale_Boss_00, npcImportant = true},
               new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-8", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_StrongMale_Boss_00},
             
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
