@@ -72,7 +72,8 @@ namespace LiesOfPEnemyRandomizer.src
             IncludeMiniBossCarcass = includeMiniBossCarcass;
             WanderingBoss = includeWanderingBoss;
 
-            WanderingBossChance = WanderingBossChance;
+            WanderingBossChance = wanderingBossChance;
+
 
 
             enemyPool = new List<string>();
@@ -115,17 +116,17 @@ namespace LiesOfPEnemyRandomizer.src
         {
             List<string> pool = new List<string>();
 
-            if (includePuppets)
+            if (includePuppets && !includeBosses) 
             {
-                pool.AddRange(NpcData.Npc[NpcData.NpcType.Puppet]);
+                pool.AddRange(NpcData.Npc[NpcData.NpcType.Puppet].Where(npc => !npc.Contains("_Boss_")));
             }
-            if (includeCarcass)
+            if (includeCarcass && !includeBosses)
             {
-                pool.AddRange(NpcData.Npc[NpcData.NpcType.Carcass]);
+                pool.AddRange(NpcData.Npc[NpcData.NpcType.Carcass].Where(npc => !npc.Contains("_Boss_")));
             }
-            if (includeReborner)
+            if (includeReborner && !includeBosses)
             {
-                pool.AddRange(NpcData.Npc[NpcData.NpcType.Reborner]);
+                pool.AddRange(NpcData.Npc[NpcData.NpcType.Reborner].Where(npc => !npc.Contains("_Boss_")));
             }
             if (includeMiniBossStalker)
             {
@@ -135,11 +136,9 @@ namespace LiesOfPEnemyRandomizer.src
             {
                 pool.AddRange(NpcData.Npc[NpcData.NpcType.MiniBossPuppet]);
             }
-            //TEMP
             if (includeBosses)
             {
                 pool.AddRange(NpcData.Npc[NpcData.NpcType.Boss]);
-
             }
             if (includeMiniBossReborner)
             {
@@ -149,15 +148,10 @@ namespace LiesOfPEnemyRandomizer.src
             {
                 pool.AddRange(NpcData.Npc[NpcData.NpcType.MiniBossCarcass]);
             }
-            if (includeMiniBossPuppet)
-            {
-                pool.AddRange(NpcData.Npc[NpcData.NpcType.MiniBossPuppet]);
-            }
 
             return pool;
-
-
         }
+
         public async Task<bool> RandomizeEnemies(int seed)
         {
 
@@ -422,26 +416,28 @@ namespace LiesOfPEnemyRandomizer.src
 
                     // Refill pools when empty
                     if (enemyPool.Count == 0)
-                        enemyPool = ShufflePool(GeneratePool(true, true, true, true, true, false, false, false, false), random);
+                        enemyPool = ShufflePool(GeneratePool(true,true,true,true,true,false,false,false,false), random);
 
                     if (bossPool.Count == 0)
                         bossPool = ShufflePool(GeneratePool(false, false, false, false, false, true, false, false, false), random);
 
                     if (wanderingPool.Count == 0)
-                        wanderingPool = ShufflePool(GeneratePool(false, false, false, true, true, true, true, true, true), random);
+                        enemyPool = ShufflePool(GeneratePool(true, true, true, true, true, false, false, false, false), random);
 
                     string bossSelected = bossPool[random.Next(bossPool.Count)];
-                    string wanderingSelected = wanderingPool[random.Next(wanderingPool.Count)];
+                    string wanderingSelected = enemyPool[random.Next(enemyPool.Count)];
                     string enemySelected = enemyPool[random.Next(enemyPool.Count)];
 
+
                     // Remove NPC from pool before scaling to avoid duplications
-                    bossPool.Remove(bossSelected);
+                    //bossPool.Remove(bossSelected);
                     enemyPool.Remove(enemySelected);
-                    wanderingPool.Remove(wanderingSelected);
+                    //wanderingPool.Remove(wanderingSelected);
 
                     // Scale logic
                     if (scaleBosses && bossSelected.ToLower().StartsWith("ch"))
                         bossSelected = bossSelected.Substring(bossSelected.IndexOf("CH") + 5);
+                        
 
                     if (scaleBosses && wanderingSelected.ToLower().StartsWith("ch"))
                         wanderingSelected = wanderingSelected.Substring(wanderingSelected.IndexOf("CH") + 5);
@@ -458,6 +454,7 @@ namespace LiesOfPEnemyRandomizer.src
                         {
                             data.RawValue = FName.FromString(uAsset, bossSelected);
                             assignedValue = true;
+                            bossPool.Remove(bossSelected);
                             continue;
                         }
                         else if (match.npcType == NpcData.NpcType.ButterFly && skipButterfly)
@@ -478,6 +475,12 @@ namespace LiesOfPEnemyRandomizer.src
                             assignedValue = true;
                             continue;
                         }
+                        else
+                        {
+                            assignedValue = false;
+                            data.RawValue = FName.FromString(uAsset, enemySelected);
+                            continue;
+                        }
                     }
                     
 
@@ -488,19 +491,17 @@ namespace LiesOfPEnemyRandomizer.src
 
                     enemiesGenerated.Add(data.RawValue.ToString());
 
-                    // Debug remaining pools
+                    
                     Debug.WriteLine($"Remaining enemyPool: {string.Join(", ", enemyPool)}");
                     Debug.WriteLine($"Remaining bossPool: {string.Join(", ", bossPool)}");
                     Debug.WriteLine($"Remaining wanderingPool: {string.Join(", ", wanderingPool)}");
                 }
             }
 
-            // Write updated UAsset file
+            
             uAsset.Write(filePath);
 
-            // Optional: Write generated enemies to a file for debugging
-            //string enemiesGeneratedFilePath = Path.Combine("D:\\GeneratedEnemies", $"{fileName}_GeneratedEnemies.txt");
-            //WriteEnemiesGeneratedToFile(enemiesGenerated, enemiesGeneratedFilePath);
+            
 
             return true;
         }
@@ -515,54 +516,6 @@ namespace LiesOfPEnemyRandomizer.src
     }
 }
 
-//Usmap mapping = new Usmap("C:\\users\\g-gil\\Documents\\Mappings.usmap");
-//UAsset myAsset = new UAsset("C:\\Users\\g-gil\\Downloads\\FModel (1)\\Output\\Exports\\pakchunk2_s3\\LiesofP\\Content\\MapRelease\\LV_Krat_Factory\\LV_Inner_Factory_DSN.umap", EngineVersion.VER_UE4_27, mapping);
-
-//List<NormalExport> npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();
-
-
-//if (npc == null) { return false; }
-
-//foreach (NormalExport npcExport in npc)
-//{
-//    foreach (PropertyData data in npcExport.Data)
-//    {
-//        if (data.Name.ToString() != "SpotCodeName") { continue; }
-//        data.RawValue = FName.FromString(myAsset, enemyPool[random.Next(enemyPool.Count)]);
-
-//    }
-//}
-//myAsset.Write("C:\\users\\g-gil\\Documents\\LV_Inner_Factory_DSN.umap");
-
-//QUICK FACTION TEST
-
-//Usmap mapping2 = new Usmap("D:\\FModel\\Outputs\\Exports\\unrealpak\\pakchunk2_s3-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_InnerKrat\\Mappings.usmap");
-//UAsset myAsset2 = new UAsset("C:\\Users\\g-gil\\Downloads\\FModel (1)\\Output\\Exports\\pakchunk0_s4\\LiesofP\\Content\\ContentInfo\\InfoAsset\\NPCInfo.uasset", EngineVersion.VER_UE4_27, mapping2);
-
-//NormalExport? npc2 = (NormalExport?)myAsset2.Exports[0];
-
-//NormalExport? npc3 = (NormalExport?)npc2.Asset.Exports[0];
-
-
-
-//List<PropertyData> test1 = (List<PropertyData>?)npc3.Data[0].RawValue;
-
-//ArrayPropertyData test2 = (ArrayPropertyData)test1[0];
-
-//for (int i = 0; i < test2.Value.Length; i++)
-//{
-//    StructPropertyData name = (StructPropertyData)test2.Value[i];
-//    List<PropertyData> name2 = (List<PropertyData>)name.RawValue;
-
-//    foreach(PropertyData name3 in name2)
-//    {
-//        if (name3.Name.Value.ToString().Contains("_faction"))
-//        {
-//            name3.RawValue = FName.FromString(myAsset2, "E_MONSTER_CARCASSNPUPPET");
-//        }
-//    }
-//}
-//myAsset2.Write("C:\\Users\\g-gil\\Downloads\\FModel (1)\\Output\\Exports\\pakchunk0_s4\\LiesofP\\Content\\ContentInfo\\InfoAsset\\NPCInfo-NEW.uasset");
 
 
 
@@ -577,41 +530,3 @@ namespace LiesOfPEnemyRandomizer.src
 
 
 
-
-
-
-
-//List<object> data = (List<object>)npc3.RawValue;
-
-
-
-
-//if (npc2 == null) { return; }
-
-//foreach (NormalExport npcExport2 in npc2)
-//{
-//    foreach (PropertyData data2 in npcExport2.Data)
-//    {
-//        if (data2.Name.ToString() != "SpotCodeName") { continue; }
-//        data2.RawValue = FName.FromString(myAsset2, enemyPool[random.Next(enemyPool.Count)]);
-
-//    }
-//}
-//myAsset2.Write("C:\\Users\\g-gil\\Downloads\\FModel (1)\\Output\\Exports\\pakchunk0_s4\\LiesofP\\Content\\ContentInfo\\InfoAsset\\NPCInfo-new.uasset");
-
-
-
-//NamePropertyData test = new NamePropertyData() { RawValue = "TEST" };
-//npc.Data[5].RawValue = test;
-//myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-
-//npc.Data[5].RawValue = FName.FromString(myAsset, "Npc-LV_Inner_UpperStreet_DSN-2");
-//myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-//     myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-
-
-//if(npc is NormalExport export)
-// {
-//     export.Data[5] = new NamePropertyData() { RawValue = "Npc-LV_Inner_UpperStreet_DSN-2" };
-//     myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-// }

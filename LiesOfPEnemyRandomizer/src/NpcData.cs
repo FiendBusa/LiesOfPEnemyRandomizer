@@ -29,7 +29,8 @@ namespace LiesOfPEnemyRandomizer.src
             ButterFly,
             HelpMate,
             Important,
-            Projectile
+            Projectile,
+            Wandering
         };
 
         public enum SpotCodeName
@@ -352,7 +353,7 @@ namespace LiesOfPEnemyRandomizer.src
 
              "CH06_Puppet_BabyDoll_Normal_00",
              "CH06_Puppet_Bomber_Normal_00",
-             "CH06_Puppet_Bomber_Normal_00_QST",
+             //"CH06_Puppet_Bomber_Normal_00_QST",
              "CH06_Puppet_ButtlerMelee_Normal_00",
              "CH06_Puppet_Horseman_Headless_Elite_00",
              "CH06_Puppet_Maid_Normal_00",
@@ -439,7 +440,7 @@ namespace LiesOfPEnemyRandomizer.src
             "CH05_Carcass_GeneralFemale2_WP1_Elite_00",
             "CH05_Carcass_GeneralMale1_Elite_00",
             "CH05_Carcass_GeneralMale1_Normal_00",
-            "CH05_Carcass_GeneralMale1_Normal_00_QST",
+           // "CH05_Carcass_GeneralMale1_Normal_00_QST",
             "CH05_Carcass_GeneralMale1_Normal_00_TF",
             "CH05_Carcass_GeneralMale2_Normal_00",
             "CH05_Carcass_GeneralMale2_WP2_Normal_00",
@@ -489,7 +490,7 @@ namespace LiesOfPEnemyRandomizer.src
             "CH09_Carcass_Crystal_Elite_00",
             "CH09_Carcass_FourFootBig_Named_00",
             "CH09_Carcass_FourFootPoison_Normal_00",
-            "CH09_Carcass_GeneralFemale1_Normal_QST",
+            //"CH09_Carcass_GeneralFemale1_Normal_QST",
             "CH09_Carcass_GeneralLeader_Named_00",
             "CH09_Carcass_GeneralMale1_Normal_00",
             "CH09_Carcass_GeneralMale1_Raw_Normal_00",
@@ -565,12 +566,14 @@ namespace LiesOfPEnemyRandomizer.src
         public static readonly List<NpcSpotData> NpcLVInnerFactory = new List<NpcSpotData>()
         {
              new NpcSpotData{ exportID = 1476, spotUniqueID = "Npc-LV_Inner_Factory_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireEater_Boss_00 },
-             new NpcSpotData{ exportID = 1488, spotUniqueID = "Npc-LV_Inner_Factory_DSN-21", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_DefenseWall_Named_00, npcImportant=true },
-             new NpcSpotData{ exportID = 1494, spotUniqueID = "Npc-LV_Inner_Factory_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH03_HelpMate_Exile , npcImportant = true},
-             new NpcSpotData{ exportID = 1493, spotUniqueID = "Npc-LV_Inner_Factory_DSN-26", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Tomorrow_Seed_00, npcImportant=true },
-             new NpcSpotData{ exportID = 1534, spotUniqueID = "Npc-LV_Inner_Factory_DSN-70", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_00, npcImportant = true },
-             new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-18", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_01, npcImportant = true },
+                 new NpcSpotData{ exportID = 1488, spotUniqueID = "Npc-LV_Inner_Factory_DSN-21", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_DefenseWall_Named_00, npcImportant=true },
+                 new NpcSpotData{ exportID = 1494, spotUniqueID = "Npc-LV_Inner_Factory_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH03_HelpMate_Exile , npcImportant = true},
+                 new NpcSpotData{ exportID = 1493, spotUniqueID = "Npc-LV_Inner_Factory_DSN-26", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Tomorrow_Seed_00, npcImportant=true },
+                 new NpcSpotData{ exportID = 1534, spotUniqueID = "Npc-LV_Inner_Factory_DSN-70", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_00, npcImportant = true },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-18", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_01, npcImportant = true },
         };
+            
+    
 
         //CHAPTER 04
         //S2_S3 

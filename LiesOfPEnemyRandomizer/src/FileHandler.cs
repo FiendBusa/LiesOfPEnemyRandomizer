@@ -80,7 +80,7 @@ namespace LiesOfPEnemyRandomizer.src
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Old_Town"), new string[] { "LV_Krat_Old_Town_DSN.umap", "LV_Krat_Old_Town_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Underdark"), new string[] { "LV_Outer_Underdark_A_DSN.umap", "LV_Outer_Underdark_A_DSN.uexp", "LV_Outer_Underdark_DSN.umap", "LV_Outer_Underdark_DSN.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Outer_EastEndWard"), new string[] { "LV_Krat_EastEndWard_DSN.umap", "LV_Krat_EastEndWard_DSN.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Outer_EastEndWard"), new string[] { "LV_Krat_EastEndWard_DSN.umap", "LV_Krat_EastEndWard_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Zone_D"), new string[] { "LV_Monastery_A_DSN.umap", "LV_Monastery_A_DSN.uexp", "LV_Monastery_B_DSN.umap", "LV_Monastery_B_DSN.uexp" } },
             };
 
