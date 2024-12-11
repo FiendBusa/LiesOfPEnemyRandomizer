@@ -672,10 +672,10 @@ namespace LiesOfPEnemyRandomizer.src
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-12", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_Tomorrow_Electronic_Named_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-14", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH08_Carcass_OneArmed_Shield_Named_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-18", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_Clown_Proto_Named_00, npcImportant = true },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-2", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH08_Structure_Missile_Normal_00, npcImportant = true },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-20", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH08_Carcass_OneArmed_Shield_Named_00, npcImportant = true },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-14", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH08_HelpMate_Exile, npcImportant = true },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-33", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_Tomorrow_Electronic_Named_00, npcImportant = true },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-2", npcType = NpcType.Projectile, spotCodeNameOriginal = SpotCodeName.CH08_Structure_Missile_Normal_00, npcImportant = true },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-20", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH08_Carcass_OneArmed_Shield_Named_00, npcImportant = true },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-14", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH08_HelpMate_Exile, npcImportant = true },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-33", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_Tomorrow_Electronic_Named_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-4", npcType = NpcType.Projectile, spotCodeNameOriginal = SpotCodeName.CH08_Structure_Missile_Normal_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-50", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_03, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-60", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_04, npcImportant = true },
@@ -717,7 +717,7 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-50", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_Female_Boss_00,npcImportant=true},
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-52", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_NormalMale_Boss_00, npcImportant = true},
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-53", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_TallMale_Boss_00, npcImportant = true},
-              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-8", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_StrongMale_Boss_00},
+              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-8", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_StrongMale_Boss_00, npcImportant = true},
             
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-36", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH11_RedButterFly_Red_01, npcImportant = true },
