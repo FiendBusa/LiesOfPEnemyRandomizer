@@ -538,7 +538,7 @@ namespace LiesOfPEnemyRandomizer.src
 
 
              new NpcSpotData{ exportID = 1155, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-52", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH02_RedButterFly_Red_00 },
-             new NpcSpotData{ exportID = 1133, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-28", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH02_HelpMate_Exile, npcImportant = true }
+             new NpcSpotData{ exportID = 1133, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-28", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH02_HelpMate_Exile, npcImportant = true },
         };
 
         //CHAPTER 03
@@ -550,7 +550,7 @@ namespace LiesOfPEnemyRandomizer.src
                  new NpcSpotData{ exportID = 1494, spotUniqueID = "Npc-LV_Inner_Factory_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH03_HelpMate_Exile , npcImportant = true},
                  new NpcSpotData{ exportID = 1493, spotUniqueID = "Npc-LV_Inner_Factory_DSN-26", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Tomorrow_Seed_00, npcImportant=true },
                  new NpcSpotData{ exportID = 1534, spotUniqueID = "Npc-LV_Inner_Factory_DSN-70", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_00, npcImportant = true },
-                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-18", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_01, npcImportant = true }
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-18", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_01, npcImportant = true },
         };
             
     
@@ -569,8 +569,8 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-35", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_GeneralLeader_Elite_NoRespawn_00, npcImportant = true},
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH04_HelpMate_Exile, npcImportant = true},
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-75", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_OneArmed_Shield_Named_00, npcImportant = true},
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-83", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_GeneralMale3_Normal_00, npcImportant = true},
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-9", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH04_Puppet_FireStoker_Named_00, npcImportant = true}
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-83", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_GeneralMale3_Normal_00, npcImportant = true},
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-9", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH04_Puppet_FireStoker_Named_00, npcImportant = true},
         };
 
         //CHAPTER 05
@@ -590,7 +590,7 @@ namespace LiesOfPEnemyRandomizer.src
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-33", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH05_RedButterFly_Red_00, npcImportant = true},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-38", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH05_HelpMate_Exile, npcImportant = true},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-42", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_Tyrant_Elite_NoRespawn_00, npcImportant = true},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-42", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_HammerArm_Named_00, npcImportant = true}
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-42", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_HammerArm_Named_00, npcImportant = true},
         };
 
         //CHAPTER 06
@@ -605,7 +605,7 @@ namespace LiesOfPEnemyRandomizer.src
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-22", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_RedButterFly_Red_01, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-28", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH06_HelpMate_Exile, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-16", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_RedButterFly_Red_00, npcImportant = true },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-16", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_RedButterFly_Red_00, npcImportant = true }
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-16", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_RedButterFly_Red_00, npcImportant = true },
 
 
 
@@ -637,7 +637,7 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-62", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH07_Puppet_Butcher_Named_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-64", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH07_Puppet_Captain_Electric_Named_01, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-00", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH07_Carcass_GeneralMale2_Normal_00, npcImportant = true },
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-90", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH07_Puppet_Captain_Electric_Named_00, npcImportant = true }
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-90", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH07_Puppet_Captain_Electric_Named_00, npcImportant = true },
         };
 
         //CHAPTER 08
@@ -664,7 +664,7 @@ namespace LiesOfPEnemyRandomizer.src
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-80", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-84", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_01, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-89", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_02, npcImportant = true },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-99", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_FailDoll_Named_01, npcImportant = true }
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-99", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_FailDoll_Named_01, npcImportant = true },
 
 
         };
@@ -687,7 +687,7 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-90", npcType = NpcType.MiniBossReborner, spotCodeNameOriginal = SpotCodeName.CH09_Reborner_Illusion_Seed_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-122", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_GraveKeeper_Seed_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-14", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH09_RedButterFly_Red_00, npcImportant = true },
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-2", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH09_RedButterFly_Purple_00, npcImportant = true }
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-2", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH09_RedButterFly_Purple_00, npcImportant = true },
         };
 
         //CHAPTER 11
@@ -704,7 +704,7 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-38", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH11_RedButterFly_Red_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-42", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH11_HelpMate_Exile, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-43", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH11_RedButterFly_Red_02, npcImportant = true },
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-46", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH11_Puppet_Captain_Named_00, npcImportant = true }
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-46", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH11_Puppet_Captain_Named_00, npcImportant = true },
 
 
         };
@@ -733,7 +733,7 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-63", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH12_Carcass_BallHand_Normal_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-80", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH12_Carcass_TwoHand_Named_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-89", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH12_Carcass_FourFootBig_Elite_00, npcImportant = true },
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-95", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH12_Stalker_Cat_00, npcImportant = true }
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-95", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH12_Stalker_Cat_00, npcImportant = true },
 
 
 
@@ -752,7 +752,7 @@ namespace LiesOfPEnemyRandomizer.src
             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-30", npcType = NpcType.Reborner, spotCodeNameOriginal = SpotCodeName.CH13_Reborner_ErgoControl_Named_001, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-5", npcType = NpcType.MiniBossStalker, spotCodeNameOriginal = SpotCodeName.CH13_Stalker_Fox_00, npcImportant = true },
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-2", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH13_HelpMate_Exile, npcImportant = true }
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-2", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH13_HelpMate_Exile, npcImportant = true },
 
 
 
