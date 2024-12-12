@@ -261,7 +261,8 @@ namespace LiesOfPEnemyRandomizer.src
             {NpcType.MiniBossPuppet, new[]{
             //"CH03_Puppet_Tomorrow_Seed_00",
             "CH06_Puppet_Clown_Seed_00",
-            "CH08_Puppet_Clown_Proto_Named_00",
+            "CH08_Puppet_FailDoll_Named_00",
+            //"CH08_Puppet_Clown_Proto_Named_00",
             //"CH08_Puppet_Tomorrow_Electronic_Named_00",
 
 
@@ -386,7 +387,6 @@ namespace LiesOfPEnemyRandomizer.src
             //"CH08_Puppet_ButtlerMidRange_Normal_01",
             //"CH08_Puppet_ButtlerMidRange_Normal_02",
             //"CH08_Puppet_ButtlerMidRange_Normal_03",
-            "CH08_Puppet_FailDoll_Named_01",
             "CH08_Puppet_FireStoker_Elite_00",
             "CH08_Puppet_Police_Proto_Elite_00",
             //"CH08_Puppet_SoldierRifle_Normal_00",
