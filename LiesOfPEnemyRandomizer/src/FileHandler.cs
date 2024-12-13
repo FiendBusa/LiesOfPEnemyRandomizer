@@ -30,6 +30,14 @@ namespace LiesOfPEnemyRandomizer.src
         LV_Monastery_A_DSN,
         LV_Monastery_B_DSN
     };
+    public enum AssetTableNames
+    {
+        _Faction,
+        _Exp,
+        _NpcInfo,
+        _NpcStatInfo,
+        _Code_Name
+    };
     public class FileHandler
     {
         public readonly string tempPath;

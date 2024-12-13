@@ -13,6 +13,9 @@ using UAssetAPI.PropertyTypes.Structs;
 using UAssetAPI.UnrealTypes;
 using UAssetAPI.UnrealTypes.EngineEnums;
 using UAssetAPI.Unversioned;
+using static LiesOfPEnemyRandomizer.src.NpcData;
+using static System.Collections.Specialized.BitVector32;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
@@ -178,16 +181,28 @@ namespace LiesOfPEnemyRandomizer.src
             string[]? pakChunksOriginal = await fileHandler.GenerateBaseTempFiles();
             if(pakChunksOriginal == null) { return false; }
 
-            Usmap mapping = new Usmap(Directory.GetFiles(fileHandler.tempPath, "mappings.usmap", SearchOption.AllDirectories).FirstOrDefault());
-            //UAsset lvlAsset;
+            string? mappingPath = Directory.GetFiles(fileHandler.tempPath, "mappings.usmap", SearchOption.AllDirectories).FirstOrDefault();
+            if (mappingPath == null) { return false; }
+
+            //Usmap mapping = new Usmap(Directory.GetFiles(fileHandler.tempPath, "mappingss.usmap", SearchOption.AllDirectories).FirstOrDefault());
+
+            Usmap mapping = new Usmap(mappingPath);
+
             string pChunk;
-            string? npcInfoAsset;
+            
+            string? npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
+            if (npcInfoAsset == null) { return false; }
+            
             string assetName;
             UAsset myAsset;
-            UAsset npcInfo;
+           
+
+            UAsset npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
             List<NormalExport> npc;
             List<NpcData.NpcSpotData> importantNpcs;
 
+            
+            SetNpcInfo(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.GetAllMapNpcSpotData(), true, NpcData.FactionType.E_NEUTRAL, true);
 
             for (int i = 0; i < pakChunksOriginal.Length; i++)
             {
@@ -200,154 +215,118 @@ namespace LiesOfPEnemyRandomizer.src
                     case nameof(MapName.LD_Outer_Station_DSN):
                         //lvlAsset = new UAsset(pakChunksOriginal[i], EngineVersion.VER_UE4_27, mapping);
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
-                        myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[0]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping); 
+                        myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);                       
                         importantNpcs = NpcData.NpcLDOuterStation;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LD")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LD_Outer_Station_DSN).ToString();
-
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc,true,true,true,true,true,true,false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_NEUTRAL);
                         break;
                     case nameof(MapName.LV_Inner_UpperStreet_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[1]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                       
                         importantNpcs = NpcData.NpcLVInnerUpperStreet;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Inner_UpperStreet_DSN).ToString();
 
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_NEUTRAL);
+                       
                         break;
                     case nameof(MapName.LV_Inner_Factory_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                       
                         importantNpcs = NpcData.NpcLVInnerFactory;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Inner_Factory_DSN).ToString();
 
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
+                       
                         break;
                     case nameof(MapName.LV_Inner_Cathedral_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                       
                         importantNpcs = NpcData.NpcLVInnerCathedral;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Inner_Cathedral_DSN).ToString();
 
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
+                       
                         break;
                     case nameof(MapName.LV_Outer_Underdark_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                       
                         importantNpcs = NpcData.NpcLVOuterUnderdark;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Outer_Underdark_DSN).ToString();
 
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
+                        
                         break;
                     case nameof(MapName.LV_Krat_EastEndWard_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                       
                         importantNpcs = NpcData.NpcLVKratEastEndWard;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Krat_EastEndWard_DSN).ToString();
 
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
+                       
                         break;
                     case nameof(MapName.LV_Krat_Old_Town_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                        
                         importantNpcs = NpcData.NpcLVKratOldTown;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Krat_Old_Town_DSN).ToString();
 
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
+
                         break;
                     case nameof(MapName.LV_Outer_Grave_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
                         importantNpcs = NpcData.NpcLVOuterGrave;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Outer_Grave_DSN).ToString();
-
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
                         break;
                     case nameof(MapName.LV_Monastery_A_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
                         importantNpcs = NpcData.NpcLVMonasteryA;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Monastery_A_DSN).ToString();
-
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
                         break;
                     case nameof(MapName.LV_Monastery_B_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
-                        myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                        myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);                    
                         importantNpcs = NpcData.NpcLVMonasteryB;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Monastery_B_DSN).ToString();
-
-                        GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
+                        GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);                       
                         break;
                     case nameof(MapName.LV_Outer_CentralStatinB_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
                         importantNpcs = NpcData.NpcLVOuterCentralStatinB;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Outer_CentralStatinB_DSN).ToString();
-
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
                         break;
                     case nameof(MapName.LV_Outer_Exhibition_DSN):
                         pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                         myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-                        npcInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "NPCInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
-                        npcInfo = new UAsset(npcInfoAsset, EngineVersion.VER_UE4_27, mapping);
                         importantNpcs = NpcData.NpcLVOuterExhibition;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                         npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith("Npc-LV")).ToList();//GET ALL SPAWN POINTS
                         assetName = nameof(MapName.LV_Outer_Exhibition_DSN).ToString();
-
                         GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i]);
-                        SetFaction(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET);
                         break;
-
-
-
-
-
-
                 }
             }
             await fileHandler.UnrealPak(fileHandler.pakBaseDirectory, "C:\\loprandoalpha");
@@ -356,39 +335,95 @@ namespace LiesOfPEnemyRandomizer.src
 
 
         }
-        void SetFaction(string? filePath, UAsset? uasset, Usmap mapping, EngineVersion engineVersion, NpcData.FactionType faction)
+        bool SetNpcInfo(string? filePath, UAsset? uasset, Usmap mapping, EngineVersion engineVersion, List<NpcData.NpcSpotData> spotData, bool setExpDrop, NpcData.FactionType faction, bool setFaction)
         {
-            if(filePath == null || uasset == null || mapping == null) { return; }
-            NormalExport? npc2 = (NormalExport?)uasset.Exports[0];
+            if (filePath == null || uasset == null || mapping == null) { return false; }
 
-            NormalExport? npc3 = (NormalExport?)npc2.Asset.Exports[0];
+            NormalExport? statInfoTable = uasset.Exports.Count > 0 ? uasset.Exports[0] as NormalExport : null;
+            statInfoTable = statInfoTable?.Asset.Exports.Count > 0 ? statInfoTable.Asset.Exports[0] as NormalExport : null;
+            List<PropertyData>? propData = statInfoTable?.Data.Count > 0 ? statInfoTable?.Data[0].RawValue as List<PropertyData> : null;
 
+            if (propData == null) { return false; }
 
+            ArrayPropertyData? npcInfo = (ArrayPropertyData?)propData.FirstOrDefault(x => x.Name.ToString().Contains(nameof(AssetTableNames._NpcInfo), StringComparison.OrdinalIgnoreCase));
+            ArrayPropertyData? npcStatInfo = (ArrayPropertyData?)propData.FirstOrDefault(x => x.Name.ToString().Contains(nameof(AssetTableNames._NpcStatInfo), StringComparison.OrdinalIgnoreCase));
 
-            List<PropertyData> test1 = (List<PropertyData>?)npc3.Data[0].RawValue;
+            ArrayPropertyData? npcInfoArray = (ArrayPropertyData?)propData.Where(x => x.Name.ToString().Contains(nameof(AssetTableNames._NpcInfo), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            ArrayPropertyData? npcStatInfoArray = (ArrayPropertyData?)propData.Where(x => x.Name.ToString().Contains(nameof(AssetTableNames._NpcStatInfo), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
-            ArrayPropertyData test2 = (ArrayPropertyData)test1[0];
+            List<PropertyData>? structPropertyData;
 
-            for (int i = 0; i < test2.Value.Length; i++)
+            if (setFaction && npcInfoArray != null)
             {
-                StructPropertyData name = (StructPropertyData)test2.Value[i];
-                List<PropertyData> name2 = (List<PropertyData>)name.RawValue;
+                Debug.WriteLine($"Setting faction");
 
-                foreach (PropertyData name3 in name2)
+                structPropertyData = (List<PropertyData>?)npcInfoArray.Value.Where(x => x != null).ToList();
+                SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._Faction, nameof(NpcData.FactionType.E_NEUTRAL), null);
+            }
+            if (setExpDrop && npcInfoArray != null)
+            {
+                Debug.WriteLine($"Setting exp");
+
+                structPropertyData = (List<PropertyData>?)npcInfoArray.Value.Where(x => x != null).ToList();
+                SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._Exp, null, NpcData.GetAllMapNpcSpotData());
+            }
+
+            uasset.Write(filePath);
+            return true;
+        }
+
+        void SetRawValue(string? filePath, UAsset? uasset, List<PropertyData>? propertyData, AssetTableNames tableName, string? value, List<NpcSpotData>? allNpcSpotMapData)
+        {
+            if (propertyData == null || filePath == null) { Debug.WriteLine($"SetRawValue: invalid filepath or propertydata"); return; };
+
+            for (int i = 0; i < propertyData.Count; i++)
+            {
+                List<PropertyData>? npcdata = (List<PropertyData>)propertyData[i].RawValue;
+                if (npcdata == null) { continue; }
+                PropertyData? attribute = null;
+                switch (tableName)
                 {
-                    if (name3.Name.Value.ToString().Contains("_faction"))
-                    {
-                        name3.RawValue = FName.FromString(uasset, faction.ToString());
-                    }
+                    case AssetTableNames._Faction when !(string.IsNullOrEmpty(value)):
+                        attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Faction), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                        if (attribute == null) { break; }
+                        attribute.RawValue = FName.FromString(uasset, value);
+                        Debug.WriteLine($"SetRawValue EXP: {value}");
+                        break;
+                    case AssetTableNames._Exp when allNpcSpotMapData != null:
+                        attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Code_Name), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                        if (attribute == null) { break; }
+                        string exp = allNpcSpotMapData.FirstOrDefault(x => x.spotCodeNameOriginal.ToString().Contains(attribute.RawValue.ToString(), StringComparison.OrdinalIgnoreCase)).uexp.ToString();
+                        if (IsNumber(exp, 0))
+                        {
+                            attribute.RawValue = FName.FromString(uasset, exp);
+                            Debug.WriteLine($"SetRawValue EXP: {exp}");
+                        }
+                        break;
                 }
             }
-            uasset.Write(filePath);
         }
+
+
+        bool IsNumber(string value, int min)
+        {
+            int number;
+            if(int.TryParse(value, out number) && number > min){ return true; }
+
+            return false;
+            
+        }
+                
+                         
+
+                        
+       
+
+
         bool GenerateEnemies(string pakChunk, UAsset uAsset, Usmap mapping, EngineVersion engineVersion, List<NpcData.NpcSpotData> importantNpcs, List<NormalExport> npcs,
     bool skipButterfly, bool skipImportantNpcs, bool skipExiledNpc, bool skipProjectile, bool removeNpcFromPool, bool scaleEnemies, bool scaleBosses, string fileName, string filePath)
         {
             npcs = uAsset.Exports.OfType<NormalExport>()
-                .Where(x => x.ObjectName.ToString().StartsWith("Npc-LD", StringComparison.OrdinalIgnoreCase) || x.ObjectName.ToString().StartsWith("Npc-LV", StringComparison.OrdinalIgnoreCase))
+                .Where(x => x.ObjectName.ToString().StartsWith("Npc-LD", StringComparison.OrdinalIgnoreCase) || x.ObjectName.ToString().StartsWith("Npc-LV", StringComparison.OrdinalIgnoreCase) || x.ObjectName.ToString().StartsWith("BossRoom", StringComparison.OrdinalIgnoreCase))
                 .ToList();
             List<string?> enemiesGenerated = new List<string>();
 
@@ -397,22 +432,28 @@ namespace LiesOfPEnemyRandomizer.src
             // Debug logs for initial pool states
             Debug.WriteLine($"Initial enemyPool: {string.Join(", ", enemyPool)}");
             Debug.WriteLine($"Initial bossPool: {string.Join(", ", bossPool)}");
-            Console.WriteLine($"Initial wanderingPool: {string.Join(", ", wanderingPool)}");
+            Debug.WriteLine($"Initial wanderingPool: {string.Join(", ", wanderingPool)}");
 
             List<NpcData.NpcSpotData> matchingNpcs = importantNpcs.Where(npc => npcs.Any(npcExport => npcExport.ObjectName.ToString().Contains(npc.spotUniqueID))).ToList();
+            PropertyData? bossSpot = null;
+            PropertyData? bossWorldEventChange = null;
 
             foreach (NormalExport npcExport in npcs)
             {
                 string spotName = npcExport.ObjectName.ToString();
+             
 
                 foreach (PropertyData data in npcExport.Data)
                 {
 
-
+                    if (npcExport.ObjectName.Value.ToString().Contains("BossRoom")) { bossSpot = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("BossNpcCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault(); continue; }
+                    
+                   
                     if (data.Name.ToString() != "SpotCodeName") continue;
+                    bossWorldEventChange = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("WorldEventCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
 
-                 
+
                     if (enemyPool.Count == 0)
                         enemyPool = ShufflePool(GeneratePool(true, true, true, true, true, false, false, false, false), random);
 
@@ -468,6 +509,8 @@ namespace LiesOfPEnemyRandomizer.src
                                     bossPool.Remove(bossSelected);
                                     matchesToRemove.Add(match);
                                     assignedValue = true;
+                                     if(bossSpot != null) { bossSpot.RawValue = FName.FromString(uAsset, bossSelected); Debug.WriteLine($"BOSSSPOT: {bossSpot.RawValue}"); }
+                                    //if (bossWorldEventChange != null) { bossWorldEventChange.RawValue = FName.FromString(uAsset, "CH04_Die_Boss_01"); Debug.WriteLine($"BOSSSPOT: {bossSpot.RawValue}"); }
                                     Debug.WriteLine($"BOSS: {npcExport.ObjectName}");
                                     break;
                                 case NpcData.NpcType.ButterFly when skipButterfly:
@@ -493,7 +536,8 @@ namespace LiesOfPEnemyRandomizer.src
 
 
                        data.RawValue = FName.FromString(uAsset, enemySelected);
-                       enemyPool.Remove(enemySelected);
+                    Debug.WriteLine($"ENEMY: {npcExport.ObjectName}");
+                    enemyPool.Remove(enemySelected);
 
 
 

@@ -33,6 +33,8 @@ namespace LiesOfPEnemyRandomizer.src
             Wandering
         };
 
+        
+
         public enum SpotCodeName
         {
             Hotel_Puppet_Training_Armless_00,
@@ -187,9 +189,11 @@ namespace LiesOfPEnemyRandomizer.src
             public NpcType npcType;
             public SpotCodeName spotCodeNameOriginal;
             public bool? npcImportant; //Won't randomize if set to TRUE
+            public int uexp;
 
         }
 
+        
         //RESUME CHAPTER 8 I DIDNT DO ANY IN CHAPTER 8
         public static readonly Dictionary<NpcType, string[]> Npc = new Dictionary<NpcType, string[]>
         {
@@ -511,6 +515,7 @@ namespace LiesOfPEnemyRandomizer.src
 
         };
 
+       
 
 
         //Firelink Shrine (Hotel) - Basically for the training dummies only
@@ -518,13 +523,16 @@ namespace LiesOfPEnemyRandomizer.src
         {
             new NpcSpotData { exportID = 325, spotUniqueID = "Npc-LV_Hotel_DSN-1", npcType = NpcType.Dummy, spotCodeNameOriginal = SpotCodeName.Hotel_Puppet_Training_Armless_00 },
             new NpcSpotData { exportID = 326, spotUniqueID = "Npc-LV_Hotel_DSN-31", npcType = NpcType.Dummy, spotCodeNameOriginal = SpotCodeName.Hotel_Puppet_Training_Basic_00 },
-        };
+        };      
 
         //CHAPTER 1
         //S0_04
         public static readonly List<NpcSpotData> NpcLDOuterStation = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00},
+            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00, uexp = 10000},
+
+            //BP_BossRoom_Spot
+            new NpcSpotData{ exportID = 1331, spotUniqueID = "BossRoom-LD_Outer_Station_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00},
             //KRAT CENTRAL KEY DON'T REPLACE UNTIL I CAN CHANGE STARTING ITEM (key_1)
             new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-10", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Police_Named_00, npcImportant = true },
 
@@ -559,7 +567,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVInnerCathedral = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_00 },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_00, uexp = 7980 },
              new NpcSpotData{ exportID = 1559, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-59", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_01 },
 
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
@@ -598,7 +606,7 @@ namespace LiesOfPEnemyRandomizer.src
         public static readonly List<NpcSpotData> NpcLVKratEastEndWard = new List<NpcSpotData>()
         {
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-30", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_PuppetKingP3_Boss_00},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-58", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_PuppetKing_Boss_00},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-58", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_PuppetKing_Boss_00, uexp = 10023},
             
             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-16", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_RedButterFly_Red_00, npcImportant = true },
@@ -622,7 +630,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVOuterExhibition = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-82", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Victor_Boss_00 },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-82", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Victor_Boss_00, uexp = 11684 },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-71", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Victor_Boss_01 },
 
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
@@ -644,7 +652,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVOuterGrave = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH08_Carcass_GreenHunter_Main_Boss_00 },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH08_Carcass_GreenHunter_Main_Boss_00, uexp = 12489 },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-113", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH08_Carcass_GreenHunter_Fusion_Boss_00 },
             
             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
@@ -697,7 +705,7 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-50", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_Female_Boss_00,npcImportant=true},
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-52", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_NormalMale_Boss_00, npcImportant = true},
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-53", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_TallMale_Boss_00, npcImportant = true},
-              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-8", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_StrongMale_Boss_00, npcImportant = true},
+              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-8", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH11_Stalker_BRabbit_StrongMale_Boss_00},
             
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-36", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH11_RedButterFly_Red_01, npcImportant = true },
@@ -713,7 +721,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S4 
         public static readonly List<NpcSpotData> NpcLVMonasteryA = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-83", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH12_Reborner_Raxasia_Boss_00},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-83", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH12_Reborner_Raxasia_Boss_00, uexp = 13792},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-111", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH12_Reborner_Raxasia_Boss_01},
              
             
@@ -744,9 +752,9 @@ namespace LiesOfPEnemyRandomizer.src
         public static readonly List<NpcSpotData> NpcLVMonasteryB = new List<NpcSpotData>()
         {
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-34", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Puppet_1stPinoccio_Boss_P2_00},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-38", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Puppet_1stPinoccio_Boss_00},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-38", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Puppet_1stPinoccio_Boss_00, uexp = 16208},
 
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-37", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Reborner_Simon_Boss_00},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-37", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Reborner_Simon_Boss_00, uexp = 15128},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-43", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Reborner_Simon_Boss_01},          
             
             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
@@ -757,6 +765,30 @@ namespace LiesOfPEnemyRandomizer.src
 
 
         };
+        public static List<NpcSpotData> GetAllMapNpcSpotData()
+        {
+            List<NpcSpotData> allNpcSpotData = new List<NpcSpotData>();
+
+            allNpcSpotData.AddRange(NpcLVKratHotel);
+            allNpcSpotData.AddRange(NpcLDOuterStation);
+            allNpcSpotData.AddRange(NpcLVInnerUpperStreet);
+            allNpcSpotData.AddRange(NpcLVInnerFactory);
+            allNpcSpotData.AddRange(NpcLVInnerCathedral);
+            allNpcSpotData.AddRange(NpcLVKratOldTown);
+            allNpcSpotData.AddRange(NpcLVKratEastEndWard);
+            allNpcSpotData.AddRange(NpcLVOuterExhibition);
+            allNpcSpotData.AddRange(NpcLVOuterGrave);
+            allNpcSpotData.AddRange(NpcLVOuterCentralStatinB);
+            allNpcSpotData.AddRange(NpcLVOuterUnderdark);
+            allNpcSpotData.AddRange(NpcLVMonasteryA);
+            allNpcSpotData.AddRange(NpcLVMonasteryB);
+
+            return allNpcSpotData;
+        }
+
+        
+        
+       
 
         ////CHAPTER 10 - seems to be unused level
         ////S2_S3 
