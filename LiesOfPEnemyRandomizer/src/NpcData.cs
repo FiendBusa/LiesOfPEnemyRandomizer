@@ -529,7 +529,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S0_04
         public static readonly List<NpcSpotData> NpcLDOuterStation = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00, uexp = 10000},
+            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00},
 
             //BP_BossRoom_Spot
             new NpcSpotData{ exportID = 1331, spotUniqueID = "BossRoom-LD_Outer_Station_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00},

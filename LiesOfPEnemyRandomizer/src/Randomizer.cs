@@ -202,7 +202,7 @@ namespace LiesOfPEnemyRandomizer.src
             List<NpcData.NpcSpotData> importantNpcs;
 
             
-            SetNpcInfo(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.GetAllMapNpcSpotData(), true, NpcData.FactionType.E_NEUTRAL, true);
+            SetNpcInfo(npcInfoAsset, npcInfo, mapping, EngineVersion.VER_UE4_27, NpcData.GetAllMapNpcSpotData(), true, NpcData.FactionType.E_MONSTER_CARCASSNPUPPET, true);
 
             for (int i = 0; i < pakChunksOriginal.Length; i++)
             {
@@ -358,13 +358,13 @@ namespace LiesOfPEnemyRandomizer.src
                 Debug.WriteLine($"Setting faction");
 
                 structPropertyData = (List<PropertyData>?)npcInfoArray.Value.Where(x => x != null).ToList();
-                SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._Faction, nameof(NpcData.FactionType.E_NEUTRAL), null);
+                SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._Faction, nameof(NpcData.FactionType.E_MONSTER_CARCASSNPUPPET), null);
             }
-            if (setExpDrop && npcInfoArray != null)
+            if (setExpDrop && npcStatInfoArray != null)
             {
                 Debug.WriteLine($"Setting exp");
 
-                structPropertyData = (List<PropertyData>?)npcInfoArray.Value.Where(x => x != null).ToList();
+                structPropertyData = (List<PropertyData>?)npcStatInfoArray.Value.Where(x => x != null).ToList();
                 SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._Exp, null, NpcData.GetAllMapNpcSpotData());
             }
 
@@ -374,8 +374,8 @@ namespace LiesOfPEnemyRandomizer.src
 
         void SetRawValue(string? filePath, UAsset? uasset, List<PropertyData>? propertyData, AssetTableNames tableName, string? value, List<NpcSpotData>? allNpcSpotMapData)
         {
-            if (propertyData == null || filePath == null) { Debug.WriteLine($"SetRawValue: invalid filepath or propertydata"); return; };
-
+            if (propertyData == null || filePath == null || uasset == null) { Debug.WriteLine($"SetRawValue: invalid propertydata, filepath, or uasset"); return; };
+            //Will make it cleaner soon TM
             for (int i = 0; i < propertyData.Count; i++)
             {
                 List<PropertyData>? npcdata = (List<PropertyData>)propertyData[i].RawValue;
@@ -387,20 +387,22 @@ namespace LiesOfPEnemyRandomizer.src
                         attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Faction), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
                         if (attribute == null) { break; }
                         attribute.RawValue = FName.FromString(uasset, value);
-                        Debug.WriteLine($"SetRawValue EXP: {value}");
+                        Debug.WriteLine($"SetRawValue Faction: {value}");
                         break;
                     case AssetTableNames._Exp when allNpcSpotMapData != null:
                         attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Code_Name), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
                         if (attribute == null) { break; }
-                        string exp = allNpcSpotMapData.FirstOrDefault(x => x.spotCodeNameOriginal.ToString().Contains(attribute.RawValue.ToString(), StringComparison.OrdinalIgnoreCase)).uexp.ToString();
-                        if (IsNumber(exp, 0))
-                        {
-                            attribute.RawValue = FName.FromString(uasset, exp);
-                            Debug.WriteLine($"SetRawValue EXP: {exp}");
-                        }
+                        int exp = allNpcSpotMapData.FirstOrDefault(x => x.spotCodeNameOriginal.ToString().Contains(attribute.RawValue.ToString(), StringComparison.OrdinalIgnoreCase)).uexp;
+                        if(exp <= 0) { break; }
+                        attribute = npcdata.Where(x => x.Name.Value.ToString().Equals(nameof(AssetTableNames._Exp),StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                        if(attribute == null) { break; }
+                        attribute.RawValue = exp;
+                        Debug.WriteLine($"SetRawValue EXP: {exp}");
+                        
                         break;
                 }
             }
+            
         }
 
 
@@ -450,7 +452,7 @@ namespace LiesOfPEnemyRandomizer.src
                     
                    
                     if (data.Name.ToString() != "SpotCodeName") continue;
-                    bossWorldEventChange = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("WorldEventCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    //bossWorldEventChange = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("WorldEventCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
 
 
