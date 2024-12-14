@@ -88,6 +88,20 @@ namespace LiesOfPEnemyRandomizer.ViewModels
                 }
             }
         }
+        private bool _scaleBossLvl;
+        public bool ScaleBossLvl
+        {
+            get => _scaleBossLvl;
+            set
+            {
+                if (_scaleBossLvl != value)
+                {
+                    _scaleBossLvl = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
 
 
 
@@ -96,17 +110,28 @@ namespace LiesOfPEnemyRandomizer.ViewModels
         {
             ButtonRandomizedClicked = new RelayCommand(OnButtonRandomizedClicked);
 
+
         }
 
 
         void OnButtonRandomizedClicked()
         {
+           
             Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, false, 0.00f);
+            randomizer.ScaleBosses = ScaleBossLvl;
 
-            int result;
-            bool hasSeed = int.TryParse(Seed, out result);
+            int mySeed;
 
-            int mySeed = randomizer.GenerateSeed();
+            if (!String.IsNullOrEmpty(Seed) && int.TryParse(Seed, out mySeed))
+            {
+                Seed = mySeed.ToString();
+                randomizer.RandomizeEnemies(mySeed);
+                return;
+            }
+
+            mySeed = randomizer.GenerateSeed();
+            Seed = mySeed.ToString();
+           
             randomizer.RandomizeEnemies(mySeed);
 
 
@@ -114,36 +139,6 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
     }
 }
-
-
-
- // randomizer.RandomizeEnemies(true, true, true, WanderingBossChance, seed);
-
-            // Usmap mapping = new Usmap("D:\\FModel\\Outputs\\Exports\\unrealpak\\pakchunk2_s3-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_InnerKrat\\Mappings.usmap");
-            // UAsset myAsset = new UAsset("D:\\FModel\\Outputs\\Exports\\unrealpak\\pakchunk2_s3-WindowsNoEditor_P\\LiesofP\\Content\\MapRelease\\LV_InnerKrat\\LV_Inner_UpperStreet_DSN.umap",
-            //     EngineVersion.VER_UE4_27, mapping);
-
-            // NormalExport? npc = (NormalExport?) myAsset.Exports.Where(x => x.ObjectName.ToString() == "Npc-LV_Inner_UpperStreet_DSN-1").FirstOrDefault();
-
-            //if(npc == null) { return; }
-
-
-            //NamePropertyData test = new NamePropertyData() { RawValue = "TEST" };
-            //npc.Data[5].RawValue = test;
-            //myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-
-            //npc.Data[5].RawValue = FName.FromString(myAsset, "Npc-LV_Inner_UpperStreet_DSN-2");
-            //myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-            //     myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-
-
-            //if(npc is NormalExport export)
-            // {
-            //     export.Data[5] = new NamePropertyData() { RawValue = "Npc-LV_Inner_UpperStreet_DSN-2" };
-            //     myAsset.Write("C:\\Users\\g-gil\\Documents\\NG2\\test.umap");
-            // }
-
-
 
 
 

@@ -36,7 +36,10 @@ namespace LiesOfPEnemyRandomizer.src
         _Exp,
         _NpcInfo,
         _NpcStatInfo,
-        _Code_Name
+        _Code_Name,
+        _health_power,
+        _physical_power,
+        _physical_reduce
     };
     public class FileHandler
     {
@@ -188,20 +191,20 @@ namespace LiesOfPEnemyRandomizer.src
                 string targetPattern = Path.Combine("..\\..\\..", "*.*");
                 File.WriteAllText(filelistPath, $"\"{sourcePattern}\" \"{targetPattern}\"");
 
-                // Ensure the output directory exists
+                // wtf wheres check if it exists after creating L
                 if (!Directory.Exists(outputDir))
                 {
                     Directory.CreateDirectory(outputDir);
                 }
 
-                // Specify output pak file path in the output directory
-                string pakName = Path.GetFileName(pakFolder) + ".pak"; // Use the folder name as the pak file name
+
+                string pakName = Path.GetFileName(pakFolder) + ".pak"; 
                 string outputPakPath = Path.Combine(outputDir, pakName);
 
-                // Arguments for UnrealPak.exe
+
                 string arguments = $"\"{outputPakPath}\" -create=\"{filelistPath}\" -compress";
 
-                // Run UnrealPak.exe
+
                 ProcessStartInfo processInfo = new ProcessStartInfo
                 {
                     FileName = unrealpakExe,

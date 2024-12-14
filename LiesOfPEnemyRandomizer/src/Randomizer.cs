@@ -56,6 +56,9 @@ namespace LiesOfPEnemyRandomizer.src
 
         public int Seed { get; private set; }
 
+        //TEMP
+        public bool ScaleBosses { get; set; }
+
         List<string> enemyPool;
         List<string> bossPool;
         List<string> wanderingPool;
@@ -83,11 +86,11 @@ namespace LiesOfPEnemyRandomizer.src
             bossPool = new List<string>();
             wanderingPool = new List<string>();
            
-            //NEW
-            random = new Random(Guid.NewGuid().GetHashCode());
-            enemyPool = ShufflePool(GeneratePool(includePuppets, includeCarcass, includeReborner, includeMiniBossStalker, includeMiniBossPuppet, includeBosses, includeMiniBossReborner, includeMiniBossCarcass, includeWanderingBoss), random);
-            bossPool = ShufflePool(GeneratePool(false,false,false,false,false,true,false,false,false), random);
-            wanderingPool = ShufflePool(GeneratePool(false, false, false, true, true, true, true, true, true), random);
+            
+            //random = new Random(Seed);
+            //enemyPool = ShufflePool(GeneratePool(includePuppets, includeCarcass, includeReborner, includeMiniBossStalker, includeMiniBossPuppet, includeBosses, includeMiniBossReborner, includeMiniBossCarcass, includeWanderingBoss), random);
+            //bossPool = ShufflePool(GeneratePool(false,false,false,false,false,true,false,false,false), random);
+            //wanderingPool = ShufflePool(GeneratePool(false, false, false, true, true, true, true, true, true), random);
 
 
 
@@ -159,16 +162,22 @@ namespace LiesOfPEnemyRandomizer.src
         {
 
             Seed = seed;
-            if(Seed <=0) {  Seed = GenerateSeed(); }
+            //if(Seed <=0) {  Seed = GenerateSeed(); }
 
-            Random random = new Random(Guid.NewGuid().GetHashCode());
+            //Random random = new Random(Guid.NewGuid().GetHashCode());
             /* enemyPool = GeneratePool(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss);
              bossPool = GeneratePool(false,false,false,true,true,true,true,true,false);
              wanderingPool = GeneratePool(false, false, false, true, true, true, true, true, true);*/
 
-
-            
            
+            random = new Random(Seed);
+            enemyPool = ShufflePool(GeneratePool(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss), random);
+            bossPool = ShufflePool(GeneratePool(false, false, false, false, false, true, false, false, false), random);
+            wanderingPool = ShufflePool(GeneratePool(false, false, false, true, true, true, true, true, true), random);
+
+
+
+
 
 
 
@@ -367,6 +376,15 @@ namespace LiesOfPEnemyRandomizer.src
                 structPropertyData = (List<PropertyData>?)npcStatInfoArray.Value.Where(x => x != null).ToList();
                 SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._Exp, null, NpcData.GetAllMapNpcSpotData());
             }
+            //TEMP
+            if(ScaleBosses && npcStatInfoArray != null)
+            {
+                Debug.WriteLine($"Setting Scale");
+
+                structPropertyData = (List<PropertyData>?)npcStatInfoArray.Value.Where(x => x != null).ToList();
+                SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._physical_reduce, null, NpcData.GetAllMapNpcSpotData());
+                //SetRawValue(filePath, uasset, structPropertyData, AssetTableNames._physical_power, null, NpcData.GetAllMapNpcSpotData());
+            }
 
             uasset.Write(filePath);
             return true;
@@ -398,15 +416,67 @@ namespace LiesOfPEnemyRandomizer.src
                         if(attribute == null) { break; }
                         attribute.RawValue = exp;
                         Debug.WriteLine($"SetRawValue EXP: {exp}");
-                        
                         break;
+                    //TEMP CIRCLE BACK - WAS MESSING TESTING OUT SCALING METHODS
+                    //case AssetTableNames._health_power when allNpcSpotMapData != null:
+                    //    attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Code_Name), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    //    if (attribute == null) { break; }
+                    //    double hpScale = allNpcSpotMapData.FirstOrDefault(x => x.spotCodeNameOriginal.ToString().Contains(attribute.RawValue.ToString(), StringComparison.OrdinalIgnoreCase)).healthScale;
+                    //    if(hpScale <= 0) { break; }
+
+                    //    attribute = npcdata.Where(x => x.Name.Value.ToString().Equals(nameof(AssetTableNames._health_power), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    //    if (attribute == null) { break; }
+                    //    int originalHP = (int)attribute.RawValue;
+                    //    int scaledValueHP = ScaleValue(originalHP, hpScale);
+                    //    attribute.RawValue = scaledValueHP;
+                    //    Debug.WriteLine($"HP Scale: {string.Join(", ", npcdata[0].RawValue, originalHP, scaledValueHP)}");
+                    //    break;
+                    //case AssetTableNames._physical_power when allNpcSpotMapData != null:
+                    //    attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Code_Name), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    //    if (attribute == null) { break; }
+                    //    double phyScale = allNpcSpotMapData.FirstOrDefault(x => x.spotCodeNameOriginal.ToString().Contains(attribute.RawValue.ToString(), StringComparison.OrdinalIgnoreCase)).healthScale;
+                    //    if (phyScale <= 0) { break; }
+
+                    //    attribute = npcdata.Where(x => x.Name.Value.ToString().Equals(nameof(AssetTableNames._physical_power), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                    //    if (attribute == null) { break; }
+
+                    //    int originalPhy = (int)attribute.RawValue;
+                    //    int scaledValuePhy = ScaleValue(originalPhy, phyScale);
+                    //    attribute.RawValue = scaledValuePhy;
+                    //    Debug.WriteLine($"Phy Scale: {string.Join(", ", npcdata[0].RawValue, originalPhy, scaledValuePhy)}");
+                    //    break;
+                    case AssetTableNames._physical_reduce when allNpcSpotMapData != null:
+                        attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Code_Name), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                        if (attribute == null) { break; }
+                        int phyReduce = allNpcSpotMapData.FirstOrDefault(x => x.spotCodeNameOriginal.ToString().Contains(attribute.RawValue.ToString(), StringComparison.OrdinalIgnoreCase)).physicalReduce;
+                        if (phyReduce == 0) { phyReduce = -250; }
+
+                        attribute = npcdata.Where(x => x.Name.Value.ToString().Equals("_physical_reduce", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                        if (attribute == null) { break; }
+                        //int originalHP = -1000;
+                        //int scaledValueHP = ScaleValue(originalHP, hpScale);
+                        attribute.RawValue = phyReduce;
+                        Debug.WriteLine($"HP Scale: {string.Join(", ", npcdata[0].RawValue, phyReduce)}");
+                        break;
+
+
                 }
             }
             
         }
+        int ScaleValue(int originalValue, double scalePercent)
+        {
+            double scaleFactor = 1.0 - (scalePercent / 100.0);
+
+            int scaledValue = (int)Math.Round(originalValue * scaleFactor);
+
+            //return scaledValue > 100 ? scaledValue : originalValue;
+            return scaledValue;
+
+        }
 
 
-        bool IsNumber(string value, int min)
+        public bool IsNumber(string? value, int min)
         {
             int number;
             if(int.TryParse(value, out number) && number > min){ return true; }
