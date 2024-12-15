@@ -148,7 +148,10 @@ namespace LiesOfPEnemyRandomizer.src
             CH04_Carcass_OneArmed_Shield_Named_00,
             CH04_Carcass_GeneralMale3_Normal_00,
             CH04_Puppet_FireStoker_Named_00,
-            CH04_RedButterFly_Red_01
+            CH04_RedButterFly_Red_01,
+            CH03_Puppet_FireStoker_Named_00,
+            CH03_Puppet_Horseman_Wheel_Elite_00,
+            CH03_Puppet_FireStoker_Named_01
 
 
 
@@ -527,13 +530,13 @@ namespace LiesOfPEnemyRandomizer.src
         {
             new NpcSpotData { exportID = 325, spotUniqueID = "Npc-LV_Hotel_DSN-1", npcType = NpcType.Dummy, spotCodeNameOriginal = SpotCodeName.Hotel_Puppet_Training_Armless_00 },
             new NpcSpotData { exportID = 326, spotUniqueID = "Npc-LV_Hotel_DSN-31", npcType = NpcType.Dummy, spotCodeNameOriginal = SpotCodeName.Hotel_Puppet_Training_Basic_00 },
-        };      
+        };
 
         //CHAPTER 1
-        //S0_04
+        //S0_04 EW COME BACK
         public static readonly List<NpcSpotData> NpcLDOuterStation = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00},
+            new NpcSpotData{ exportID = 1331, spotUniqueID = "Npc-LD_Outer_Station_DSN-22", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00 },
 
             //BP_BossRoom_Spot
             new NpcSpotData{ exportID = 1331, spotUniqueID = "BossRoom-LD_Outer_Station_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH01_Puppet_Fguide_Boss_00},
@@ -546,7 +549,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVInnerUpperStreet = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1155, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-49", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH02_Puppet_Judge_Boss_00, physicalReduce=-500 },
+             new NpcSpotData{ exportID = 1155, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-49", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH02_Puppet_Judge_Boss_00, physicalReduce=-100 },
 
 
              new NpcSpotData{ exportID = 1155, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-52", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH02_RedButterFly_Red_00 },
@@ -557,12 +560,15 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVInnerFactory = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1476, spotUniqueID = "Npc-LV_Inner_Factory_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireEater_Boss_00, physicalReduce=-500 },
+             new NpcSpotData{ exportID = 1476, spotUniqueID = "Npc-LV_Inner_Factory_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireEater_Boss_00, physicalReduce=-100 },
                  new NpcSpotData{ exportID = 1488, spotUniqueID = "Npc-LV_Inner_Factory_DSN-21", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_DefenseWall_Named_00, npcImportant=true },
                  new NpcSpotData{ exportID = 1494, spotUniqueID = "Npc-LV_Inner_Factory_DSN-27", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH03_HelpMate_Exile , npcImportant = true},
                  new NpcSpotData{ exportID = 1493, spotUniqueID = "Npc-LV_Inner_Factory_DSN-26", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Tomorrow_Seed_00, npcImportant=true },
                  new NpcSpotData{ exportID = 1534, spotUniqueID = "Npc-LV_Inner_Factory_DSN-70", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_00, npcImportant = true },
                  new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-18", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_01, npcImportant = true },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-4", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireStoker_Named_00, npcImportant = true },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-68", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireStoker_Named_01, npcImportant = true },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-88", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Horseman_Wheel_Elite_00, npcImportant = true },
         };
             
     
@@ -571,8 +577,8 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVInnerCathedral = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_00, physicalReduce=-1000 },
-             new NpcSpotData{ exportID = 1559, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-59", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_01, physicalReduce=-1000 },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_00, uexp=7980, physicalReduce=-500 },
+             new NpcSpotData{ exportID = 1559, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-59", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH04_Carcass_FallenArchBishop_Boss_01, physicalReduce=-500 },
 
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Inner_Cathedral_DSN-15", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH04_RedButterFly_Red_01, npcImportant = true},
@@ -591,7 +597,7 @@ namespace LiesOfPEnemyRandomizer.src
         {
              //BLACK RABBIT BROTHERHOOD
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_Female_Boss_00, npcImportant = true},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-2", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_StrongMale_Boss_00, npcImportant = true, physicalReduce=-2000},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-2", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_StrongMale_Boss_00, npcImportant = true, physicalReduce=-1000},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-3", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_NormalMale_Boss_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-4", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_TallMale_Boss_00, npcImportant = true },
 
@@ -609,8 +615,8 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S4 
         public static readonly List<NpcSpotData> NpcLVKratEastEndWard = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-30", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_PuppetKingP3_Boss_00, healthScale = 25.0, physicalReduce=-2000},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-58", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_PuppetKing_Boss_00, uexp = 10023, healthScale = 25.0, physicalReduce=-2000},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-30", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_PuppetKingP3_Boss_00, healthScale = 25.0, physicalReduce=-1000},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-58", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_PuppetKing_Boss_00, uexp = 10023, healthScale = 25.0, physicalReduce=-1000},
             
             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-16", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_RedButterFly_Red_00, npcImportant = true },
@@ -634,8 +640,8 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVOuterExhibition = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-82", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Victor_Boss_00, uexp = 11684, healthScale = 40.0, physicalReduce=-8000 },
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-71", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Victor_Boss_01,healthScale = 40.0, physicalReduce=-8000 },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-82", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Victor_Boss_00, uexp = 11684, physicalReduce=-8000 },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-71", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Victor_Boss_01, physicalReduce=-8000 },
 
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-102", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH07_RedButterFly_Purple_00, npcImportant = true },
@@ -686,7 +692,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S3 
         public static readonly List<NpcSpotData> NpcLVOuterCentralStatinB = new List<NpcSpotData>()
         {
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-122", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_GraveKeeper_Seed_00, npcImportant = true, physicalReduce=-3500 },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-122", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_GraveKeeper_Seed_00, npcImportant = true, physicalReduce=-2000 },
             
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-14", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH09_RedButterFly_Red_00, npcImportant = true },
@@ -725,7 +731,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S4 
         public static readonly List<NpcSpotData> NpcLVMonasteryA = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-83", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH12_Reborner_Raxasia_Boss_00, uexp = 13792, physicalReduce=-5000},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-83", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH12_Reborner_Raxasia_Boss_00, uexp = 13792, physicalReduce=-2500},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_A_DSN-111", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH12_Reborner_Raxasia_Boss_01, physicalReduce=-5000},
              
             

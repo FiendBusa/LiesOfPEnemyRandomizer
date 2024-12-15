@@ -52,12 +52,14 @@ namespace LiesOfPEnemyRandomizer.src
 
         public bool WanderingBoss { get; private set; }
 
-        public float WanderingBossChance { get; private set; }
+        public double WanderingBossChance { get; private set; }
 
         public int Seed { get; private set; }
 
         //TEMP
         public bool ScaleBosses { get; set; }
+
+        public bool skipChp1Boss { get; set; }
 
         List<string> enemyPool;
         List<string> bossPool;
@@ -78,7 +80,7 @@ namespace LiesOfPEnemyRandomizer.src
             IncludeMiniBossCarcass = includeMiniBossCarcass;
             WanderingBoss = includeWanderingBoss;
 
-            WanderingBossChance = wanderingBossChance;
+            WanderingBossChance = Math.Round(wanderingBossChance, 0);
 
 
 
@@ -158,7 +160,7 @@ namespace LiesOfPEnemyRandomizer.src
             return pool;
         }
 
-        public async Task<bool> RandomizeEnemies(int seed)
+        public async Task<bool> RandomizeEnemies(int seed, bool chp1BossSkip)
         {
 
             Seed = seed;
@@ -170,6 +172,7 @@ namespace LiesOfPEnemyRandomizer.src
              wanderingPool = GeneratePool(false, false, false, true, true, true, true, true, true);*/
 
            
+
             random = new Random(Seed);
             enemyPool = ShufflePool(GeneratePool(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss), random);
             bossPool = ShufflePool(GeneratePool(false, false, false, false, false, true, false, false, false), random);
@@ -449,7 +452,7 @@ namespace LiesOfPEnemyRandomizer.src
                         attribute = npcdata.Where(x => x.Name.Value.ToString().Contains(nameof(AssetTableNames._Code_Name), StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
                         if (attribute == null) { break; }
                         int phyReduce = allNpcSpotMapData.FirstOrDefault(x => x.spotCodeNameOriginal.ToString().Contains(attribute.RawValue.ToString(), StringComparison.OrdinalIgnoreCase)).physicalReduce;
-                        if (phyReduce == 0) { phyReduce = -250; }
+                        if (phyReduce == 0) { phyReduce = -500; }
 
                         attribute = npcdata.Where(x => x.Name.Value.ToString().Equals("_physical_reduce", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
                         if (attribute == null) { break; }
@@ -484,11 +487,11 @@ namespace LiesOfPEnemyRandomizer.src
             return false;
             
         }
-                
-                         
 
-                        
-       
+
+
+
+
 
 
         bool GenerateEnemies(string pakChunk, UAsset uAsset, Usmap mapping, EngineVersion engineVersion, List<NpcData.NpcSpotData> importantNpcs, List<NormalExport> npcs,
@@ -513,14 +516,14 @@ namespace LiesOfPEnemyRandomizer.src
             foreach (NormalExport npcExport in npcs)
             {
                 string spotName = npcExport.ObjectName.ToString();
-             
+
 
                 foreach (PropertyData data in npcExport.Data)
                 {
 
                     if (npcExport.ObjectName.Value.ToString().Contains("BossRoom")) { bossSpot = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("BossNpcCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault(); continue; }
-                    
-                   
+
+
                     if (data.Name.ToString() != "SpotCodeName") continue;
                     //bossWorldEventChange = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("WorldEventCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
@@ -533,23 +536,24 @@ namespace LiesOfPEnemyRandomizer.src
                         bossPool = ShufflePool(GeneratePool(false, false, false, false, false, true, false, false, false), random);
 
                     if (wanderingPool.Count == 0)
-                        wanderingPool = ShufflePool(GeneratePool(false,false,false,false,false,true,true,true,false), random);
+                        wanderingPool = ShufflePool(GeneratePool(false, false, false, false, false, true, true, true, false), random);
 
                     string bossSelected = bossPool[random.Next(bossPool.Count)];
                     string wanderingSelected = wanderingPool[random.Next(wanderingPool.Count)];
+                    int wanderingBossRoll = random.Next(1, 100);
                     string enemySelected = enemyPool[random.Next(enemyPool.Count)];
 
 
-                    //bossPool.Remove(bossSelected);
+                    bossPool.Remove(bossSelected);
                     enemyPool.Remove(enemySelected);
-                    //wanderingPool.Remove(wanderingSelected);
+                    wanderingPool.Remove(wanderingSelected);
 
                     if (scaleBosses && bossSelected.ToLower().StartsWith("ch"))
                         bossSelected = bossSelected.Substring(bossSelected.IndexOf("CH") + 5);
 
 
                     if (scaleBosses && wanderingSelected.ToLower().StartsWith("ch"))
-                        bossSelected = bossSelected.Substring(bossSelected.IndexOf("CH") + 5);
+                        wanderingSelected = wanderingSelected.Substring(wanderingSelected.IndexOf("CH") + 5);
 
                     if (scaleEnemies && enemySelected.ToLower().StartsWith("ch"))
                         enemySelected = enemySelected.Substring(enemySelected.IndexOf("CH") + 5);
@@ -560,7 +564,17 @@ namespace LiesOfPEnemyRandomizer.src
 
                     foreach (var match in matchingNpcs)
                     {
-                        if(spotName != match.spotUniqueID.ToString()) { continue; }
+                        if (spotName != match.spotUniqueID.ToString()) { continue; }
+
+                        //QUICK DIRTY CHP1 FIX
+                        if (spotName == "Npc-LD_Outer_Station_DSN-22" && skipChp1Boss)
+                        {
+                            data.RawValue = FName.FromString(uAsset, match.spotCodeNameOriginal.ToString());
+                            Debug.WriteLine($"Skipping important NPC: {npcExport.ObjectName}");
+                            matchesToRemove.Add(match);
+                            assignedValue = true;
+                            break;
+                        }
 
                         if (match.npcImportant == true && skipImportantNpcs)
                         {
@@ -581,7 +595,7 @@ namespace LiesOfPEnemyRandomizer.src
                                     bossPool.Remove(bossSelected);
                                     matchesToRemove.Add(match);
                                     assignedValue = true;
-                                     if(bossSpot != null) { bossSpot.RawValue = FName.FromString(uAsset, bossSelected); Debug.WriteLine($"BOSSSPOT: {bossSpot.RawValue}"); }
+                                    if (bossSpot != null) { bossSpot.RawValue = FName.FromString(uAsset, bossSelected); Debug.WriteLine($"BOSSSPOT: {bossSpot.RawValue}"); }
                                     //if (bossWorldEventChange != null) { bossWorldEventChange.RawValue = FName.FromString(uAsset, "CH04_Die_Boss_01"); Debug.WriteLine($"BOSSSPOT: {bossSpot.RawValue}"); }
                                     Debug.WriteLine($"BOSS: {npcExport.ObjectName}");
                                     break;
@@ -604,29 +618,26 @@ namespace LiesOfPEnemyRandomizer.src
                     }
                     matchingNpcs.RemoveAll(matchesToRemove.Contains);
 
-                    if(assignedValue ) { break; }
+                    if (assignedValue) { break; }
+
+                    if (WanderingBoss && WanderingBossChance >= wanderingBossRoll)
+                    {
+                        data.RawValue = FName.FromString(uAsset, wanderingSelected);
+                    }
+                    else
+                    {
+                        data.RawValue = FName.FromString(uAsset, enemySelected);
+                    }
 
 
-                       data.RawValue = FName.FromString(uAsset, enemySelected);
                     Debug.WriteLine($"ENEMY: {npcExport.ObjectName}");
                     enemyPool.Remove(enemySelected);
-
-
-
-
-
-
-
                 }
             }
             uAsset.Write(filePath);
-
-            
-
-
-
             return true;
         }
+
         private bool IsBoss(string value)
         {
             return NpcData.Npc[NpcData.NpcType.Boss].Any(boss => value.Contains(boss, StringComparison.OrdinalIgnoreCase));

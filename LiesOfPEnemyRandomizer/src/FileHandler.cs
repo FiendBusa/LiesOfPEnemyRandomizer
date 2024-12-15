@@ -69,7 +69,7 @@ namespace LiesOfPEnemyRandomizer.src
             pakChunk0_s4 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] {"BP_NpcSpot.uasset","BP_ItemSpot.uasset","BP_BossRoomSpot.uasset","BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp", "ShopInfo.uasset", "ShopSpecialInfo.uasset" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_CentralStation"), new string[] { "LD_Outer_Station_DSN.umap", "LD_Outer_Station_DSN.uexp" } },
             };
 

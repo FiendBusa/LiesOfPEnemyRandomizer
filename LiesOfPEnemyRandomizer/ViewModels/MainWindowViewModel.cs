@@ -102,9 +102,19 @@ namespace LiesOfPEnemyRandomizer.ViewModels
             }
         }
 
-
-
-
+        private bool _outerStationBossSkip;
+        public bool OuterStationBossSkip
+        {
+            get => _outerStationBossSkip;
+            set
+            {
+                if (_outerStationBossSkip != value)
+                {
+                    _outerStationBossSkip = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public MainWindowViewModel()
         {
@@ -114,25 +124,26 @@ namespace LiesOfPEnemyRandomizer.ViewModels
         }
 
 
-        void OnButtonRandomizedClicked()
+        async void OnButtonRandomizedClicked()
         {
-           
-            Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, false, 0.00f);
+            Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, WanderingBoss, WanderingBossChance);
+            //Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, false, 0.00f);
             randomizer.ScaleBosses = ScaleBossLvl;
+            randomizer.skipChp1Boss = OuterStationBossSkip;
 
             int mySeed;
 
             if (!String.IsNullOrEmpty(Seed) && int.TryParse(Seed, out mySeed))
             {
                 Seed = mySeed.ToString();
-                randomizer.RandomizeEnemies(mySeed);
+                await randomizer.RandomizeEnemies(mySeed, OuterStationBossSkip);
                 return;
             }
 
             mySeed = randomizer.GenerateSeed();
             Seed = mySeed.ToString();
            
-            randomizer.RandomizeEnemies(mySeed);
+            await randomizer.RandomizeEnemies(mySeed, OuterStationBossSkip);
 
 
         }
