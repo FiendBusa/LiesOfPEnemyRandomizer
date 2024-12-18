@@ -720,9 +720,9 @@ namespace LiesOfPEnemyRandomizer.src
                     string enemySelected = enemyPool[random.Next(enemyPool.Count)];
 
 
-                    bossPool.Remove(bossSelected);
-                    enemyPool.Remove(enemySelected);
-                    wanderingPool.Remove(wanderingSelected);
+                    //bossPool.Remove(bossSelected);
+                    //enemyPool.Remove(enemySelected);
+                    //wanderingPool.Remove(wanderingSelected);
 
                     //if (scaleBosses && bossSelected.ToLower().StartsWith("ch"))
                     //    bossSelected = bossSelected.Substring(bossSelected.IndexOf("CH") + 5);
@@ -809,15 +809,17 @@ namespace LiesOfPEnemyRandomizer.src
                     if (WanderingBoss && WanderingBossChance >= wanderingBossRoll)
                     {
                         data.RawValue = FName.FromString(uAsset, wanderingSelected);
+                        wanderingPool.Remove(wanderingSelected);
                     }
                     else
                     {
                         data.RawValue = FName.FromString(uAsset, enemySelected);
+                        enemyPool.Remove(enemySelected);
                     }
 
 
-                    Debug.WriteLine($"ENEMY: {npcExport.ObjectName}");
-                    enemyPool.Remove(enemySelected);
+                    //Debug.WriteLine($"ENEMY: {npcExport.ObjectName}");
+                    //enemyPool.Remove(enemySelected);
                 }
             }
             uAsset.Write(filePath);

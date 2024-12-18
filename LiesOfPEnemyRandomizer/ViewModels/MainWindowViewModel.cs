@@ -248,7 +248,7 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
         async void OnButtonRandomizedClicked()
         {
-            Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, IncludeMiniBossCarcass, WanderingBossChance);
+            Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss, WanderingBossChance);
             //Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, false, 0.00f);
             randomizer.ScaleBosses = ScaleBossLvl;
             randomizer.skipChp1Boss = OuterStationBossSkip;

@@ -795,7 +795,8 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-38", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH11_RedButterFly_Red_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-42", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH11_HelpMate_Exile, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-43", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH11_RedButterFly_Red_02, npcImportant = true },
-             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-46", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH11_Puppet_Captain_Named_00, npcImportant = true },
+             
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-46", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH11_Puppet_Captain_Named_00, npcImportant = true },
 
 
         };
@@ -840,7 +841,7 @@ namespace LiesOfPEnemyRandomizer.src
         //S2_S4 
         public static readonly List<NpcSpotData> NpcLVMonasteryB = new List<NpcSpotData>()
         {
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-34", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Puppet_1stPinoccio_Boss_P2_00, healthPower=16947,physicalPower=562,physicalDefence=0,
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-34", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Puppet_1stPinoccio_Boss_P2_00, uexp = 16208, healthPower=16947,physicalPower=562,physicalDefence=0,
                 physicalSlashDefence=0,physicalStrikeDefence=0,physicalPierceDefence=0,physicalReduce=0,physicalSlashReduce=1000,physicalStrikeReduce=-1000,physicalPierceReduce=1000,tough=175, toughRestoreBase=7, toughAttackPowerBase=0,toughDefencePowerBase=0,guardStaminaDamage=43},
 
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Monastery_B_DSN-38", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH13_Puppet_1stPinoccio_Boss_00, uexp = 16208, healthPower=11298,physicalPower=491,physicalDefence=0,
