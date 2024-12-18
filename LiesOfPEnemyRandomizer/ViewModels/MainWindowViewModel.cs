@@ -116,9 +116,131 @@ namespace LiesOfPEnemyRandomizer.ViewModels
             }
         }
 
+        private bool _includePuppets;
+        public bool IncludePuppets
+        {
+            get => _includePuppets;
+            set
+            {
+                if (_includePuppets != value)
+                {
+                    _includePuppets = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _includeCarcass;
+        public bool IncludeCarcass
+        {
+            get => _includeCarcass;
+            set
+            {
+                if (_includeCarcass != value)
+                {
+                    _includeCarcass = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _includeReborner;
+        public bool IncludeReborner
+        {
+            get => _includeReborner;
+            set
+            {
+                if (_includeReborner != value)
+                {
+                    _includeReborner = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _includeMiniBossStalker;
+        public bool IncludeMiniBossStalker
+        {
+            get => _includeMiniBossStalker;
+            set
+            {
+                if (_includeMiniBossStalker != value)
+                {
+                    _includeMiniBossStalker = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _includeMiniBossPuppet;
+        public bool IncludeMiniBossPuppet
+        {
+            get => _includeMiniBossPuppet;
+            set
+            {
+                if (_includeMiniBossPuppet != value)
+                {
+                    _includeMiniBossPuppet = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _includeBosses;
+        public bool IncludeBosses
+        {
+            get => _includeBosses;
+            set
+            {
+                if (_includeBosses != value)
+                {
+                    _includeBosses = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _includeMiniBossReborner;
+        public bool IncludeMiniBossReborner
+        {
+            get => _includeMiniBossReborner;
+            set
+            {
+                if (_includeMiniBossReborner != value)
+                {
+                    _includeMiniBossReborner = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _includeMiniBossCarcass;
+        public bool IncludeMiniBossCarcass
+        {
+            get => _includeMiniBossCarcass;
+            set
+            {
+                if (_includeMiniBossCarcass != value)
+                {
+                    _includeMiniBossCarcass = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public MainWindowViewModel()
         {
             ButtonRandomizedClicked = new RelayCommand(OnButtonRandomizedClicked);
+            IncludePuppets = true;
+            IncludeCarcass = true;
+            IncludeReborner = true;
+            IncludeMiniBossStalker = true;
+            IncludeMiniBossPuppet = true;
+            IncludeBosses = false;
+            IncludeMiniBossReborner = false;
+            IncludeMiniBossCarcass = false;
+            WanderingBoss = false;
+            ScaleBossLvl = true;
 
 
         }
@@ -126,7 +248,7 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
         async void OnButtonRandomizedClicked()
         {
-            Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, WanderingBoss, WanderingBossChance);
+            Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, IncludeMiniBossCarcass, WanderingBossChance);
             //Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, false, 0.00f);
             randomizer.ScaleBosses = ScaleBossLvl;
             randomizer.skipChp1Boss = OuterStationBossSkip;

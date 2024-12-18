@@ -39,8 +39,22 @@ namespace LiesOfPEnemyRandomizer.src
         _Code_Name,
         _health_power,
         _physical_power,
-        _physical_reduce
+        _physical_defence,
+        _physical_slash_defence,
+        _physical_strike_defence,
+        _physical_pierce_defence,
+        _physical_reduce,
+        _physical_slash_reduce,
+        _physical_strike_reduce,
+        _physical_pierce_reduce,
+        _tough,
+        _tough_restore_base,
+        _tough_attack_power_base,
+        _tough_defence_power_base,
+        _guard_stamina_damage,
+        _grade
     };
+
     public class FileHandler
     {
         public readonly string tempPath;
@@ -69,14 +83,14 @@ namespace LiesOfPEnemyRandomizer.src
             pakChunk0_s4 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] {"BP_NpcSpot.uasset","BP_ItemSpot.uasset","BP_BossRoomSpot.uasset","BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp", "ShopInfo.uasset", "ShopSpecialInfo.uasset" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp", "ShopInfo.uasset", "ShopSpecialInfo.uasset", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_CentralStation"), new string[] { "LD_Outer_Station_DSN.umap", "LD_Outer_Station_DSN.uexp" } },
             };
 
                         pakChunk2_s3 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_CentralStation_B"), new string[] { "LV_Outer_CentralStatinB_DSN.umap", "LV_Outer_CentralStatinB_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_InnerKrat"), new string[] { "LV_Inner_UpperStreet_DSN.umap", "LV_Inner_UpperStreet_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_Krat_Cathedral"), new string[] { "LV_Inner_Cathedral_DSN.umap", "LV_Inner_Cathedral_DSN.uexp" } },
@@ -88,7 +102,7 @@ namespace LiesOfPEnemyRandomizer.src
                         pakChunk2_s4 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp"  } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Old_Town"), new string[] { "LV_Krat_Old_Town_DSN.umap", "LV_Krat_Old_Town_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Underdark"), new string[] { "LV_Outer_Underdark_A_DSN.umap", "LV_Outer_Underdark_A_DSN.uexp", "LV_Outer_Underdark_DSN.umap", "LV_Outer_Underdark_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Outer_EastEndWard"), new string[] { "LV_Krat_EastEndWard_DSN.umap", "LV_Krat_EastEndWard_DSN.uexp" } },
@@ -179,6 +193,7 @@ namespace LiesOfPEnemyRandomizer.src
             {
                 string pakFolder = baseDirectories[i];
                 string unrealpakExe = Path.Combine(tempPath, "UnrealPak.exe");
+
                 if (!File.Exists(unrealpakExe))
                 {
                     Console.WriteLine("UnrealPak.exe not found.");
@@ -189,23 +204,18 @@ namespace LiesOfPEnemyRandomizer.src
                 string filelistPath = Path.Combine(tempPath, "filelist.txt");
                 string sourcePattern = Path.Combine(pakFolder, "*.*");
                 string targetPattern = Path.Combine("..\\..\\..", "*.*");
-                File.WriteAllText(filelistPath, $"\"{sourcePattern}\" \"{targetPattern}\"");
+                await File.WriteAllTextAsync(filelistPath, $"\"{sourcePattern}\" \"{targetPattern}\"");
 
-                // wtf wheres check if it exists after creating L
                 if (!Directory.Exists(outputDir))
                 {
                     Directory.CreateDirectory(outputDir);
                 }
 
-
-                string pakName = Path.GetFileName(pakFolder) + ".pak"; 
+                string pakName = Path.GetFileName(pakFolder) + ".pak";
                 string outputPakPath = Path.Combine(outputDir, pakName);
-
-
                 string arguments = $"\"{outputPakPath}\" -create=\"{filelistPath}\" -compress";
 
-
-                ProcessStartInfo processInfo = new ProcessStartInfo
+                var processInfo = new ProcessStartInfo
                 {
                     FileName = unrealpakExe,
                     Arguments = arguments,
@@ -217,12 +227,17 @@ namespace LiesOfPEnemyRandomizer.src
 
                 try
                 {
-                    using (Process process = Process.Start(processInfo))
+                    using (Process? process = Process.Start(processInfo))
                     {
-                        string output = await process.StandardOutput.ReadToEndAsync();
-                        string error = await process.StandardError.ReadToEndAsync();
+                        if (process == null) { return false; }
+                        var outputTask = process.StandardOutput.ReadToEndAsync();
+                        var errorTask = process.StandardError.ReadToEndAsync();
 
-                        process.WaitForExit();
+                       
+                        await process.WaitForExitAsync();
+
+                        string output = await outputTask;
+                        string error = await errorTask;
 
                         Console.WriteLine("UnrealPak Output:");
                         Console.WriteLine(output);
@@ -231,7 +246,7 @@ namespace LiesOfPEnemyRandomizer.src
                         {
                             Console.WriteLine("UnrealPak Errors:");
                             Console.WriteLine(error);
-                            return false; // Exit on error
+                            return false; 
                         }
                     }
                 }
@@ -244,6 +259,7 @@ namespace LiesOfPEnemyRandomizer.src
 
             return true;
         }
+
 
 
 

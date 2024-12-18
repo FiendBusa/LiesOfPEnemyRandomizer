@@ -75,6 +75,8 @@
     <AvaloniaResource Remove="Assets\NPCInfo.uexp" />
     <AvaloniaResource Remove="Assets\pakchunk0_s4\LiesofP\Content\MapRelease\LV_OuterKrat\LV_CentralStation\LD_Outer_Station_DSN-Original.uexp" />
     <AvaloniaResource Remove="Assets\pakchunk0_s4\LiesofP\Content\MapRelease\LV_OuterKrat\LV_CentralStation\LD_Outer_Station_DSN-Original.umap" />
+    <AvaloniaResource Remove="Assets\PatchRewardInfo.uasset" />
+    <AvaloniaResource Remove="Assets\PatchRewardInfo.uexp" />
     <AvaloniaResource Remove="Assets\UnrealPak.exe" />
   </ItemGroup>
 
@@ -116,6 +118,8 @@
     <EmbeddedResource Include="Assets\NPCInfo.uexp" />
     <EmbeddedResource Include="Assets\pakchunk0_s4\LiesofP\Content\MapRelease\LV_OuterKrat\LV_CentralStation\LD_Outer_Station_DSN-Original.uexp" />
     <EmbeddedResource Include="Assets\pakchunk0_s4\LiesofP\Content\MapRelease\LV_OuterKrat\LV_CentralStation\LD_Outer_Station_DSN-Original.umap" />
+    <EmbeddedResource Include="Assets\PatchRewardInfo.uasset" />
+    <EmbeddedResource Include="Assets\PatchRewardInfo.uexp" />
     <EmbeddedResource Include="Assets\UnrealPak.exe" />
   </ItemGroup>
 
