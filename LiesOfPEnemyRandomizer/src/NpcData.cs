@@ -177,7 +177,7 @@ namespace LiesOfPEnemyRandomizer.src
             CH03_Puppet_ButtlerMelee_Proto_Normal_00,
             CH03_Puppet_Marionette_Oil_Normal_00,
             CH03_Puppet_UpperBody_Proto_Float_Normal_00,
-            CH02_Puppet_ButtlerMidRange_Normal_00
+            CH02_Puppet_ButtlerMidRange_Normal_00,
             Empty
 
 
