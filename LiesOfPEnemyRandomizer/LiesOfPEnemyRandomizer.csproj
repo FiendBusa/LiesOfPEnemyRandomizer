@@ -6,6 +6,12 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <!-- Include this -->
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +26,11 @@
     <AvaloniaResource Remove="Assets\BP_ItemSpot.uexp" />
     <AvaloniaResource Remove="Assets\BP_NpcSpot.uasset" />
     <AvaloniaResource Remove="Assets\BP_NpcSpot.uexp" />
+    <AvaloniaResource Remove="Assets\ItemDropInfo.uasset" />
+    <AvaloniaResource Remove="Assets\ItemDropInfo.uexp" />
+    <AvaloniaResource Remove="Assets\ItemInfoDB.json" />
+    <AvaloniaResource Remove="Assets\ItemPackageInfo.uasset" />
+    <AvaloniaResource Remove="Assets\ItemPackageInfo.uexp" />
     <AvaloniaResource Remove="Assets\LD_Outer_Station_DSN-Original.uexp" />
     <AvaloniaResource Remove="Assets\LD_Outer_Station_DSN-Original.umap" />
     <AvaloniaResource Remove="Assets\LD_Outer_Station_DSN.uexp" />
@@ -87,6 +98,11 @@
     <EmbeddedResource Include="Assets\BP_ItemSpot.uexp" />
     <EmbeddedResource Include="Assets\BP_NpcSpot.uasset" />
     <EmbeddedResource Include="Assets\BP_NpcSpot.uexp" />
+    <EmbeddedResource Include="Assets\ItemDropInfo.uasset" />
+    <EmbeddedResource Include="Assets\ItemDropInfo.uexp" />
+    <EmbeddedResource Include="Assets\ItemInfoDB.json" />
+    <EmbeddedResource Include="Assets\ItemPackageInfo.uasset" />
+    <EmbeddedResource Include="Assets\ItemPackageInfo.uexp" />
     <EmbeddedResource Include="Assets\LD_Outer_Station_DSN.uexp" />
     <EmbeddedResource Include="Assets\LD_Outer_Station_DSN.umap" />
     <EmbeddedResource Include="Assets\LV_Inner_Cathedral_DSN.uexp" />

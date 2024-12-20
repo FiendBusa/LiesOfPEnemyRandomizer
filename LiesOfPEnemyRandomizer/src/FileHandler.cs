@@ -83,14 +83,14 @@ namespace LiesOfPEnemyRandomizer.src
             pakChunk0_s4 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] {"BP_NpcSpot.uasset","BP_ItemSpot.uasset","BP_BossRoomSpot.uasset","BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp", "ShopInfo.uasset", "ShopSpecialInfo.uasset", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp", "ShopInfo.uasset", "ShopSpecialInfo.uasset", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_CentralStation"), new string[] { "LD_Outer_Station_DSN.umap", "LD_Outer_Station_DSN.uexp" } },
             };
 
                         pakChunk2_s3 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_CentralStation_B"), new string[] { "LV_Outer_CentralStatinB_DSN.umap", "LV_Outer_CentralStatinB_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_InnerKrat"), new string[] { "LV_Inner_UpperStreet_DSN.umap", "LV_Inner_UpperStreet_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_Krat_Cathedral"), new string[] { "LV_Inner_Cathedral_DSN.umap", "LV_Inner_Cathedral_DSN.uexp" } },
@@ -102,7 +102,7 @@ namespace LiesOfPEnemyRandomizer.src
                         pakChunk2_s4 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp"  } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Old_Town"), new string[] { "LV_Krat_Old_Town_DSN.umap", "LV_Krat_Old_Town_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Underdark"), new string[] { "LV_Outer_Underdark_A_DSN.umap", "LV_Outer_Underdark_A_DSN.uexp", "LV_Outer_Underdark_DSN.umap", "LV_Outer_Underdark_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Outer_EastEndWard"), new string[] { "LV_Krat_EastEndWard_DSN.umap", "LV_Krat_EastEndWard_DSN.uexp" } },

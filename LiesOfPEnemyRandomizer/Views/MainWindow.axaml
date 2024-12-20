@@ -10,7 +10,7 @@
         Title="Lies of P Randomizer"
         SizeToContent="Width"
         Width="1000"
-        Height="800"
+        Height="900"
         Background="#1A1A2E">
   <!-- Muted dark blue background -->
 
@@ -90,6 +90,10 @@
           <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
             <CheckBox IsEnabled="False" IsChecked="True" Content="Enable Item Drops" FontSize="16" Foreground="#F0F0F0"/>
             <ToolTip.Tip>Enables Item Drops</ToolTip.Tip>
+          </Border>
+          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
+            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeDrops}" Content="Randomize World and Enemy Drops" FontSize="16" Foreground="#F0F0F0"/>
+            <ToolTip.Tip>Krat Central Key will be auto given</ToolTip.Tip>
           </Border>
         </StackPanel>
       </TabItem>

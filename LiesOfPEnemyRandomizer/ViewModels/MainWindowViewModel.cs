@@ -3,6 +3,7 @@ using Avalonia.Interactivity;
 using CommunityToolkit.Mvvm.Input;
 using LiesOfPEnemyRandomizer.src;
 using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using UAssetAPI;
@@ -227,6 +228,19 @@ namespace LiesOfPEnemyRandomizer.ViewModels
                 }
             }
         }
+        private bool _randomizeDrops;
+        public bool RandomizeDrops
+        {
+            get => _randomizeDrops;
+            set
+            {
+                if (_randomizeDrops != value)
+                {
+                    _randomizeDrops = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public MainWindowViewModel()
         {
@@ -241,6 +255,7 @@ namespace LiesOfPEnemyRandomizer.ViewModels
             IncludeMiniBossCarcass = false;
             WanderingBoss = false;
             ScaleBossLvl = true;
+            RandomizeDrops = true;
 
 
         }
@@ -248,8 +263,26 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
         async void OnButtonRandomizedClicked()
         {
-            Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss, WanderingBossChance);
-            //Randomizer randomizer = new Randomizer(true, true, true, true, true, false, false, false, false, 0.00f);
+            //SUPER EARLY NASTY TEST CODE FOR ITEM/NPC DROP LoL
+            string tempPath = System.IO.Path.GetTempPath();
+            FileHandler fileHandler = new FileHandler(tempPath);
+            await fileHandler.CopyResource(GlobalStrings.itemDB, tempPath, GlobalStrings.itemDB);
+
+            tempPath = Path.Combine(tempPath, GlobalStrings.itemDB);
+            ItemDataBase itemsAll = new ItemDataBase();
+
+            if (File.Exists(tempPath))
+            {
+                itemsAll = ItemDataBase.LoadItems(tempPath);
+            }
+
+            
+
+
+
+            //UNCOMMENT AFTER DONE TESTING ITEM RANDOMIZER
+            Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss, WanderingBossChance, itemsAll, RandomizeDrops);
+
             randomizer.ScaleBosses = ScaleBossLvl;
             randomizer.skipChp1Boss = OuterStationBossSkip;
 
@@ -264,7 +297,7 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
             mySeed = randomizer.GenerateSeed();
             Seed = mySeed.ToString();
-           
+
             await randomizer.RandomizeEnemies(mySeed, OuterStationBossSkip);
 
 
