@@ -92,8 +92,8 @@
             <ToolTip.Tip>Enables Item Drops</ToolTip.Tip>
           </Border>
           <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
-            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeDrops}" Content="Randomize World and Enemy Drops" FontSize="16" Foreground="#F0F0F0"/>
-            <ToolTip.Tip>Krat Central Key will be auto given</ToolTip.Tip>
+            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeDrops}" Content="Randomize World and Enemy Drops (Very Early Test Build) (Quartz are 10% drop rate and will stop dropping after 27)" FontSize="16" Foreground="#F0F0F0"/>
+            <ToolTip.Tip>Quartz are dropped by both NPC and World Items. Max 27 can be spawned in. World Items, if a quartz is selected, will be given alongside the randomized item</ToolTip.Tip>
           </Border>
         </StackPanel>
       </TabItem>

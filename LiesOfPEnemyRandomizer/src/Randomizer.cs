@@ -483,7 +483,7 @@ namespace LiesOfPEnemyRandomizer.src
             //});
         }
 
-
+        //QUICK UGLY DIRTY WILL FIX
         void RandomizeItems(string? filePath, UAsset? uasset, Usmap mapping, EngineVersion engineVersion, ItemDataBase itemData, bool includeWeapons)
         {
             itemPool = ShufflePool(GenerateItemPool(ItemInfo, true), random);
@@ -493,6 +493,7 @@ namespace LiesOfPEnemyRandomizer.src
             List<PropertyData>?itemProperties = itemPackageInfoTable?.Data.Count > 0 ? itemPackageInfoTable[0].RawValue as List<PropertyData> : null;
             ArrayPropertyData? arrayPropertyDatas = (ArrayPropertyData)itemProperties.Where(x => x.Name.Value.Equals("_ItemPackage_array")).FirstOrDefault();
             PropertyData[] structPropertyData = (PropertyData[])arrayPropertyDatas.RawValue;
+            int quartzTotal = 0;
 
             for (int i = 0; i < structPropertyData.Length; i++)
             {
@@ -502,6 +503,17 @@ namespace LiesOfPEnemyRandomizer.src
                 var slot1Count = test.Where(x => x.Name.Value.Equals("_Item_1_count")).FirstOrDefault() as PropertyData;
                 var slot2 = test.Where(x => x.Name.Value.Equals("_Item_2_code_name")).FirstOrDefault() as PropertyData;
                 var slot2Count = test.Where(x => x.Name.Value.Equals("_Item_2_count")).FirstOrDefault() as PropertyData;
+                var slot3 = test.Where(x => x.Name.Value.Equals("_Item_3_code_name")).FirstOrDefault() as PropertyData;
+                var slot3Count = test.Where(x => x.Name.Value.Equals("_Item_3_count")).FirstOrDefault() as PropertyData;
+                
+                var slot4 = test.Where(x => x.Name.Value.Equals("_Item_4_code_name")).FirstOrDefault() as PropertyData;
+                var slot4Count = test.Where(x => x.Name.Value.Equals("_Item_4_count")).FirstOrDefault() as PropertyData;
+                
+                var slot5 = test.Where(x => x.Name.Value.Equals("_Item_5_code_name")).FirstOrDefault() as PropertyData;
+                var slot5Count = test.Where(x => x.Name.Value.Equals("_Item_5_count")).FirstOrDefault() as PropertyData;
+               
+                var slot6 = test.Where(x => x.Name.Value.Equals("_Item_6_code_name")).FirstOrDefault() as PropertyData;
+                var slot6Count = test.Where(x => x.Name.Value.Equals("_Item_6_count")).FirstOrDefault() as PropertyData;
 
                 var handle = test.Where(x => x.Name.Value.Equals("_weapon_item_1_handle")).FirstOrDefault() as PropertyData;
                 var blade = test.Where(x => x.Name.Value.Equals("_weapon_item_1_blade")).FirstOrDefault() as PropertyData;
@@ -536,6 +548,7 @@ namespace LiesOfPEnemyRandomizer.src
                 }
                 item = itemPool[random.Next(itemPool.Count)];
                 if (item.StartsWith("WP_PC")) { continue; }
+
                 if (slot1?.RawValue != null)
                 {
                     if (slot1.RawValue.ToString().Contains("epic", StringComparison.OrdinalIgnoreCase) || slot1.RawValue.ToString().Contains("key", StringComparison.OrdinalIgnoreCase) && !slot1.RawValue.ToString().Equals("Key_1"))
@@ -553,11 +566,54 @@ namespace LiesOfPEnemyRandomizer.src
                 slot1Count.RawValue = 1;
                 itemPool.Remove(item);
 
+                if (quartzTotal < 11 && random.Next(100) < 10)
+                {
+                    item = "quartz";
+                    quartzTotal++;
+                    slot3.RawValue = FName.FromString(uasset, item);
+                    slot3Count.RawValue = 1;
+                   
+                }
+                if (random.Next(100) < 15)
+                {
+                    item = "Reinforce_Blade_Common_G1";
+                    slot4.RawValue = FName.FromString(uasset, item);
+                    slot4Count.RawValue = random.Next(1, 5);
 
-              
-            
-                
-                
+                    item = "Reinforce_Blade_Common_G2";
+                    slot5.RawValue = FName.FromString(uasset, item);
+                    slot5Count.RawValue = random.Next(1, 5);
+                    continue;
+                }
+
+                if (random.Next(100) < 12) 
+                {
+                    item = "Reinforce_Blade_Common_G3";
+                    slot4.RawValue = FName.FromString(uasset, item);
+                    slot4Count.RawValue = random.Next(1, 5);
+
+                    item = "Reinforce_Blade_Common_G4";
+                    slot5.RawValue = FName.FromString(uasset, item);
+                    slot5Count.RawValue = random.Next(1, 5);
+                    continue;
+                }
+                if (random.Next(100) < 10)
+                {
+                    item = "Reinforce_Hero_G1";
+                    slot4.RawValue = FName.FromString(uasset, item);
+                    slot4Count.RawValue = random.Next(1, 5);
+
+                    item = "Reinforce_Hero_G2";
+                    slot5.RawValue = FName.FromString(uasset, item);
+                    slot5Count.RawValue = random.Next(1, 5);
+
+                }
+
+
+
+
+
+
             }
 
 
@@ -576,10 +632,11 @@ namespace LiesOfPEnemyRandomizer.src
             List<PropertyData>? itemProperties = itemPackageInfoTable?.Data.Count > 0 ? itemPackageInfoTable[0].RawValue as List<PropertyData> : null;
             ArrayPropertyData? arrayPropertyDatas = (ArrayPropertyData)itemProperties.Where(x => x.Name.Value.Equals("_PackageConfigureInfo_array")).FirstOrDefault();
             PropertyData[] structPropertyData = (PropertyData[])arrayPropertyDatas.RawValue;
+            int quartzTotal = 0;
 
             for (int i = 0; i < structPropertyData.Length; i++)
             {
-                if (itemPool.Count <= 1) { itemPool = ShufflePool(GenerateItemPool(ItemInfo,false), random); }
+                if (itemPool.Count <= 0) { itemPool = ShufflePool(GenerateItemPool(ItemInfo,false), random); }
                 List<PropertyData> test = (List<PropertyData>)structPropertyData[i].RawValue;
                 var itemCodeName = test.Where(x => x.Name.Value.Equals("_item_code_name")).FirstOrDefault() as PropertyData;
                 var percent = test.Where(x => x.Name.Value.Equals("_item_acquisition_percentage")).FirstOrDefault() as PropertyData;
@@ -587,10 +644,56 @@ namespace LiesOfPEnemyRandomizer.src
                 if(itemCodeName?.RawValue == null) { continue; }
 
                 if(itemCodeName.RawValue.ToString().Contains("epic",StringComparison.OrdinalIgnoreCase) || itemCodeName.RawValue.ToString().Contains("key", StringComparison.OrdinalIgnoreCase) && !itemCodeName.RawValue.ToString().Equals("Key_1")) { itemPool.Remove(itemCodeName.RawValue.ToString()); continue; }
-              
-                string item = itemPool[random.Next(itemPool.Count)];
+                string item;
 
-                if (item.Equals("quartz")) { continue; }
+                if (quartzTotal < 15 && random.Next(100) < 10)
+                {
+                    item = "quartz";
+                    quartzTotal++;
+                    itemCodeName.RawValue = FName.FromString(uasset, item);
+                    continue;
+                }
+                if (random.Next(100) < 12)
+                {
+                    item = "Reinforce_Blade_Common_G1";
+                    itemCodeName.RawValue = FName.FromString(uasset, item);
+                    continue;
+                }
+                if (random.Next(100) < 11)
+                {
+                    item = "Reinforce_Blade_Common_G2";
+                    itemCodeName.RawValue = FName.FromString(uasset, item);
+                    continue;
+                }
+                if (random.Next(100) < 10)
+                {
+                    item = "Reinforce_Blade_Common_G3";
+                    itemCodeName.RawValue = FName.FromString(uasset, item);
+                    continue;
+                }
+                if (random.Next(100) < 8)
+                {
+                    item = "Reinforce_Blade_Common_G4";
+                    itemCodeName.RawValue = FName.FromString(uasset, item);
+                    continue;
+                }
+                if (random.Next(100) < 6)
+                {
+                    item = "Reinforce_Hero_G1";
+                    itemCodeName.RawValue = FName.FromString(uasset, item);
+                    continue;
+                }
+                if (random.Next(100) < 5)
+                {
+                    item = "Reinforce_Hero_G1";
+                    itemCodeName.RawValue = FName.FromString(uasset, item);
+                    continue;
+                }
+
+
+
+                item = itemPool[random.Next(itemPool.Count)];
+
 
                 itemCodeName.RawValue = FName.FromString(uasset, item);
                 itemPool.Remove(item);
@@ -923,7 +1026,10 @@ namespace LiesOfPEnemyRandomizer.src
             List<NpcData.NpcSpotData> matchingNpcs = importantNpcs.Where(npc => npcs.Any(npcExport => npcExport.ObjectName.ToString().Contains(npc.spotUniqueID))).ToList();
             PropertyData? bossSpot = null;
             PropertyData? bossWorldEventChange = null;
-    
+
+            PropertyData? floatingStateOnSpawn = null;
+
+
 
 
             foreach (NormalExport npcExport in npcs)
@@ -934,10 +1040,10 @@ namespace LiesOfPEnemyRandomizer.src
                 foreach (PropertyData data in npcExport.Data)
                 {
 
-                    if (npcExport.ObjectName.Value.ToString().Contains("BossRoom")) { bossSpot = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("BossNpcCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault(); continue; }
+                    if (npcExport.ObjectName.Value.ToString().Contains(nameof(AssetTableNames.BossRoom))) { bossSpot = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith(nameof(AssetTableNames.BossNpcCodeName), StringComparison.OrdinalIgnoreCase)).FirstOrDefault(); continue; }
 
 
-                    if (data.Name.ToString() != "SpotCodeName") continue;
+                    if (data.Name.ToString() != nameof(AssetTableNames.SpotCodeName)) continue;
                     //bossWorldEventChange = npcExport.Data.Where(x => x.Name.Value.ToString().StartsWith("WorldEventCodeName", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
 
@@ -1013,6 +1119,13 @@ namespace LiesOfPEnemyRandomizer.src
                         }
                         else
                         {
+                            //FLOATING NPC SPAWN (I.E SURPRISE ATTACK FROM AIR)
+                            if (match.floatOnSpawn == true || match.floatOnSpawn == false)
+                            {
+                                floatingStateOnSpawn = npcExport.Data.Where(x => x.Name.Value.Equals(nameof(AssetTableNames.bFloatingStateOnSpawn))).FirstOrDefault();
+                                if (floatingStateOnSpawn != null) { floatingStateOnSpawn.RawValue = FName.FromString(uAsset, match.floatOnSpawn.ToString()); }
+                            }
+
                             switch (match.npcType)
                             {
                                 case NpcData.NpcType.Boss:
@@ -1042,6 +1155,7 @@ namespace LiesOfPEnemyRandomizer.src
 
 
                             }
+                           
                         }
 
                         //if (assignedValue) break;
@@ -1049,6 +1163,9 @@ namespace LiesOfPEnemyRandomizer.src
 
                     }
                     matchingNpcs.RemoveAll(matchesToRemove.Contains);
+
+                    //FLOATING SPAWN
+                   
 
                     if (assignedValue) { break; }
 
@@ -1062,6 +1179,9 @@ namespace LiesOfPEnemyRandomizer.src
                         data.RawValue = FName.FromString(uAsset, enemySelected);
                         enemyPool.Remove(enemySelected);
                     }
+
+                  
+                    
 
 
                     //Debug.WriteLine($"ENEMY: {npcExport.ObjectName}");

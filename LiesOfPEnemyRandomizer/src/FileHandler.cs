@@ -52,7 +52,11 @@ namespace LiesOfPEnemyRandomizer.src
         _tough_attack_power_base,
         _tough_defence_power_base,
         _guard_stamina_damage,
-        _grade
+        _grade,
+        bFloatingStateOnSpawn,
+        SpotCodeName,
+        BossRoom,
+        BossNpcCodeName
     };
 
     public class FileHandler

@@ -161,6 +161,23 @@ namespace LiesOfPEnemyRandomizer.src
             CH03_Puppet_ButtlerMidRange_Normal_01,
             CH04_Carcass_GeneralMale1_Normal_00,
             CH04_Carcass_GeneralFemale1_Normal_00,
+            CH05_Carcass_GeneralMale1_WP_Normal_00,
+            CH05_Carcass_GeneralFemale2_Normal_00,
+            CH05_Carcass_GeneralMale1_WP2_Normal_00,
+            CH05_Carcass_GeneralMale2_Normal_00,
+            CH05_Carcass_GeneralFemale1_Normal_00,
+            CH05_Carcass_GeneralMale2_WP2_Normal_00,
+            CH05_Carcass_GeneralMale1_Normal_00,
+            CH06_Puppet_BabyDoll_Normal_00,
+            CH06_Puppet_Marionette_Normal_00,
+            CH06_Puppet_Bomber_Normal_00,
+            CH06_Puppet_UpperBody_Normal_00,
+            CH06_Puppet_UpperBody_Float_Normal_00,
+            CH03_Puppet_UpperBody_Proto2_Float_Normal_00,
+            CH03_Puppet_ButtlerMelee_Proto_Normal_00,
+            CH03_Puppet_Marionette_Oil_Normal_00,
+            CH03_Puppet_UpperBody_Proto_Float_Normal_00,
+            CH02_Puppet_ButtlerMidRange_Normal_00
             Empty
 
 
@@ -220,6 +237,7 @@ namespace LiesOfPEnemyRandomizer.src
             public int toughAttackPowerBase;
             public int toughDefencePowerBase;
             public int guardStaminaDamage;
+            public bool? floatOnSpawn;
            
 
         }
@@ -587,6 +605,8 @@ namespace LiesOfPEnemyRandomizer.src
 
              new NpcSpotData{ exportID = 1155, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-52", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH02_RedButterFly_Red_00 },
              new NpcSpotData{ exportID = 1133, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-28", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH02_HelpMate_Exile, npcImportant = true },
+             new NpcSpotData{ exportID = 1133, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-30", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH02_Puppet_ButtlerMidRange_Normal_00, floatOnSpawn = false },
+             new NpcSpotData{ exportID = 1133, spotUniqueID = "Npc-LV_Inner_UpperStreet_DSN-30", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH02_Puppet_ButtlerMidRange_Normal_00, floatOnSpawn = false },
         };
 
         //CHAPTER 03
@@ -609,6 +629,17 @@ namespace LiesOfPEnemyRandomizer.src
                  new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-34", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_ButtlerMidRange_Normal_01, npcImportant = true },
                  new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-30", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_ButtlerMidRange_Normal_01, npcImportant = true },
                  new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-19", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_ButtlerMidRange_Normal_01, npcImportant = true },
+
+                 //FLOATERS
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-11", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_UpperBody_Proto_Float_Normal_00, floatOnSpawn = false },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-15", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_UpperBody_Proto2_Float_Normal_00, floatOnSpawn = false },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-20_3", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_UpperBody_Proto2_Float_Normal_00, floatOnSpawn = false },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-22", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_ButtlerMelee_Proto_Normal_00, floatOnSpawn = false },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-24", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_ButtlerMelee_Proto_Normal_00, floatOnSpawn = false },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-46", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Marionette_Oil_Normal_00, floatOnSpawn = false },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-49", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_UpperBody_Proto_Float_Normal_00, floatOnSpawn = false },
+                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-8", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Marionette_Oil_Normal_00, floatOnSpawn = false },
+
         };
             
     
@@ -647,12 +678,12 @@ namespace LiesOfPEnemyRandomizer.src
         {
              //BLACK RABBIT BROTHERHOOD
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-1", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_Female_Boss_00, npcImportant = true},
-            
-            
+
+
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-2", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_StrongMale_Boss_00, healthPower=8813,physicalPower=242,physicalDefence=0,
                 physicalSlashDefence=0,physicalStrikeDefence=0,physicalPierceDefence=0,physicalReduce=0,physicalSlashReduce=0,physicalStrikeReduce=0,physicalPierceReduce=0,tough=125, toughRestoreBase=7, toughAttackPowerBase=0,toughDefencePowerBase=0,guardStaminaDamage=56},
-            
-            
+
+
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-3", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_NormalMale_Boss_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-4", npcType = NpcType.Boss, spotCodeNameOriginal = SpotCodeName.CH05_Stalker_BRabbit_TallMale_Boss_00, npcImportant = true },
 
@@ -664,6 +695,18 @@ namespace LiesOfPEnemyRandomizer.src
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-38", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH05_HelpMate_Exile, npcImportant = true},
             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-42", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_Tyrant_Elite_NoRespawn_00, npcImportant = true},
             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-54", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_HammerArm_Named_00, npcImportant = true},
+
+            //FLOATING SPAWNS
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-36", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralMale1_WP_Normal_00, floatOnSpawn = false},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-62", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralMale2_Normal_00, floatOnSpawn = false},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-68", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralMale1_Normal_00, floatOnSpawn = false},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-79", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralFemale1_Normal_00, floatOnSpawn = false},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-83", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralMale2_WP2_Normal_00, floatOnSpawn = false},
+            //CLIMBERS
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-89_6", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralFemale1_Normal_00, floatOnSpawn = false},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-96", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralMale1_Normal_00, floatOnSpawn = false},
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-97", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_GeneralMale2_Normal_00, floatOnSpawn = false},
+
         };
 
         //CHAPTER 06
@@ -693,6 +736,21 @@ namespace LiesOfPEnemyRandomizer.src
              //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-51", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_SpiderLady_Elite_00, npcImportant = true },
              //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-49", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_SpiderLady_Elite_00, npcImportant = true },
 
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-13", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Bomber_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-21", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_BabyDoll_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-2_0", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Marionette_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-3_1", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Marionette_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-52", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Bomber_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-60", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_UpperBody_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-61", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Marionette_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-62", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Marionette_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-63", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_UpperBody_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-66", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Marionette_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-67", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Marionette_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-69", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_UpperBody_Float_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-71", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_Marionette_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-91", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_UpperBody_Float_Normal_00, floatOnSpawn = false },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_EastEndWard_DSN-94", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH06_Puppet_UpperBody_Float_Normal_00, floatOnSpawn = false },
 
 
 
