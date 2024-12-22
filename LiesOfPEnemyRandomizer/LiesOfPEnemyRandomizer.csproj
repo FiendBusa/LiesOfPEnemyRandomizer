@@ -88,6 +88,7 @@
     <AvaloniaResource Remove="Assets\pakchunk0_s4\LiesofP\Content\MapRelease\LV_OuterKrat\LV_CentralStation\LD_Outer_Station_DSN-Original.umap" />
     <AvaloniaResource Remove="Assets\PatchRewardInfo.uasset" />
     <AvaloniaResource Remove="Assets\PatchRewardInfo.uexp" />
+    <AvaloniaResource Remove="Assets\sfx_clock.wav" />
     <AvaloniaResource Remove="Assets\UnrealPak.exe" />
   </ItemGroup>
 
@@ -136,11 +137,11 @@
     <EmbeddedResource Include="Assets\pakchunk0_s4\LiesofP\Content\MapRelease\LV_OuterKrat\LV_CentralStation\LD_Outer_Station_DSN-Original.umap" />
     <EmbeddedResource Include="Assets\PatchRewardInfo.uasset" />
     <EmbeddedResource Include="Assets\PatchRewardInfo.uexp" />
+    <EmbeddedResource Include="Assets\sfx_clock.wav" />
     <EmbeddedResource Include="Assets\UnrealPak.exe" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.2.1" />
+  <ItemGroup>    <PackageReference Include="Avalonia" Version="11.2.1" />
     <PackageReference Include="Avalonia.Desktop" Version="11.2.1" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.1" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.1" />
@@ -150,6 +151,7 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="System.Windows.Extensions" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>

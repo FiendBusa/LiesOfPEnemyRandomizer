@@ -28,24 +28,24 @@
     <TabControl Background="#2C2C3E" Foreground="#F0F0F0" Margin="10,60,10,10" BorderBrush="#4A4A6A" BorderThickness="1">
 
       <!-- Tab 1: Enemies -->
-      <TabItem Header="Enemies">
+      <TabItem Header="General">
         <StackPanel Margin="20" Spacing="15">
-          <TextBlock Text="Hover Mouse Over Items For Explanation" FontSize="20" FontWeight="Bold" Foreground="#F0F0F0" Margin="0,0,0,10"/>
+          <TextBlock Text="{Binding TxtMain}" FontSize="20" FontWeight="Bold" Foreground="#F0F0F0" Margin="0,0,0,10"/>
           <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
             <StackPanel Orientation="Horizontal" Spacing="10">
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludePuppets}" Content="Include Puppets" FontSize="16" Foreground="#F0F0F0"/>
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludeCarcass}" Content="Include Carcass" FontSize="16" Foreground="#F0F0F0"/>
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludeReborner}" Content="Include Reborner" FontSize="16" Foreground="#F0F0F0"/>
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossStalker}" Content="Include Stalker" FontSize="16" Foreground="#F0F0F0"/>
-              <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossPuppet}" Content="Include MiniBoss Puppets" FontSize="16" Foreground="#F0F0F0"/>
-              <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossReborner}" Content="Include MiniBoss Reborner" FontSize="16" Foreground="#F0F0F0"/>
+              <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossPuppet}" Content="Include Clowns and Puppet of Future" FontSize="16" Foreground="#F0F0F0"/>
+              <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossReborner}" Content="Include Walker of Illusion" FontSize="16" Foreground="#F0F0F0"/>
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossCarcass}" Content="Include Door Guardian" FontSize="16" Foreground="#F0F0F0"/>
             </StackPanel>
             <ToolTip.Tip>Checked: Enemy type will be added to the pool&#xD;&#xA;Unchecked: Enemy type will be excluded from the pool (I.E if you uncheck Include Puppets, when enemies are being randomized, no enemies will be randomized into a puppet</ToolTip.Tip>
           </Border>
           <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
-            <CheckBox IsEnabled="False" Content="Faction Protection" FontSize="16" Foreground="#F0F0F0"/>
-            <ToolTip.Tip>Prevents different factions from attacking each other.</ToolTip.Tip>
+            <CheckBox IsEnabled="True" IsChecked="{Binding FactionProtection}" Content="Faction Protection (NPC vs NPC)" FontSize="16" Foreground="#F0F0F0"/>
+            <ToolTip.Tip>Prevents enemy types from attacking each other.</ToolTip.Tip>
           </Border>
           <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
             <StackPanel Orientation="Horizontal" Spacing="10">
@@ -87,19 +87,12 @@
             <CheckBox IsEnabled="True" IsChecked="{Binding OuterStationBossSkip}" Content="Spawn Spectre in CH1 for assistance" FontSize="16" Foreground="#F0F0F0"/>
             <ToolTip.Tip>The first enemy after selecting weapon and opening door will be a friendly spectre that will assist you</ToolTip.Tip>
           </Border>
-          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
-            <CheckBox IsEnabled="False" IsChecked="True" Content="Enable Item Drops" FontSize="16" Foreground="#F0F0F0"/>
-            <ToolTip.Tip>Enables Item Drops</ToolTip.Tip>
-          </Border>
-          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
-            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeDrops}" Content="Randomize World and Enemy Drops (Very Early Test Build) (Quartz are 10% drop rate and will stop dropping after 27)" FontSize="16" Foreground="#F0F0F0"/>
-            <ToolTip.Tip>Quartz are dropped by both NPC and World Items. Max 27 can be spawned in. World Items, if a quartz is selected, will be given alongside the randomized item</ToolTip.Tip>
-          </Border>
         </StackPanel>
       </TabItem>
 
       <!-- Tab 2: Bosses -->
       <TabItem Header="Bosses">
+        <ToolTip.Tip>Checked bosses will be randomized. (I.E if you only choose Parade master and raxasia, bosses will be randomized into either parade master or raxasia</ToolTip.Tip>
         <StackPanel Margin="20" Spacing="15">
           <TextBlock Text="Boss Randomization" FontSize="20" FontWeight="Bold" Foreground="#F0F0F0" Margin="0,0,0,10"/>
           <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
@@ -113,6 +106,65 @@
         </StackPanel>
       </TabItem>
 
+      <!-- Tab 3: Item Randomizer -->
+      <TabItem Header="Item Drops">
+        <StackPanel Margin="20" Spacing="15">
+          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
+            <CheckBox IsEnabled="False" IsChecked="True" Content="Enable Item Drops" FontSize="16" Foreground="#F0F0F0"/>
+            <ToolTip.Tip>Enables Item Drops</ToolTip.Tip>
+          </Border>
+          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
+            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeDrops}" Content="Randomize World and Enemy Drops" FontSize="16" Foreground="#F0F0F0"/>
+            <ToolTip.Tip>
+              Quartz have a 10% drop rate 
+              STACK = WORLD DROPS | NO STACK = NPC DROPS
+              UPGRADE MATERIAL STACK = WORLD DROPS | NO STACK = NPC DROPS           
+            </ToolTip.Tip>
+          </Border>
+          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
+            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeDropsNpcImportantItemMaxPercent}" Content="(NPC DROPS) Force Combat Gear to 100% Drop Rate" FontSize="16" Foreground="#F0F0F0"/>
+            <ToolTip.Tip>
+              NPCs have a drop rate between 1-100%. Checking this option ensure the following items are always set to a 100% drop rate
+              Weapon Handle
+              Weapon Blade
+              SlaveArm
+              Masks
+              Amulets
+              Frame
+              Liner
+              Converter
+              Cartridge
+              Krat BlackBox
+              Grinder
+            </ToolTip.Tip>
+          </Border>
+          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
+            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeDropsNpcBalancePercent}" Content="(NPC DROPS) Balance Drop Rates" FontSize="16" Foreground="#F0F0F0"/>
+            <ToolTip.Tip>
+              Since some NPCs can have a 100% drop rate and can be randomized to hold items such as high value ERGO (I.E Boss)
+              This will reduce the drop percent of OP items by x% if the original droprate is 70% or higher.
+              Items affected
+              Consume_ProtectDropErgo_3L (+10,000) - 30%
+              Consume_ProtectDropErgo_2L (+7000) - 30%
+              Consume_ProtectDropErgo_1L (+5000) - 30%
+              Nameless Puppet's Ergo - 40%
+              Parade Leader's Ergo - 40%
+              Broken Hero's Ergo - 40%
+              King's Flame Ergo - 40%
+              Twisted Angel's Ergo - 40%
+              Burnt-White King's Ergo - 40%
+              Reborn Champion's Ergo - 40%
+              Puppet-Devouring Green Hunter's Ergo - 40%
+              Brother Avenger's Ergo - 40%
+              Sad Clown's Ergo - 40%
+              Sad Zealot's Ergo - 40%
+              Fallen One's Ergo - 40%
+              StarFragment	- 20%
+            </ToolTip.Tip>
+          </Border>
+        </StackPanel>
+      </TabItem>
+ 
       <!-- Remaining Tabs -->
       <!-- The rest of the tabs follow the same structure, with all CheckBoxes having IsEnabled="False" -->
     </TabControl>
@@ -123,7 +175,7 @@
       <TextBox Text="{Binding Seed, Mode=TwoWay}" Width="200" Margin="10,0,0,0" Background="#3A3A3A" Foreground="#FFFFFF"/>
       <TextBlock Text="Share and use the same options when the seed was initially generated" VerticalAlignment="Center" FontSize="16" Foreground="#F0F0F0"/>
       <!--    <Button IsEnabled="False" Content="Generate Seed" Width="118" Margin="10,0,0,0" Background="#4A4A6A" Foreground="#FFFFFF"/> -->
-      <Button Content="Randomize" Command="{Binding ButtonRandomizedClicked}" Width="120" Background="#F0A500" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="10,0,0,0"/>
+      <Button Content="Randomize" IsEnabled="{Binding BtnRandomizedEnabled}" Command="{Binding ButtonRandomizedClicked}" Width="120" Background="#F0A500" Foreground="#FFFFFF" HorizontalAlignment="Right" Margin="10,0,0,0"/>
     </DockPanel>
   </Grid>
 </Window>

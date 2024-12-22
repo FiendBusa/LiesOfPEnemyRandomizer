@@ -56,7 +56,10 @@ namespace LiesOfPEnemyRandomizer.src
         bFloatingStateOnSpawn,
         SpotCodeName,
         BossRoom,
-        BossNpcCodeName
+        bAIPauseOnSpawn,
+        BossNpcCodeName,
+        _NpcSkillLinkInfo,
+        _PackageConfigureInfo_array
     };
 
     public class FileHandler
@@ -298,16 +301,19 @@ namespace LiesOfPEnemyRandomizer.src
             return Directory.GetFiles(tempPath, "*.umap", SearchOption.AllDirectories);
         }
 
+        public void OpenDirectory(string path)
+        {
+            try
+            {
+                if (Directory.Exists(path))
+                {
+                    Process.Start(GlobalStrings.explorer, path);
+                }
+            }
+            catch (Exception ex) { Debug.WriteLine(ex.Message); return; }
+        }
 
-
-
-
-
-
-
-
-        
-       
+          
 
         bool DeleteTempDir()
         {

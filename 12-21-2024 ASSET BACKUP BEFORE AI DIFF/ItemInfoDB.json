@@ -1653,27 +1653,27 @@
             "Id": "Consume_ProtectDropErgo_3L",
             "Name": "Obtain Ergo +10,000",
             "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_4L",
+            "Name": "Obtain Ergo +15,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_5L",
+            "Name": "Obtain Ergo +25,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_6L",
+            "Name": "Obtain Ergo +35,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_7L",
+            "Name": "Obtain Ergo +50,000",
+            "Category": "Generic Hard Ergo"
         }
-        //{
-        //    "Id": "Consume_ProtectDropErgo_4L",
-        //    "Name": "Obtain Ergo +15,000",
-        //    "Category": "Generic Hard Ergo"
-        //},
-        //{
-        //    "Id": "Consume_ProtectDropErgo_5L",
-        //    "Name": "Obtain Ergo +25,000",
-        //    "Category": "Generic Hard Ergo"
-        //},
-        //{
-        //    "Id": "Consume_ProtectDropErgo_6L",
-        //    "Name": "Obtain Ergo +35,000",
-        //    "Category": "Generic Hard Ergo"
-        //},
-        //{
-        //    "Id": "Consume_ProtectDropErgo_7L",
-        //    "Name": "Obtain Ergo +50,000",
-        //    "Category": "Generic Hard Ergo"
-        //}
     ],
     "Boss Hard Ergo": [
         {
@@ -1857,11 +1857,11 @@
             "Name": "Gold Coin Fruit",
             "Category": "General"
         },
-        //{
-        //    "Id": "Consume_Rechargeable_1",
-        //    "Name": "Pulse Cell",
-        //    "Category": "General"
-        //},
+        {
+            "Id": "Consume_Rechargeable_1",
+            "Name": "Pulse Cell",
+            "Category": "General"
+        },
         {
             "Id": "Consume_Monard_bless",
             "Name": "Cube",
@@ -1872,11 +1872,11 @@
             "Name": "Grinder",
             "Category": "General"
         },
-        //{
-        //    "Id": "Consume_Monard_Lamp",
-        //    "Name": "Monad's Lamp",
-        //    "Category": "General"
-        //},
+        {
+            "Id": "Consume_Monard_Lamp",
+            "Name": "Monad's Lamp",
+            "Category": "General"
+        },
         {
             "Id": "Consume_ReturnClockE",
             "Name": "Moonphase Pocket Watch",

@@ -5,12 +5,16 @@ using LiesOfPEnemyRandomizer.src;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Tmds.DBus.Protocol;
 using UAssetAPI;
 using UAssetAPI.ExportTypes;
 using UAssetAPI.PropertyTypes.Objects;
 using UAssetAPI.UnrealTypes;
 using UAssetAPI.Unversioned;
+
+
 
 namespace LiesOfPEnemyRandomizer.ViewModels
 {
@@ -241,6 +245,75 @@ namespace LiesOfPEnemyRandomizer.ViewModels
                 }
             }
         }
+        private bool _btnRandomizeEnabled;
+        public bool BtnRandomizedEnabled
+        {
+            get => _btnRandomizeEnabled;
+            set
+            {
+                if(_btnRandomizeEnabled != value)
+                {
+                    _btnRandomizeEnabled = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _btnRandomizeText;
+        public string BtnRandomizeText
+        {
+            get => _btnRandomizeText;
+            set
+            {
+                if(_btnRandomizeText != value)
+                {
+                    _btnRandomizeText = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private string _txtMain;
+        public string TxtMain
+        {
+            get => _txtMain;
+            set
+            {
+                if(_txtMain != value)
+                {
+                    _txtMain = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private bool _randomizeDropsNpcImportantItemMaxPercent;
+        public bool RandomizeDropsNpcImportantItemMaxPercent
+        {
+            get => _randomizeDropsNpcImportantItemMaxPercent;
+            set
+            {
+                if (_randomizeDropsNpcImportantItemMaxPercent != value)
+                {
+                    _randomizeDropsNpcImportantItemMaxPercent = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _randomizeDropsNpcBalancePercent;
+        public bool RandomizeDropsNpcBalancePercent
+        {
+            get => _randomizeDropsNpcBalancePercent;
+            set
+            {
+                if (_randomizeDropsNpcBalancePercent != value)
+                {
+                    _randomizeDropsNpcBalancePercent = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+        SoundHandler soundHandler;
 
         public MainWindowViewModel()
         {
@@ -256,55 +329,92 @@ namespace LiesOfPEnemyRandomizer.ViewModels
             WanderingBoss = false;
             ScaleBossLvl = true;
             RandomizeDrops = true;
-
+            BtnRandomizedEnabled = true;
+            FactionProtection = true;
+            RandomizeDropsNpcImportantItemMaxPercent = true;
+            RandomizeDropsNpcBalancePercent = true;
+            TxtMain = GlobalStrings.txtMainDefault;
+            soundHandler = new SoundHandler();
 
         }
 
 
         async void OnButtonRandomizedClicked()
         {
-            //SUPER EARLY NASTY TEST CODE FOR ITEM/NPC DROP LoL
-            string tempPath = System.IO.Path.GetTempPath();
-            FileHandler fileHandler = new FileHandler(tempPath);
-            await fileHandler.CopyResource(GlobalStrings.itemDB, tempPath, GlobalStrings.itemDB);
+            BtnRandomizedEnabled = false;
+            TxtMain = GlobalStrings.txtRandomizerStart;
 
-            tempPath = Path.Combine(tempPath, GlobalStrings.itemDB);
             ItemDataBase itemsAll = new ItemDataBase();
-
-            if (File.Exists(tempPath))
+            try
             {
-                itemsAll = ItemDataBase.LoadItems(tempPath);
-            }
+                //SUPER EARLY NASTY TEST CODE FOR ITEM/NPC DROP LoL
+                if (RandomizeDrops)
+                {
+                    string tempPath = System.IO.Path.GetTempPath();
+                    FileHandler fileHandler = new FileHandler(tempPath);
+                    await fileHandler.CopyResource(GlobalStrings.itemDB, tempPath, GlobalStrings.itemDB);
 
-            
+                    tempPath = Path.Combine(tempPath, GlobalStrings.itemDB);
+                    itemsAll = new ItemDataBase();
+
+                    if (File.Exists(tempPath))
+                    {
+                        itemsAll = ItemDataBase.LoadItems(tempPath);
+                    }
+                }
 
 
+                //UNCOMMENT AFTER DONE TESTING ITEM RANDOMIZER
+                Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss, WanderingBossChance, itemsAll, RandomizeDrops, FactionProtection, RandomizeDropsNpcBalancePercent, RandomizeDropsNpcImportantItemMaxPercent);
 
-            //UNCOMMENT AFTER DONE TESTING ITEM RANDOMIZER
-            Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss, WanderingBossChance, itemsAll, RandomizeDrops);
+              
+                randomizer.LogUpdated += (message) =>
+                {
+                
+                    TxtMain = message;
+                };
 
-            randomizer.ScaleBosses = ScaleBossLvl;
-            randomizer.skipChp1Boss = OuterStationBossSkip;
 
-            int mySeed;
+                randomizer.ScaleBosses = ScaleBossLvl;
+                randomizer.skipChp1Boss = OuterStationBossSkip;
 
-            if (!String.IsNullOrEmpty(Seed) && int.TryParse(Seed, out mySeed))
-            {
+                int mySeed;
+
+                if (!String.IsNullOrEmpty(Seed) && int.TryParse(Seed, out mySeed))
+                {
+                    Seed = mySeed.ToString();
+                    await Task.Run(() => randomizer.RandomizeEnemies(mySeed, OuterStationBossSkip));
+                    BtnRandomizedEnabled = true;
+                    TxtMain = GlobalStrings.txtRandomizerFinish;
+                    soundHandler.PlayResourceSound(GlobalStrings.sfxClock);
+                    return;
+                }
+
+                mySeed = randomizer.GenerateSeed();
                 Seed = mySeed.ToString();
-                await randomizer.RandomizeEnemies(mySeed, OuterStationBossSkip);
-                return;
+
+                await Task.Run(() => randomizer.RandomizeEnemies(mySeed, OuterStationBossSkip));
+                BtnRandomizedEnabled = true;
+                TxtMain = GlobalStrings.txtRandomizerFinish;
+                soundHandler.PlayResourceSound(GlobalStrings.sfxClock);
+
             }
+            catch (Exception ex)
+            {
+                BtnRandomizedEnabled = true;
+                TxtMain = $"Error: {ex.Message}";
 
-            mySeed = randomizer.GenerateSeed();
-            Seed = mySeed.ToString();
 
-            await randomizer.RandomizeEnemies(mySeed, OuterStationBossSkip);
-
-
+            }
         }
-
+       
     }
 }
+
+
+           
+
+
 
 
 

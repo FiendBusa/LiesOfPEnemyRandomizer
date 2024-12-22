@@ -253,11 +253,37 @@ namespace LiesOfPEnemyRandomizer.src
             "CH11_Stalker_BRabbit_Female_Boss_00"
         };
 
+        public static readonly List<string> npcDontReshuffle = new List<string>()
+        {
+            "CH02_Stalker_MadStalker_00",
+            "CH03_Stalker_SurvivorStalker_00",
+            "CH04_Stalker_PilgrimStalker_00",
+            "CH06_Stalker_WhiteStalker_00",
+            "CH08_Stalker_ArmySurgeon_00",
+            "CH09_Stalker_Weasel_00",
+            "CH12_Stalker_Cat_00",
+            "CH13_Stalker_Fox_00",
+            "CH03_Puppet_Tomorrow_Seed_00",
+            "CH12_Carcass_Tyrant_Elite_00",
+            "CH05_Carcass_Tyrant_Elite_NoRespawn_00",
+            "CH08_Carcass_CarcassSM_Elite_00",
+            "CH08_Carcass_OneArmed_Shield_Named_00",
+            "CH04_Carcass_OneArmed_Shield_Named_00",
+            "CH12_Carcass_FourFootPoison_Normal_00",
+            "CH12_Carcass_FourFootBig_Elite_00",
+            "CH12_Carcass_FourFootBlade_Elite_00",
+            "CH05_Carcass_HammerArm_Named_00",
+            "CH07_Carcass_HammerArm_Named_00",
+            "CH07_Puppet_LaborDrill_Elite_NoRespawn_00",
+            "CH06_Puppet_Clown_Seed_00",
+            "CH08_Puppet_FailDoll_Named_01",
+            "CH08_Puppet_Clown_Proto_Named_00",
+            "CH12_Puppet_FailDoll_Named_00",
+
+        };
 
 
 
-
-        //RESUME CHAPTER 8 I DIDNT DO ANY IN CHAPTER 8
         public static readonly Dictionary<NpcType, string[]> Npc = new Dictionary<NpcType, string[]>
         {
             { NpcType.Boss, new[]{
@@ -265,41 +291,33 @@ namespace LiesOfPEnemyRandomizer.src
             "CH02_Puppet_Judge_Boss_00",
             "CH03_Puppet_FireEater_Boss_00",
             "CH04_Carcass_FallenArchBishop_Boss_00",
-            "CH04_Carcass_FallenArchBishop_Boss_01",
-            //Black Rabbit Human
-            //"CH05_Stalker_BRabbit_Female_Boss_00",
-            //"CH05_Stalker_BRabbit_NormalMale_Boss_00",
-            "CH05_Stalker_BRabbit_StrongMale_Boss_00",
-            //"CH05_Stalker_BRabbit_TallMale_Boss_00",
-
+            "CH04_Carcass_FallenArchBishop_Boss_01",          
+            "CH05_Stalker_BRabbit_StrongMale_Boss_00",          
             "CH06_Puppet_PuppetKing_Boss_00",
             "CH06_Puppet_PuppetKingP3_Boss_00",
-
             "CH07_Reborner_Victor_Boss_00",
             "CH07_Reborner_Victor_Boss_01",
-
             "CH08_Carcass_GreenHunter_Fusion_Boss_00",
             "CH08_Carcass_GreenHunter_Main_Boss_00",
-
-            //CARCASS PARADE MASTER
             "CH09_Carcass_GraveKeeper_Seed_00",
-
-            //Black Rabbit Carcass
-            //"CH11_Stalker_BRabbit_Female_Boss_00",
-            //"CH11_Stalker_BRabbit_NormalMale_Boss_00",
-            //"CH11_Stalker_BRabbit_StrongMale_Boss_00",
-            //"CH11_Stalker_BRabbit_TallMale_Boss_00",
-
+            "CH11_Stalker_BRabbit_StrongMale_Boss_00",
             "CH12_Reborner_Raxasia_Boss_00",
             "CH12_Reborner_Raxasia_Boss_01",
-
             "CH13_Puppet_1stPinoccio_Boss_00",
             "CH13_Puppet_1stPinoccio_Boss_P2_00",
-
             "CH13_Reborner_Simon_Boss_00",
             "CH13_Reborner_Simon_Boss_01",
+           //Black Rabbit Human
+            //"CH05_Stalker_BRabbit_Female_Boss_00",
+            //"CH05_Stalker_BRabbit_NormalMale_Boss_00",
+            //"CH05_Stalker_BRabbit_TallMale_Boss_00",
+              //"CH11_Stalker_BRabbit_Female_Boss_00",
+            //"CH11_Stalker_BRabbit_NormalMale_Boss_00",
+             //"CH11_Stalker_BRabbit_TallMale_Boss_00",
+
 
             } },
+
             {NpcType.MiniBossStalker, new[]{
             //"Stalker_MadStalker_00",
             //"Stalker_SurvivorStalker_00",
@@ -328,11 +346,11 @@ namespace LiesOfPEnemyRandomizer.src
             //"CH11_Stalker_BRabbit_TallMale_Boss_00",
             } },
             {NpcType.MiniBossPuppet, new[]{
-            //"CH03_Puppet_Tomorrow_Seed_00",//ORIGINAL SCALE IS 110
+            "CH03_Puppet_Tomorrow_Seed_00",//ORIGINAL SCALE IS 110
             "CH06_Puppet_Clown_Seed_00",
             "CH08_Puppet_FailDoll_Named_01",
             "CH08_Puppet_Clown_Proto_Named_00",
-             "CH12_Puppet_FailDoll_Named_00"//ORIGINAL SIZE is 70
+            "CH12_Puppet_FailDoll_Named_00",//ORIGINAL SIZE is 70
             //"CH08_Puppet_Tomorrow_Electronic_Named_00",
 
 
@@ -399,12 +417,12 @@ namespace LiesOfPEnemyRandomizer.src
             "CH03_Puppet_UpperBody_Proto2_Float_Normal_00",
             "CH03_Puppet_UpperBody_Proto_Float_Normal_00",
             "CH04_Puppet_ButtlerMelee_MidRange_Normal_00",
-            //"CH04_Puppet_ButtlerMidRange_ArmLess_NoRespawn_Normal_00",
+            "CH04_Puppet_ButtlerMidRange_ArmLess_NoRespawn_Normal_00",
             "CH04_Puppet_ButtlerMidRange_ArmLess_Normal_00",
-            //"CH04_Puppet_ButtlerMidRange_HeadLess_NoRespawn_Normal_00",
+            "CH04_Puppet_ButtlerMidRange_HeadLess_NoRespawn_Normal_00",
             "CH04_Puppet_ButtlerMidRange_HeadLess_Normal_00",
             "CH04_Puppet_ButtlerMidRange_Normal_00",
-            //"CH04_Puppet_ButtlerMidRange_Normal_NoRespawn_00",
+            "CH04_Puppet_ButtlerMidRange_Normal_NoRespawn_00",
             "CH04_Puppet_ButtlerThrower_MidRange_HeadLess_Normal_00",
             "CH04_Puppet_ButtlerThrower_MidRange_HeadTurn_Normal_00",
             "CH04_Puppet_ButtlerThrower_MidRange_Normal_00",
@@ -461,7 +479,7 @@ namespace LiesOfPEnemyRandomizer.src
             "CH09_Puppet_ButtlerMelee_Proto2_Normal_00",
             "CH09_Puppet_ButtlerMelee_Proto3_Normal_00",
             "CH09_Puppet_ShamDuo_Elite_01",
-            //"CH09_Puppet_UpperBody_Normal_TF",
+            "CH09_Puppet_UpperBody_Normal_TF",
             "CH11_Puppet_ButtlerMelee_MidRange_Normal_00",
             "CH11_Puppet_ButtlerMidRange_Normal_00",
             "CH11_Puppet_Captain_Named_00",
@@ -622,7 +640,7 @@ namespace LiesOfPEnemyRandomizer.src
                  new NpcSpotData{ exportID = 1534, spotUniqueID = "Npc-LV_Inner_Factory_DSN-70", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_00, npcImportant = true },
                  new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-18", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH03_RedButterFly_Red_01, npcImportant = true },
                  //new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-4", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireStoker_Named_00, npcImportant = true },
-                 new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-68", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireStoker_Named_01, npcImportant = true },
+                 //new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-68", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_FireStoker_Named_01, npcImportant = true },
                  //new NpcSpotData{ exportID = 1485, spotUniqueID = "Npc-LV_Inner_Factory_DSN-88", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH03_Puppet_Horseman_Wheel_Elite_00, npcImportant = true },
 
                  //BRIDGE CLIMBERS
@@ -690,7 +708,7 @@ namespace LiesOfPEnemyRandomizer.src
             //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-14", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_MutantBear_Elite_00, npcImportant=true},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-17", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH05_RedButterFly_Purple_00,npcImportant = true},
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-23", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_CarcassSM_Named_00, npcImportant = true},
+            //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-23", npcType = NpcType.Carcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_CarcassSM_Named_00, npcImportant = true},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-33", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH05_RedButterFly_Red_00, npcImportant = true},
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-38", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH05_HelpMate_Exile, npcImportant = true},
             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Krat_Old_Town_DSN-42", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH05_Carcass_Tyrant_Elite_NoRespawn_00, npcImportant = true},
@@ -772,7 +790,7 @@ namespace LiesOfPEnemyRandomizer.src
 
              //MARKED AS IMPORTANT NPC ORIGINALLY (SO IF ITS FALSE THAT MEANS NO ISSUE WITH RANDOMIZING, REVERT TO TRUE IF CAUSING SOFT LOCKS (KEY ITEMS)
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-102", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH07_RedButterFly_Purple_00, npcImportant = true },
-             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-122", npcType = NpcType.Reborner, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Muscular_Named_00, npcImportant = true },
+             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-122", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH07_Reborner_Muscular_Named_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-16", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH07_RedButterFly_Orange_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-21", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH07_RedButterFly_Red_01, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Exhibition_DSN-23", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH07_HelpMate_Exile, npcImportant = true },
@@ -808,7 +826,7 @@ namespace LiesOfPEnemyRandomizer.src
             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-14", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH08_Carcass_OneArmed_Shield_Named_00, npcImportant = true },
             
             //SOFTLOCK NEED TO KEEP
-            //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-18", npcType = NpcType.MiniBossPuppet, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_Clown_Proto_Named_00, npcImportant = true },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-18", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_Clown_Proto_Named_00, npcImportant = true },
             
             
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-2", npcType = NpcType.Projectile, spotCodeNameOriginal = SpotCodeName.CH08_Structure_Missile_Normal_00, npcImportant = true },
@@ -823,7 +841,7 @@ namespace LiesOfPEnemyRandomizer.src
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-80", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_00, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-84", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_01, npcImportant = true },
             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-89", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH08_RedButterFly_Red_02, npcImportant = true },
-            //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-99", npcType = NpcType.Puppet, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_FailDoll_Named_01, npcImportant = true },
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Grave_DSN-99", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH08_Puppet_FailDoll_Named_01, npcImportant = true },
 
 
         };
@@ -845,9 +863,13 @@ namespace LiesOfPEnemyRandomizer.src
              //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-22", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_FourFootBig_Named_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-45", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH09_RedButterFly_Orange_00, npcImportant = true },
              //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-62", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_OneArmed_Named_00, npcImportant = true },
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-72", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_GeneralLeader_Named_00, npcImportant = true },
+             //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-72", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_GeneralLeader_Named_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-74", npcType = NpcType.MiniBossStalker, spotCodeNameOriginal = SpotCodeName.CH09_Stalker_Weasel_00, npcImportant = true },
-             new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-90", npcType = NpcType.MiniBossReborner, spotCodeNameOriginal = SpotCodeName.CH09_Reborner_Illusion_Seed_00, npcImportant = true },
+             
+            
+            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-90", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH09_Reborner_Illusion_Seed_00, npcImportant = true },
+             
+             
              //new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-122", npcType = NpcType.MiniBossCarcass, spotCodeNameOriginal = SpotCodeName.CH09_Carcass_GraveKeeper_Seed_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-14", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH09_RedButterFly_Red_00, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_CentralStatinB_DSN-2", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH09_RedButterFly_Purple_00, npcImportant = true },
@@ -877,7 +899,7 @@ namespace LiesOfPEnemyRandomizer.src
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-42", npcType = NpcType.HelpMate, spotCodeNameOriginal = SpotCodeName.CH11_HelpMate_Exile, npcImportant = true },
              new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-43", npcType = NpcType.ButterFly, spotCodeNameOriginal = SpotCodeName.CH11_RedButterFly_Red_02, npcImportant = true },
              
-            new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-46", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH11_Puppet_Captain_Named_00, npcImportant = true },
+           // new NpcSpotData{ exportID = 1501, spotUniqueID = "Npc-LV_Outer_Underdark_DSN-46", npcType = NpcType.Important, spotCodeNameOriginal = SpotCodeName.CH11_Puppet_Captain_Named_00, npcImportant = true },
 
 
         };

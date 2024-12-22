@@ -17,6 +17,50 @@ namespace LiesOfPEnemyRandomizer.src
         [JsonPropertyName("Category")]
         public string Category { get; set; }
     }
+    public static class DropTables
+    {
+        public static readonly Dictionary<string, int> MaterialDropTablePercent = new Dictionary<string, int>
+        {
+              {"Reinforce_Blade_Common_G1", 50},
+              {string.Empty, 1000 },
+              {"Reinforce_Blade_Common_G2", 40},
+              {"Reinforce_Blade_Common_G3", 40},
+              {"Reinforce_Blade_Common_G4", 40},
+              {"Reinforce_Hero_G1", 20},
+              {"Reinforce_Hero_G2", 20}
+        };
+        //I DIDNT WANT TO WASTE TIME RE-DOING THE JSON TO ADD DROP RATE PERCENTAGE SO I JUST DID THIS LoL
+        public static readonly Dictionary<string, int> ImportantDropItemPercent = new Dictionary<string, int>
+        {
+            { "WP_PC", 100 },
+            { "SlaveArm", 100 },
+            { "AC_", 100 },
+            { "part_", 100 },
+            { "Krat_BlackBox", 100 },
+            { "Grinder", 100 }
+        };
+
+        public static readonly Dictionary<string, int> ItemDropPercentReductions = new Dictionary<string, int>
+        {
+            { "Consume_ProtectDropErgo_3L", 30 },
+            { "Consume_ProtectDropErgo_2L", 30 },
+            { "Consume_ProtectDropErgo_1L", 30 },
+            { "CH00_Boss_Ergo", 30 },
+            { "CH01_Boss_Ergo", 30 },
+            { "CH02_Boss_Ergo", 30 },
+            { "CH03_Boss_Ergo", 30 },
+            { "CH04_Boss_Ergo", 30 },
+            { "CH05_Boss_Ergo", 30 },
+            { "CH06_Boss_Ergo", 30 },
+            { "CH07_Boss_Ergo", 30 },
+            { "CH08_Boss_Ergo", 30 },
+            { "CH09_Boss_Ergo", 30 },
+            { "CH11_Boss_Ergo", 30 },
+            { "CH12_Boss_Ergo", 30 },
+            { "CH13_Boss_Ergo", 30 },
+            { "Helpmate_Material", 30 }
+        };
+    }
 
     public class ItemDataBase
     {
@@ -95,6 +139,7 @@ namespace LiesOfPEnemyRandomizer.src
         [JsonPropertyName("HeadItems")]
         public List<Item> HeadItems { get; set; }
 
+       
         public static ItemDataBase LoadItems(string filename)
         {
            
