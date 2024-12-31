@@ -21,6 +21,14 @@ namespace LiesOfPEnemyRandomizer.src
         public static readonly string dropKeySlumHouse = "Epic_key_SlumHouse";
         public static readonly string wpPC = "WP_PC";
         public static readonly string quartz = "quartz";
+        public static readonly string NpcLD = "Npc-LD";
+        public static readonly string NpcLV = "Npc-LV";
+        public static readonly string umapFileIndex = ".umap";
+        public static readonly string mappingsFileNameWithExt = "mappings.usmap";
+        public static readonly string handleStartWith = "WP_PC_HND_";
+        public static readonly string bladeStartWith = "WP_PC_BLD_";
+        public static readonly string bossErgo = "Boss_Ergo";
+        public static readonly string dialogMonsterMonologueInfoUasset = "DialogMonsterMonologueInfo.uasset";
 
 
 

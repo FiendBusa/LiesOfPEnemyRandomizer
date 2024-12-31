@@ -24,10 +24,10 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
         public ICommand ButtonRandomizedClicked { get; set; }
 
-        private float _wanderingBossChance;
-        public float WanderingBossChance
+        private double _wanderingBossChance;
+        public double WanderingBossChance
         {
-            get => _wanderingBossChance;
+            get => Math.Round(_wanderingBossChance, 2);
             set
             {
                 if (_wanderingBossChance != value)
@@ -312,6 +312,48 @@ namespace LiesOfPEnemyRandomizer.ViewModels
             }
         }
 
+        private bool _randomizeWorldItemWeaponDropStack;
+        public bool RandomizeWorldItemWeaponDropStack
+        {
+            get => _randomizeWorldItemWeaponDropStack;
+            set
+            {
+                if(_randomizeWorldItemWeaponDropStack != value)
+                {
+                    _randomizeWorldItemWeaponDropStack = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+        private double _randomizeWorldItemWeaponDropStackRate;
+        public double RandomizeWorldItemWeaponDropStackRate
+        {
+            get => Math.Round(_randomizeWorldItemWeaponDropStackRate, 2);
+       
+            set
+            {
+                if (_randomizeWorldItemWeaponDropStackRate != value)
+                {
+                    _randomizeWorldItemWeaponDropStackRate = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private bool _increaseBossAttributes;
+        public bool IncreaseBossAttributes
+        {
+            get => _increaseBossAttributes;
+            set
+            {
+                if (_increaseBossAttributes != value)
+                {
+                    _increaseBossAttributes = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
 
         SoundHandler soundHandler;
 
@@ -335,6 +377,9 @@ namespace LiesOfPEnemyRandomizer.ViewModels
             RandomizeDropsNpcBalancePercent = true;
             TxtMain = GlobalStrings.txtMainDefault;
             soundHandler = new SoundHandler();
+            RandomizeWorldItemWeaponDropStack = false;
+            IncreaseBossAttributes = true;
+            
 
         }
 
@@ -365,7 +410,8 @@ namespace LiesOfPEnemyRandomizer.ViewModels
 
 
                 //UNCOMMENT AFTER DONE TESTING ITEM RANDOMIZER
-                Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss, WanderingBossChance, itemsAll, RandomizeDrops, FactionProtection, RandomizeDropsNpcBalancePercent, RandomizeDropsNpcImportantItemMaxPercent);
+                Randomizer randomizer = new Randomizer(IncludePuppets, IncludeCarcass, IncludeReborner, IncludeMiniBossStalker, IncludeMiniBossPuppet, IncludeBosses, IncludeMiniBossReborner, IncludeMiniBossCarcass, WanderingBoss, WanderingBossChance, itemsAll, RandomizeDrops, FactionProtection, 
+                    RandomizeDropsNpcBalancePercent, RandomizeDropsNpcImportantItemMaxPercent, RandomizeWorldItemWeaponDropStack, RandomizeWorldItemWeaponDropStackRate, IncreaseBossAttributes);
 
               
                 randomizer.LogUpdated += (message) =>

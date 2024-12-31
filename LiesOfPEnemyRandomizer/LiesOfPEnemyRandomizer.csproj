@@ -26,8 +26,12 @@
     <AvaloniaResource Remove="Assets\BP_ItemSpot.uexp" />
     <AvaloniaResource Remove="Assets\BP_NpcSpot.uasset" />
     <AvaloniaResource Remove="Assets\BP_NpcSpot.uexp" />
+    <AvaloniaResource Remove="Assets\DialogMonsterMonologueInfo.uasset" />
+    <AvaloniaResource Remove="Assets\DialogMonsterMonologueInfo.uexp" />
     <AvaloniaResource Remove="Assets\ItemDropInfo.uasset" />
     <AvaloniaResource Remove="Assets\ItemDropInfo.uexp" />
+    <AvaloniaResource Remove="Assets\ItemInfo.uasset" />
+    <AvaloniaResource Remove="Assets\ItemInfo.uexp" />
     <AvaloniaResource Remove="Assets\ItemInfoDB.json" />
     <AvaloniaResource Remove="Assets\ItemPackageInfo.uasset" />
     <AvaloniaResource Remove="Assets\ItemPackageInfo.uexp" />
@@ -89,6 +93,8 @@
     <AvaloniaResource Remove="Assets\PatchRewardInfo.uasset" />
     <AvaloniaResource Remove="Assets\PatchRewardInfo.uexp" />
     <AvaloniaResource Remove="Assets\sfx_clock.wav" />
+    <AvaloniaResource Remove="Assets\SkillInfo.uasset" />
+    <AvaloniaResource Remove="Assets\SkillInfo.uexp" />
     <AvaloniaResource Remove="Assets\UnrealPak.exe" />
   </ItemGroup>
 
@@ -99,8 +105,12 @@
     <EmbeddedResource Include="Assets\BP_ItemSpot.uexp" />
     <EmbeddedResource Include="Assets\BP_NpcSpot.uasset" />
     <EmbeddedResource Include="Assets\BP_NpcSpot.uexp" />
+    <EmbeddedResource Include="Assets\DialogMonsterMonologueInfo.uasset" />
+    <EmbeddedResource Include="Assets\DialogMonsterMonologueInfo.uexp" />
     <EmbeddedResource Include="Assets\ItemDropInfo.uasset" />
     <EmbeddedResource Include="Assets\ItemDropInfo.uexp" />
+    <EmbeddedResource Include="Assets\ItemInfo.uasset" />
+    <EmbeddedResource Include="Assets\ItemInfo.uexp" />
     <EmbeddedResource Include="Assets\ItemInfoDB.json" />
     <EmbeddedResource Include="Assets\ItemPackageInfo.uasset" />
     <EmbeddedResource Include="Assets\ItemPackageInfo.uexp" />
@@ -138,6 +148,8 @@
     <EmbeddedResource Include="Assets\PatchRewardInfo.uasset" />
     <EmbeddedResource Include="Assets\PatchRewardInfo.uexp" />
     <EmbeddedResource Include="Assets\sfx_clock.wav" />
+    <EmbeddedResource Include="Assets\SkillInfo.uasset" />
+    <EmbeddedResource Include="Assets\SkillInfo.uexp" />
     <EmbeddedResource Include="Assets\UnrealPak.exe" />
   </ItemGroup>
 

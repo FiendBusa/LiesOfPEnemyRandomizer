@@ -31,6 +31,7 @@
       <TabItem Header="General">
         <StackPanel Margin="20" Spacing="15">
           <TextBlock Text="{Binding TxtMain}" FontSize="20" FontWeight="Bold" Foreground="#F0F0F0" Margin="0,0,0,10"/>
+          <TextBlock Text="Check out the item drops tab for a new toggle and READ THE PATCH NOTE INCLUDED!!" FontSize="20" FontWeight="Bold" Foreground="#F0F0F0" Margin="0,0,0,10"/>
           <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
             <StackPanel Orientation="Horizontal" Spacing="10">
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludePuppets}" Content="Include Puppets" FontSize="16" Foreground="#F0F0F0"/>
@@ -38,8 +39,8 @@
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludeReborner}" Content="Include Reborner" FontSize="16" Foreground="#F0F0F0"/>
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossStalker}" Content="Include Stalker" FontSize="16" Foreground="#F0F0F0"/>
               <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossPuppet}" Content="Include Clowns and Puppet of Future" FontSize="16" Foreground="#F0F0F0"/>
-              <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossReborner}" Content="Include Walker of Illusion" FontSize="16" Foreground="#F0F0F0"/>
-              <CheckBox IsEnabled="True" IsChecked="{Binding IncludeMiniBossCarcass}" Content="Include Door Guardian" FontSize="16" Foreground="#F0F0F0"/>
+              <CheckBox IsEnabled="False" IsChecked="{Binding IncludeMiniBossReborner}" Content="Include Walker of Illusion" FontSize="16" Foreground="#F0F0F0"/>
+              <CheckBox IsEnabled="False" IsChecked="{Binding IncludeMiniBossCarcass}" Content="Include Door Guardian" FontSize="16" Foreground="#F0F0F0"/>
             </StackPanel>
             <ToolTip.Tip>Checked: Enemy type will be added to the pool&#xD;&#xA;Unchecked: Enemy type will be excluded from the pool (I.E if you uncheck Include Puppets, when enemies are being randomized, no enemies will be randomized into a puppet</ToolTip.Tip>
           </Border>
@@ -63,35 +64,39 @@
             <CheckBox IsEnabled="False" Content="Mini-Boss Protection" FontSize="16" Foreground="#F0F0F0"/>
             <ToolTip.Tip>Prevents puppets and carcasses from being randomized into a mini-boss.</ToolTip.Tip>
           </Border>
-          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
-            <CheckBox IsEnabled="True" IsChecked="{Binding ScaleBossLvl}" Content="Scale Bosses (Will assume values from the original boss being replaced, hover over for more details)" FontSize="16" Foreground="#F0F0F0"/>
-            <ToolTip.Tip>
-              I.E: If SIMON REPLACES PARADE MASTER, SIMON WILL ASSUME THE BELOW VALUES FROM PARADE MASTER 
-              _physical_power
-              _physical_defence
-              _physical_slash_defence
-              _physical_strike_defence
-              _physical_pierce_defence
-              _physical_reduce
-              _physical_slash_reduce
-              _physical_strike_reduce
-              _physical_pierce_reduce
-              _tough
-              _tough_restore_base
-              _tough_attack_power_base
-              _tough_defence_power_base
-              _guard_stamina_damage
-            </ToolTip.Tip>
-          </Border>
+            <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
+              <StackPanel Orientation="Horizontal" Spacing="10">
+              <CheckBox IsEnabled="True" IsChecked="{Binding ScaleBossLvl}" Content="Scale Bosses" FontSize="16" Foreground="#F0F0F0"/>
+              <CheckBox IsEnabled="True" IsChecked="{Binding IncreaseBossAttributes}"  Content="Increase Boss Attributes (Compatible with Scale Bosses and will scale up the stats listed by 40%. Keep checked if you find Scale Bosses too easy on it's own)" FontSize="16" Foreground="#F0F0F0"/>
+              <ToolTip.Tip>
+                I.E: If SIMON REPLACES PARADE MASTER, SIMON WILL ASSUME THE BELOW VALUES FROM PARADE MASTER
+                AND VICE VERSA
+                _physical_power
+                _physical_defence
+                _physical_slash_defence
+                _physical_strike_defence
+                _physical_pierce_defence
+                _physical_reduce
+                _physical_slash_reduce
+                _physical_strike_reduce
+                _physical_pierce_reduce
+                _tough
+                _tough_restore_base
+                _tough_attack_power_base
+                _tough_defence_power_base
+                _guard_stamina_damage
+              </ToolTip.Tip>                              
+          </StackPanel>
+         </Border>
         <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
             <CheckBox IsEnabled="True" IsChecked="{Binding OuterStationBossSkip}" Content="Spawn Spectre in CH1 for assistance" FontSize="16" Foreground="#F0F0F0"/>
-            <ToolTip.Tip>The first enemy after selecting weapon and opening door will be a friendly spectre that will assist you</ToolTip.Tip>
+            <ToolTip.Tip>A friendly spectre will spawn near the pulse cell pickup</ToolTip.Tip>
           </Border>
         </StackPanel>
       </TabItem>
 
       <!-- Tab 2: Bosses -->
-      <TabItem Header="Bosses">
+       <TabItem Header="Bosses">
         <ToolTip.Tip>Checked bosses will be randomized. (I.E if you only choose Parade master and raxasia, bosses will be randomized into either parade master or raxasia</ToolTip.Tip>
         <StackPanel Margin="20" Spacing="15">
           <TextBlock Text="Boss Randomization" FontSize="20" FontWeight="Bold" Foreground="#F0F0F0" Margin="0,0,0,10"/>
@@ -104,7 +109,7 @@
             <ToolTip.Tip>Ensures bosses can only be randomized into other bosses.</ToolTip.Tip>
           </Border>
         </StackPanel>
-      </TabItem>
+      </TabItem> 
 
       <!-- Tab 3: Item Randomizer -->
       <TabItem Header="Item Drops">
@@ -161,6 +166,19 @@
               Fallen One's Ergo - 40%
               StarFragment	- 20%
             </ToolTip.Tip>
+          </Border>
+          <Border Background="#33334D" CornerRadius="5" Padding="10" BorderBrush="#F0A500" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+            <CheckBox IsEnabled="True" IsChecked="{Binding RandomizeWorldItemWeaponDropStack}" Content="(WORLD DROPS) Additional chance of world item dropping random blade and handle" FontSize="16" Foreground="#F0F0F0"/>
+            <Slider IsEnabled="True" Value="{Binding RandomizeWorldItemWeaponDropStackRate}" Minimum="0" Maximum="100" Width="200" Margin="10,0,0,0"/>
+            <TextBlock Text="{Binding RandomizeWorldItemWeaponDropStackRate, Mode=OneWay}" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#F0F0F0"/>
+              <ToolTip.Tip>
+                Having this option not checked will not prevent weapon handles and blades from being randomized
+                This option along with a % using the slider will result in a chance of an item pickup providing a random handle and blade
+                which, will stack ontop of the random item.
+                This is useful for use what you get runs if you'd like to switch weapons more often
+              </ToolTip.Tip>
+            </StackPanel>
           </Border>
         </StackPanel>
       </TabItem>

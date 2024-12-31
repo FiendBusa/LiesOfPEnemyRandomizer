@@ -37,6 +37,7 @@ namespace LiesOfPEnemyRandomizer.src
         _NpcInfo,
         _NpcStatInfo,
         _Code_Name,
+        _code_name,
         _health_power,
         _physical_power,
         _physical_defence,
@@ -59,8 +60,23 @@ namespace LiesOfPEnemyRandomizer.src
         bAIPauseOnSpawn,
         BossNpcCodeName,
         _NpcSkillLinkInfo,
-        _PackageConfigureInfo_array
+        _PackageConfigureInfo_array,
+        _spot_unique_id,
+        _param1,
+        DialogMonsterMonologueInfo,
+        _DialogMonsterMonologue_array,
     };
+
+    public enum UassetFileTye
+    {
+        DialogMonsterMonologueInfo,
+        NPCInfo
+    }
+    public enum PropertyTypes
+    {
+        NameProperty,
+        StrProperty
+    }
 
     public class FileHandler
     {
@@ -90,14 +106,14 @@ namespace LiesOfPEnemyRandomizer.src
             pakChunk0_s4 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] {"BP_NpcSpot.uasset","BP_ItemSpot.uasset","BP_BossRoomSpot.uasset","BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp", "ShopInfo.uasset", "ShopSpecialInfo.uasset", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] {"NPCInfo.uasset", "NPCInfo.uexp", "ShopInfo.uasset", "ShopSpecialInfo.uasset", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp", "SkillInfo.uasset", "SkillInfo.uexp", "DialogMonsterMonologueInfo.uasset", "DialogMonsterMonologueInfo.uexp", "ItemInfo.uasset", "ItemInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[0],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_CentralStation"), new string[] { "LD_Outer_Station_DSN.umap", "LD_Outer_Station_DSN.uexp" } },
             };
 
                         pakChunk2_s3 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp", "SkillInfo.uasset", "SkillInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_CentralStation_B"), new string[] { "LV_Outer_CentralStatinB_DSN.umap", "LV_Outer_CentralStatinB_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_InnerKrat"), new string[] { "LV_Inner_UpperStreet_DSN.umap", "LV_Inner_UpperStreet_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[1],"LiesofP\\Content\\MapRelease\\LV_Krat_Cathedral"), new string[] { "LV_Inner_Cathedral_DSN.umap", "LV_Inner_Cathedral_DSN.uexp" } },

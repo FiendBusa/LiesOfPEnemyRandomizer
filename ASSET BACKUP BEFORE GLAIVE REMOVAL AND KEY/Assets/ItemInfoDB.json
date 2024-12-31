@@ -1,0 +1,2702 @@
+{
+  "Melee": [
+    {
+      "Id": "WP_PC_BLD_Kukri",
+      "Name": "Bramble Curved Sword Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Kukri",
+      "Name": "Bramble Curved Sword Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Rapier",
+      "Name": "Wintry Rapier's Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Rapier",
+      "Name": "Wintry Rapier's Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Shovel",
+      "Name": "Military Shovel Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Shovel",
+      "Name": "Military Shovel Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_FirePickaxe",
+      "Name": "Exploding Pickaxe Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_FirePickaxe",
+      "Name": "Exploding Pickaxe Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_ShieldSpear",
+      "Name": "Blind Man’s Double-Sided Spear Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_ShieldSpear",
+      "Name": "Blind Man’s Double-Sided Spear Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_ClockworkBlunt",
+      "Name": "Big Pipe Wrench Head",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_ClockworkBlunt",
+      "Name": "Big Pipe Wrench Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_GreatSpear",
+      "Name": "City Longspear Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_GreatSpear",
+      "Name": "City Longspear Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_SwordLance",
+      "Name": "Spear of Honor Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_SwordLance",
+      "Name": "Spear of Honor Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Cleaver",
+      "Name": "Master Chef’s Knife Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Cleaver",
+      "Name": "Master Chef’s Knife Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Shamshir",
+      "Name": "Dancer’s Curved Sword Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Shamshir",
+      "Name": "Dancer’s Curved Sword Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Glaive",
+      "Name": "Booster Glaive Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Glaive",
+      "Name": "Booster Glaive Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_KkabiClub",
+      "Name": "Noblesse Oblige",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_KkabiClub",
+      "Name": "Noblesse Oblige",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_GreatSaw",
+      "Name": "Bone-Cutting Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_GreatSaw",
+      "Name": "Bone-Cutting Sawblade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_CrystalSpear",
+      "Name": "Acidic Crystal Spear Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_CrystalSpear",
+      "Name": "Acidic Crystal Spear Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_AcidGreatsword",
+      "Name": "Acidic Great Curved Sword Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_AcidGreatsword",
+      "Name": "Acidic Great Curved Sword Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_GreatAxe",
+      "Name": "Live Puppet’s Axe Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_GreatAxe",
+      "Name": "Live Puppet’s Axe Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_FlameDagger",
+      "Name": "Salamander Dagger Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_FlameDagger",
+      "Name": "Salamander Dagger Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Bayonet",
+      "Name": "Greatsword of Fate Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Bayonet",
+      "Name": "Greatsword of Fate Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_FireAxe",
+      "Name": "Fire Axe Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_FireAxe",
+      "Name": "Fire Axe Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_ClockSword",
+      "Name": "Clock Sword Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_ClockSword",
+      "Name": "Clock Sword Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Hwando",
+      "Name": "Two Dragons Sword",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Hwando",
+      "Name": "Two Dragons Sword",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_TransformGreatSword",
+      "Name": "Holy Sword of the Ark",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_TransformGreatSword",
+      "Name": "Holy Sword of the Ark",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Trident",
+      "Name": "Trident of the Covenant",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Trident",
+      "Name": "Trident of the Covenant",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_CrystalSword",
+      "Name": "Frozen Feast",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_CrystalSword",
+      "Name": "Frozen Feast",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_UmbrellaSword",
+      "Name": "Etiquette",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_UmbrellaSword",
+      "Name": "Etiquette",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Charkram",
+      "Name": "Uroboros’s Eye",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Charkram",
+      "Name": "Uroboros’s Eye",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_ElectricCutter",
+      "Name": "Circular Electric Chainsaw Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_ElectricCutter",
+      "Name": "Circular Electric Chainsaw Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_ScissorSword",
+      "Name": "Proof of Humanity",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_ScissorSword",
+      "Name": "Proof of Humanity",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Saber",
+      "Name": "Puppet’s Saber Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Saber",
+      "Name": "Puppet's Saber Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_SevenSword",
+      "Name": "Seven-Coil Spring Sword",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_SevenSword",
+      "Name": "Seven-Coil Spring Sword",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Halberd",
+      "Name": "Cursed Knight’s Halberd Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Halberd",
+      "Name": "Cursed Knight’s Halberd Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_CoilRod",
+      "Name": "Electric Coil Stick Head",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_CoilRod",
+      "Name": "Electric Coil Stick Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_CrystalAxe",
+      "Name": "Carcass Crystal Axe Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_CrystalAxe",
+      "Name": "Carcass Crystal Axe Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_ElectricHammer",
+      "Name": "Coil Mjolnir Head",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_ElectricHammer",
+      "Name": "Coil Mjolnir Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Baton",
+      "Name": "Krat Police Baton Head",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Baton",
+      "Name": "Krat Police Baton Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_ChainScythe",
+      "Name": "Puppet Ripper",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_ChainScythe",
+      "Name": "Puppet Ripper",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_Dagger",
+      "Name": "Tyrant Murderer’s Dagger Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_Dagger",
+      "Name": "Tyrant Murderer’s Dagger Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_RockDrill",
+      "Name": "Pistol Rock Drill Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_RockDrill",
+      "Name": "Pistol Rock Drill Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_NoseStaff",
+      "Name": "Golden Lie",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_NoseStaff",
+      "Name": "Golden Lie",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_FlameSword",
+      "Name": "Black Steel Cutter Blade",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_FlameSword",
+      "Name": "Black Steel Cutter Handle",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_BLD_DragonGlaive",
+      "Name": "That Wo Long Weapon",
+      "Category": "Weapons"
+    },
+    {
+      "Id": "WP_PC_HND_DragonGlaive",
+      "Name": "That Wo Long Weapon",
+      "Category": "Weapons"
+    }
+
+
+  ],
+    "Left Arm": [
+        {
+            "Id": "SlaveArm_PileBunker",
+            "Name": "Deus Ex Machina",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "SlaveArm_Aegis",
+            "Name": "Aegis",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "SlaveArm_Normal",
+            "Name": "Left Arm of Steel",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "SlaveArm_AcidLuncher",
+            "Name": "Pandemonium",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "SlaveArm_SniperCannon",
+            "Name": "Falcon Eyes",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "SlaveArm_PuppetString",
+            "Name": "Puppet String",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "SlaveArm_Fulminis",
+            "Name": "Fulminis",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "SlaveArm_Flamberge",
+            "Name": "Flamberge",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "quartz",
+            "Name": "Quartz",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Reinforce_Blade_Common_G1",
+            "Name": "Hidden Moonstone",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Reinforce_Blade_Common_G2",
+            "Name": "Crescent Moonstone",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Reinforce_Blade_Common_G3",
+            "Name": "Half Moonstone",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Reinforce_Blade_Common_G4",
+            "Name": "Full Moonstone",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Reinforce_Hero_G1",
+            "Name": "Dark moon Moonstone of the Covenant",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Reinforce_Hero_G2",
+            "Name": "Full Moonstone of the Covenant",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Reinforce_SlaveArm_G1",
+            "Name": "Legion Caliber",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Exchange_SlaveArm_Parts_4",
+            "Name": "Legion Plug",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Handle_InfusionStone_Type4",
+            "Name": "Balance Crank",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Handle_InfusionStone_Type2",
+            "Name": "Technique Crank",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Handle_InfusionStone_Type1",
+            "Name": "Motivity Crank",
+            "Category": "Left Arm"
+        },
+        {
+            "Id": "Handle_InfusionStone_Type3",
+            "Name": "Advance Crank",
+            "Category": "Left Arm"
+        }
+    ],
+    "Body": [
+        {
+            "Id": "Costume_Naughty_Boy",
+            "Name": "Mischievous Puppet’s Clothes",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Cat",
+            "Name": "Black Cat’s Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_03",
+            "Name": "Workshop Master’s Workwear",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Factory_Meister",
+            "Name": "Workshop Master’s Workwear",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Monster_Hunter",
+            "Name": "Monster Sweeper’s Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Prince_Robes",
+            "Name": "Puppet Prince’s Formal Dress",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Someone_Memory",
+            "Name": "Someone’s Memory",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Madman",
+            "Name": "Mad Donkey’s Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Weasel",
+            "Name": "Robber Weasel’s Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Fox",
+            "Name": "Red Fox’s Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Survivor",
+            "Name": "Survivor’s Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Pilgrim",
+            "Name": "The Atoned's Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Alchemist_Cape",
+            "Name": "Alchemist’s Cape",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_Army_Surgeon",
+            "Name": "Owl Doctor’s Hunting Apparel",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Venigni_Coat",
+            "Name": "The Great Venigni’s Signature Coat",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_02",
+            "Name": "Blue Blood’s Tailcoat",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_01",
+            "Name": "White Shirt",
+            "Category": "Body"
+        },
+        {
+            "Id": "Costume_Stalker_WhiteLady",
+            "Name": "The White Lady’s Hunting Apparel",
+            "Category": "Body"
+        }
+    ],
+    "Masks": [
+        {
+            "Id": "Mask_Stalker_Cat",
+            "Name": "Black Cat’s Mask",
+            "Category": "Masks"
+        },
+        {
+            "Id": "Mask_Stalker_Madman",
+            "Name": "Mad Donkey’s Mask",
+            "Category": "Masks"
+        },
+        {
+            "Id": "Mask_Stalker_Weasel",
+            "Name": "Robber Weasel’s Mask",
+            "Category": "Masks"
+        },
+        {
+            "Id": "Mask_Stalker_Fox",
+            "Name": "Red Fox’s Mask",
+            "Category": "Masks"
+        },
+        {
+            "Id": "Mask_Stalker_Survivor",
+            "Name": "Survivor’s Mask",
+            "Category": "Masks"
+        },
+        {
+            "Id": "Mask_Stalker_Pilgrim",
+            "Name": "The Atoned's Mask",
+            "Category": "Masks"
+        },
+        {
+            "Id": "Mask_Stalker_ArmySurgeon",
+            "Name": "Owl Doctor’s Mask",
+            "Category": "Masks"
+        },
+        {
+            "Id": "Mask_Stalker_WhiteLady",
+            "Name": "The White Lady’s Mask",
+            "Category": "Masks"
+        }
+    ],
+    "HeadItems": [
+        {
+            "Id": "Head_Naughty_Boy",
+            "Name": "Mischievous Puppet’s Parade Hat",
+            "Category": "Head Items"
+        },
+        {
+            "Id": "Head_Glassess_Venigni",
+            "Name": "The Great Venigni’s Glasses",
+            "Category": "Head Items"
+        }
+    ],
+    "Amulets": [
+        {
+            "Id": "AC_mgmt_stat_L2_7",
+            "Name": "Swordsmanship Master’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_def_L1_3",
+            "Name": "Black Cat’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_resist_L3_9",
+            "Name": "Conquering Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_boss_L1_2",
+            "Name": "Extreme Modification Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_2",
+            "Name": "Technique Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_2_1",
+            "Name": "Technique Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_2_2",
+            "Name": "Technique Amulet +2",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_boss_L1_5",
+            "Name": "Awakened God’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_boss_L1_6",
+            "Name": "Piercing Hatred Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L1_3",
+            "Name": "Leaping Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L3_4",
+            "Name": "Leaping Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L2_5",
+            "Name": "Veteran’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_3",
+            "Name": "Transformation Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_3_1",
+            "Name": "Transformation Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_3_2",
+            "Name": "Transformation Amulet +2",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_resist_L2_1",
+            "Name": "Indomitable Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_resist_L2_1_1",
+            "Name": "Indomitable Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L2_4",
+            "Name": "Red Fox’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L1_11",
+            "Name": "Hunter’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L1_11_1",
+            "Name": "Hunter’s Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_atk_L2_2",
+            "Name": "Murderer Puppet’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L3_10",
+            "Name": "Triumvirate Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L1_1",
+            "Name": "Life Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L3_2",
+            "Name": "Life Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L3_11",
+            "Name": "Arm of God Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_atk_L2_4",
+            "Name": "Assassin’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L3_5",
+            "Name": "Carrier’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L4_6",
+            "Name": "Carrier’s Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_boss_L1_3",
+            "Name": "Ghost Walk Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L2_6",
+            "Name": "Nameless One's Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L2_9",
+            "Name": "Patience Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_atk_L2_3",
+            "Name": "Puppet Destroyer’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L2_8",
+            "Name": "Recharged Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L2_8_1",
+            "Name": "Recharged Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_def_L3_1",
+            "Name": "Iron Wall Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_boss_L1_4",
+            "Name": "Impregnable Fortress Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_boss_L1_1",
+            "Name": "Dancing One’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_atk_L2_1",
+            "Name": "Carcass Butcher’s Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L1_10",
+            "Name": "Blue Guardianship Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L1_10_1",
+            "Name": "Blue Guardianship Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_stat_L1_10_2",
+            "Name": "Blue Guardianship Amulet +2",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_1",
+            "Name": "Strength Amulet",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_1_1",
+            "Name": "Strength Amulet +1",
+            "Category": "Amulets"
+        },
+        {
+            "Id": "AC_mgmt_equip_L1_1_2",
+            "Name": "Strength Amulet +2",
+            "Category": "Amulets"
+        }
+    ],
+    "Frame": [
+        {
+            "Id": "part_bone_00",
+            "Name": "Workshop Union Basic Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_2",
+            "Name": "Workshop Union Strengthening Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_2_1",
+            "Name": "Workshop Union Strengthening Frame +1",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_2_2",
+            "Name": "Workshop Union Strengthening Frame +2",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_0",
+            "Name": "Workshop Union Lightweight Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_0_1",
+            "Name": "Workshop Union Lightweight Frame +1",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_0_2",
+            "Name": "Workshop Union Lightweight Frame +2",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_1",
+            "Name": "LADA F150 Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_1_1",
+            "Name": "LADA F150 Frame +1",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_1_2",
+            "Name": "LADA F150 Frame +2",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_4",
+            "Name": "LADA F250 Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_4_1",
+            "Name": "LADA F250 Frame +1",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_4_2",
+            "Name": "LADA F250 Frame +2",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_6",
+            "Name": "LADA F350 Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_6_1",
+            "Name": "LADA F350 Frame +1",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_6_2",
+            "Name": "LADA F350 Frame +2",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_3",
+            "Name": "Arch Heavyweight Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_3_1",
+            "Name": "Arch Heavyweight Frame +1",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_3_2",
+            "Name": "Arch Heavyweight Frame +2",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_5",
+            "Name": "Arch Extra Heavyweight Frame",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_5_1",
+            "Name": "Arch Extra Heavyweight Frame +1",
+            "Category": "Frame"
+        },
+        {
+            "Id": "part_bone_5_2",
+            "Name": "Arch Extra Heavyweight Frame +2",
+            "Category": "Frame"
+        }
+    ],
+    "Liner": [
+        {
+            "Id": "part_skin_slash_1",
+            "Name": "Workshop Union Fiber-Reinforced Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_1_1",
+            "Name": "Workshop Union Fiber-Reinforced Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_1_2",
+            "Name": "Workshop Union Fiber-Reinforced Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_1",
+            "Name": "Workshop Union Spaced Armor Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_1_1",
+            "Name": "Workshop Union Spaced Armor Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_1_2",
+            "Name": "Workshop Union Spaced Armor Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_1",
+            "Name": "Workshop Union Multi-Layer Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_1_1",
+            "Name": "Workshop Union Multi-Layer Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_1_2",
+            "Name": "Workshop Union Multi-Layer Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_0",
+            "Name": "Workshop Union Certified Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_4",
+            "Name": "LADA Fiber-Reinforced Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_4_1",
+            "Name": "LADA Fiber-Reinforced Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_4_2",
+            "Name": "LADA Fiber-Reinforced Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_4",
+            "Name": "LADA Spaced Armor Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_4_1",
+            "Name": "LADA Spaced Armor Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_4_2",
+            "Name": "LADA Spaced Armor Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_4",
+            "Name": "LADA Multi-Layer Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_4_1",
+            "Name": "LADA Multi-Layer Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_4_2",
+            "Name": "LADA Multi-Layer Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_2",
+            "Name": "Belford Fiber-Reinforced Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_2_1",
+            "Name": "Belford Fiber-Reinforced Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_2_2",
+            "Name": "Belford Fiber-Reinforced Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_2",
+            "Name": "Belford Spaced Armor Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_2_1",
+            "Name": "Belford Spaced Armor Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_2_2",
+            "Name": "Belford Spaced Armor Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_2",
+            "Name": "Belford Multi-Layer Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_2_1",
+            "Name": "Belford Multi-Layer Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_2_2",
+            "Name": "Belford Multi-Layer Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_3",
+            "Name": "Arch Fiber-Reinforced Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_3_1",
+            "Name": "Arch Fiber-Reinforced Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_slash_3_2",
+            "Name": "Arch Fiber-Reinforced Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_3",
+            "Name": "Arch Spaced Armor Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_3_1",
+            "Name": "Arch Spaced Armor Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_strike_3_2",
+            "Name": "Arch Spaced Armor Liner +2",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_3",
+            "Name": "Arch Multi-Layer Liner",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_3_1",
+            "Name": "Arch Multi-Layer Liner +1",
+            "Category": "Liner"
+        },
+        {
+            "Id": "part_skin_pierce_3_2",
+            "Name": "Arch Multi-Layer Liner +2",
+            "Category": "Liner"
+        }
+    ],
+    "Converter": [
+        {
+            "Id": "part_underskin_0",
+            "Name": "Workshop Union Old Generation Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_1",
+            "Name": "Workshop Union Standard Corrosion Resistance Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_1_1",
+            "Name": "Workshop Union Standard Corrosion Resistance Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_1_2",
+            "Name": "Workshop Union Standard Corrosion Resistance Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_1",
+            "Name": "Workshop Union Standard Radiation Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_1_1",
+            "Name": "Workshop Union Standard Radiation Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_1_2",
+            "Name": "Workshop Union Standard Radiation Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_1",
+            "Name": "Workshop Union Standard Insulation Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_1_1",
+            "Name": "Workshop Union Standard Insulation Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_1_2",
+            "Name": "Workshop Union Standard Insulation Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_3",
+            "Name": "LADA Large Capacity Corrosion Resistance Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_3_1",
+            "Name": "LADA Large Capacity Corrosion Resistance Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_3_2",
+            "Name": "LADA Large Capacity Corrosion Resistance Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_3",
+            "Name": "LADA Large Capacity Radiation Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_3_1",
+            "Name": "LADA Large Capacity Radiation Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_3_2",
+            "Name": "LADA Large Capacity Radiation Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_3",
+            "Name": "LADA Large Capacity Insulation Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_3_1",
+            "Name": "LADA Large Capacity Insulation Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_3_2",
+            "Name": "LADA Large Capacity Insulation Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_2",
+            "Name": "Belford Superior Corrosion Resistance Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_2_1",
+            "Name": "Belford Superior Corrosion Resistance Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_acid_2_2",
+            "Name": "Belford Superior Corrosion Resistance Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_2",
+            "Name": "Belford Superior Radiation Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_2_1",
+            "Name": "Belford Superior Radiation Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_fire_2_2",
+            "Name": "Belford Superior Radiation Converter +2",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_2",
+            "Name": "Belford Superior Insulation Converter",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_2_1",
+            "Name": "Belford Superior Insulation Converter +1",
+            "Category": "Converter"
+        },
+        {
+            "Id": "part_underskin_electric_2_2",
+            "Name": "Belford Superior Insulation Converter +2",
+            "Category": "Converter"
+        }
+    ],
+    "Cartridge": [
+        {
+            "Id": "part_assembly_0",
+            "Name": "Workshop Union Cartridge Prototype",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_3",
+            "Name": "LADA Disruption Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_3_1",
+            "Name": "LADA Disruption Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_3_2",
+            "Name": "LADA Disruption Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_3",
+            "Name": "LADA Shock Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_3_1",
+            "Name": "LADA Shock Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_3_2",
+            "Name": "LADA Shock Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_3",
+            "Name": "LADA Break Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_3_1",
+            "Name": "LADA Break Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_3_2",
+            "Name": "LADA Break Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_1",
+            "Name": "Belford Disruption Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_1_1",
+            "Name": "Belford Disruption Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_1_2",
+            "Name": "Belford Disruption Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_1",
+            "Name": "Belford Shock Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_1_1",
+            "Name": "Belford Shock Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_1_2",
+            "Name": "Belford Shock Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_1",
+            "Name": "Belford Break Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_1_1",
+            "Name": "Belford Break Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_1_2",
+            "Name": "Belford Break Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_2",
+            "Name": "Arch Disruption Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_2_1",
+            "Name": "Arch Disruption Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_curse_2_2",
+            "Name": "Arch Disruption Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_2",
+            "Name": "Arch Shock Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_2_1",
+            "Name": "Arch Shock Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_impact_2_2",
+            "Name": "Arch Shock Cartridge +2",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_2",
+            "Name": "Arch Break Cartridge",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_2_1",
+            "Name": "Arch Break Cartridge +1",
+            "Category": "Cartridge"
+        },
+        {
+            "Id": "part_assembly_break_2_2",
+            "Name": "Arch Break Cartridge +2",
+            "Category": "Cartridge"
+        }
+    ],
+    "Buff Consumables": [
+        {
+            "Id": "Consume_Buff_sharpness_regain",
+            "Name": "Venigni's Urgent Repair Tool",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_SlaveMagazine",
+            "Name": "Legion Magazine",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_SlaveMagazine",
+            "Name": "Legion Charge",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_stamina_regain",
+            "Name": "Recirculating Catalyst",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_Frenzy",
+            "Name": "Fable Catalyst",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_Frenzy",
+            "Name": "Fable Charge",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_sharpness_Fire",
+            "Name": "Fire Abrasive",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_sharpness_Acid",
+            "Name": "Acid Abrasive",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_sharpness_Elec",
+            "Name": "Electric Blitz Abrasive",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_cat_dust",
+            "Name": "Cat Dust",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_Elemental",
+            "Name": "Attribute Resistance Ampoule",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Cancel_Elemental",
+            "Name": "Attribute Purification Ampoule",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Buff_Special",
+            "Name": "Special Resistance Ampoule",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Cancel_Special",
+            "Name": "Special Purification Ampoule",
+            "Category": "Buff Consumables"
+        },
+        {
+            "Id": "Consume_Drop_Ergo_save",
+            "Name": "Gemini's Iron Protection",
+            "Category": "Buff Consumables"
+        }
+    ],
+    "Thrown Consumables": [
+        {
+            "Id": "Consume_Throw_bignail",
+            "Name": "Sharp Pipe",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_sawtooth",
+            "Name": "Saw Blade",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_Gear",
+            "Name": "Sawtoothed Wheel",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_shotput",
+            "Name": "Shot Put",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_toughness_break",
+            "Name": "Chain",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_Granade_Cluster",
+            "Name": "Cluster Grenade",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_Granade_Acid",
+            "Name": "Carcass Body Fluid Bottle",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_Granade_Fire",
+            "Name": "Thermite",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Throw_Granade_Elec",
+            "Name": "Throwing Cell",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Area_Fire",
+            "Name": "Fire Canister",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Area_acid",
+            "Name": "Acid Canister",
+            "Category": "Thrown Consumables"
+        },
+        {
+            "Id": "Consume_Area_Elec",
+            "Name": "Electric Blitz Canister",
+            "Category": "Thrown Consumables"
+        }
+    ],
+    "Generic Hard Ergo": [
+        {
+            "Id": "Consume_ProtectDropErgo_1",
+            "Name": "Obtain Ergo +100",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_2",
+            "Name": "Obtain Ergo +300",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_3",
+            "Name": "Obtain Ergo +500",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_4",
+            "Name": "Obtain Ergo +700",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_1M",
+            "Name": "Obtain Ergo +1,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_1MP",
+            "Name": "Obtain Ergo +1,500",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_2M",
+            "Name": "Obtain Ergo +2,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_3M",
+            "Name": "Obtain Ergo +3,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_1L",
+            "Name": "Obtain Ergo +5,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_2L",
+            "Name": "Obtain Ergo +7,000",
+            "Category": "Generic Hard Ergo"
+        },
+        {
+            "Id": "Consume_ProtectDropErgo_3L",
+            "Name": "Obtain Ergo +10,000",
+            "Category": "Generic Hard Ergo"
+        }
+        //{
+        //    "Id": "Consume_ProtectDropErgo_4L",
+        //    "Name": "Obtain Ergo +15,000",
+        //    "Category": "Generic Hard Ergo"
+        //},
+        //{
+        //    "Id": "Consume_ProtectDropErgo_5L",
+        //    "Name": "Obtain Ergo +25,000",
+        //    "Category": "Generic Hard Ergo"
+        //},
+        //{
+        //    "Id": "Consume_ProtectDropErgo_6L",
+        //    "Name": "Obtain Ergo +35,000",
+        //    "Category": "Generic Hard Ergo"
+        //},
+        //{
+        //    "Id": "Consume_ProtectDropErgo_7L",
+        //    "Name": "Obtain Ergo +50,000",
+        //    "Category": "Generic Hard Ergo"
+        //}
+    ],
+    "Boss Hard Ergo": [
+        {
+            "Id": "CH00_Boss_Ergo",
+            "Name": "Nameless Puppet's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH01_Boss_Ergo",
+            "Name": "Parade Leader's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH02_Boss_Ergo",
+            "Name": "Broken Hero's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH03_Boss_Ergo",
+            "Name": "King's Flame Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH04_Boss_Ergo",
+            "Name": "Twisted Angel's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH06_Boss_Ergo",
+            "Name": "Burnt-White King's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH07_Boss_Ergo",
+            "Name": "Reborn Champion's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH08_Boss_Ergo",
+            "Name": "Puppet-Devouring Green Hunter's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH09_Boss_Ergo",
+            "Name": "Brother Avenger's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH11_Boss_Ergo",
+            "Name": "Sad Clown's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH12_Boss_Ergo",
+            "Name": "Sad Zealot's Ergo",
+            "Category": "Boss Hard Ergo"
+        },
+        {
+            "Id": "CH13_Boss_Ergo",
+            "Name": "Fallen One's Ergo",
+            "Category": "Boss Hard Ergo"
+        }
+    ],
+    "Wishstones": [
+        {
+            "Id": "Monad_Unit_01",
+            "Name": "Recovery Wishstone\", \"Temporarily restores HP",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_02",
+            "Name": "Patience Wishstone\", \"Increases max Stamina over a set period of time",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_03",
+            "Name": "Advance Wishstone\", \"Temporarily restores Legion",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_04",
+            "Name": "Friendship Wishstone\", \"Temporarily restores Specter HP",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_05",
+            "Name": "Explosive Wishstone\", \"Explodes when Specter is hit",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_06",
+            "Name": "Protection Wishstone\", \"Reduces Specter's received damage",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_07",
+            "Name": "Frenzy Wishstone\", \"Increases Specter’s destructive power",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_08",
+            "Name": "Indomitable Wishstone\", \"Specter avoids death once and HP is restored",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_09",
+            "Name": "Flame Wishstone\", \"Specter’s Fire ATK/Reduces damage received",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_10",
+            "Name": "Lightning Wishstone\", \"Specter’s Electric Blitz ATK/Reduces damage received",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_11",
+            "Name": "Poison Wishstone\", \"Specter’s Acid ATK/Reduces damage received",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_12",
+            "Name": "Courage Wishstone\", \"Increases Fable’s charge amount when attacking",
+            "Category": "Wishstones"
+        },
+        {
+            "Id": "Monad_Unit_13",
+            "Name": "Provocation Wishstone\", \"Specter attracts enemy’s attention/Reduces damage received",
+            "Category": "Wishstones"
+        }
+    ],
+    "Grinder Buffs": [
+        {
+            "Id": "Grinder_Unit_01",
+            "Name": "Flame Grindstone",
+            "Category": "Grinder Buffs"
+        },
+        {
+            "Id": "Grinder_Unit_02",
+            "Name": "Electric Blitz Grindstone",
+            "Category": "Grinder Buffs"
+        },
+        {
+            "Id": "Grinder_Unit_03",
+            "Name": "Acid Grindstone",
+            "Category": "Grinder Buffs"
+        },
+        {
+            "Id": "Grinder_Unit_04",
+            "Name": "Indomitable Grindstone",
+            "Category": "Grinder Buffs"
+        },
+        {
+            "Id": "Grinder_Unit_05",
+            "Name": "Destruction Grindstone",
+            "Category": "Grinder Buffs"
+        },
+        {
+            "Id": "Grinder_Unit_06",
+            "Name": "Satisfaction Grindstone",
+            "Category": "Grinder Buffs"
+        },
+        {
+            "Id": "Grinder_Unit_07",
+            "Name": "Durability Grindstone",
+            "Category": "Grinder Buffs"
+        },
+        {
+            "Id": "Grinder_Unit_08",
+            "Name": "Perfection Grindstone",
+            "Category": "Grinder Buffs"
+        }
+    ],
+    "General": [
+        {
+            "Id": "Helpmate_Material",
+            "Name": "Star Fragment",
+            "Category": "General"
+        },
+        {
+            "Id": "Exchange_GoldenFruit",
+            "Name": "Gold Coin Fruit",
+            "Category": "General"
+        },
+        //{
+        //    "Id": "Consume_Rechargeable_1",
+        //    "Name": "Pulse Cell",
+        //    "Category": "General"
+        //},
+        {
+            "Id": "Consume_Monard_bless",
+            "Name": "Cube",
+            "Category": "General"
+        },
+        {
+            "Id": "Consume_Buff_sharpness_recovery",
+            "Name": "Grinder",
+            "Category": "General"
+        },
+        //{
+        //    "Id": "Consume_Monard_Lamp",
+        //    "Name": "Monad's Lamp",
+        //    "Category": "General"
+        //},
+        {
+            "Id": "Consume_ReturnClockE",
+            "Name": "Moonphase Pocket Watch",
+            "Category": "General"
+        },
+        {
+            "Id": "Consume_ReturnClock",
+            "Name": "Guide's Hourglass",
+            "Category": "General"
+        },
+        {
+            "Id": "Consume_giveup",
+            "Name": "Last Resort",
+            "Category": "General"
+        }
+    ],
+    "Gold Tree Boosters": [
+        {
+            "Id": "goldTree_Booster1",
+            "Name": "Alchemical Booster",
+            "Category": "Gold Tree Boosters"
+        },
+        {
+            "Id": "goldTree_Booster2",
+            "Name": "Stabilized Alchemical Booster",
+            "Category": "Gold Tree Boosters"
+        },
+        {
+            "Id": "goldTree_Booster3",
+            "Name": "Enhanced Alchemical Booster",
+            "Category": "Gold Tree Boosters"
+        }
+    ],
+    "Supply Boxes": [
+        {
+            "Id": "Krat_BlackBox_2",
+            "Name": "Krat Supply Box",
+            "Category": "Supply Boxes"
+        },
+        {
+            "Id": "Krat_BlackBox_3",
+            "Name": "Sturdy Krat Supply Box",
+            "Category": "Supply Boxes"
+        },
+        {
+            "Id": "Krat_BlackBox_4",
+            "Name": "Special Krat Supply Box",
+            "Category": "Supply Boxes"
+        }
+    ],
+    "Venigni Collections": [
+        {
+            "Id": "Venigni_BlackBox_2",
+            "Name": "Incredible Venigni Collection",
+            "Category": "Venigni Collections"
+        },
+        {
+            "Id": "Venigni_BlackBox_3",
+            "Name": "Fancy Venigni Collection",
+            "Category": "Venigni Collections"
+        },
+        {
+            "Id": "Venigni_BlackBox_4",
+            "Name": "Great Venigni Collection",
+            "Category": "Venigni Collections"
+        }
+    ],
+    "Quest Items": [
+        {
+            "Id": "Epic_key_riddle",
+            "Name": "Trinity Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_GoldenErgo",
+            "Name": "Golden Ergo",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Consume_Instrument_01",
+            "Name": "Faded Whistle",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_cath_funicular",
+            "Name": "Cable Railway Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_ring",
+            "Name": "Wedding Ring",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_Monastery_entry",
+            "Name": "High-level Alchemist Badge",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_GoldenBattery",
+            "Name": "Golden lead-acid battery",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_Glove",
+            "Name": "Four-fingered Glove",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_OrphanageNecklace",
+            "Name": "Someone’s Necklace",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_Riddleking_Evidence",
+            "Name": "Moon World Warrior Toy",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_Poison_for_rest",
+            "Name": "Archbishop's Holy Mark",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_dottedpaper_room_03",
+            "Name": "Robbers’ Shack Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_WineCollection",
+            "Name": "La Bleiwies",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_arcadecross",
+            "Name": "Lorenzini Arcade 1st Floor Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_hotel_to_cult",
+            "Name": "Rosa Isabelle Street Entrance Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_babydoll",
+            "Name": "Broken Baby Puppet",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_factory_to_cath",
+            "Name": "Venigni Works Back Door Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_Venigni_Coin",
+            "Name": "Venigni Commemorative Coin",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_RedLadyLocket",
+            "Name": "Red Actress’s Locket",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_SlumHouse",
+            "Name": "Slum Shack Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_RedApple",
+            "Name": "Bright Red Apple",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_riddle_final",
+            "Name": "The Chosen One’s Trinity Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_boy_paint",
+            "Name": "Portrait of a Boy",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_riddle_box_02",
+            "Name": "King of Riddles’ Surprise Box",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_ArmOfGod",
+            "Name": "Arm of God",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_MonasteryB_6F",
+            "Name": "Arche Abbey Passageway Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_arcade_tunnel",
+            "Name": "Arcade Underground Passage Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_Remedy",
+            "Name": "A cure for Antonia",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_ErgoWave_Interpreter",
+            "Name": "Ergo Wavelength Decoder",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_hidden1",
+            "Name": "Elysion Boulevard Apartment Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_pieta",
+            "Name": "Saintess of Mercy Statue Gallery Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_Second_Life",
+            "Name": "Completed Ergo Wavelength Decoder",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_blackrabbit",
+            "Name": "Smiling Bunny Mark",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_PuppetKing_Message",
+            "Name": "King of Puppets’ Message",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_PoliceDoll",
+            "Name": "Small Wooden Officer Puppet",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_cityhall",
+            "Name": "Krat City Hall Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_ftr",
+            "Name": "Krat City Hall Courtyard Key",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_ring_blood",
+            "Name": "Bloody Wedding Ring",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_key_dottedpaper_room_01",
+            "Name": "Letter with the Refuge’s Address",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_WhiteLadyLocket",
+            "Name": "The White Lady’s Locket",
+            "Category": "Quest Items"
+        },
+        {
+            "Id": "Epic_DiscoloredRemedy",
+            "Name": "A cure no more effective",
+            "Category": "Quest Items"
+        }
+    ],
+    "Gestures": [
+        {
+            "Id": "Gesture_Praise",
+            "Name": "Respect",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Test_Beg1",
+            "Name": "Beg",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Pray",
+            "Name": "Pray",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Joy",
+            "Name": "Happy",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Provoke",
+            "Name": "Taunt",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Fear",
+            "Name": "Fear",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Interaction_Bottom",
+            "Name": "Check Ground",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Clap",
+            "Name": "Clap",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Anger",
+            "Name": "Anger",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_SwordSalute",
+            "Name": "Stalker's Promise",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Sad",
+            "Name": "Sad",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Sitdown",
+            "Name": "Sit",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Test_Beg2",
+            "Name": "Entreat",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Show_Cloth",
+            "Name": "Show Off Clothes",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Boast",
+            "Name": "Swagger",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Hi",
+            "Name": "Greet",
+            "Category": "Gestures"
+        },
+        {
+            "Id": "Gesture_Test_Apology",
+            "Name": "Remembrance",
+            "Category": "Gestures"
+        }
+    ],
+    "Records": [
+        {
+            "Id": "Collection_Record_1",
+            "Name": "I think of you\\nwhile waiting in the rain\\nTake me away as I am exhausted in the dark",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_2",
+            "Name": "To protect the people you love,\\nsometimes you must take steps through uncertain times\\nand stand up again.",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_3",
+            "Name": "Do you remember the moment you fell in love?...",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_4",
+            "Name": "Close your eyes, Dance the night away with me. Everything will feel better",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_5",
+            "Name": "The snowflakes shining white in the night sky comfort me, as I wait for you alone in the dark",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_6",
+            "Name": "It’s slowly turning redder and redder, It must be evidence of the rose-colored love. You will whisper again soon",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_7",
+            "Name": "The candlelight burned in yearning for you. Don’t tell me you love me. Today is all I have",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_8",
+            "Name": "I will always remember the memories. shared with you on this summer beach...",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_9",
+            "Name": "If you stop dreaming, your heart will stop too. So I will confront it",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_10",
+            "Name": "Proposal, Flower, Wolf Part 1",
+            "Category": "Records"
+        },
+        {
+            "Id": "Collection_Record_11",
+            "Name": "A world I did not know when I was in the tower...",
+            "Category": "Records"
+        }
+    ],
+    "Other Collectibles": [
+        {
+            "Id": "Collection_Letter_22",
+            "Name": "Black Rabbit Brotherhood Ledger",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Core_Fire",
+            "Name": "High-powered Flame Amplifier",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_CentralStation_07",
+            "Name": "Primer for Workshop Technicians",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_CentralStation_11",
+            "Name": "Fairytale of the Three Brothers of the Workshop Tower",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_17",
+            "Name": "Factory Manager’s Report",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Core_Electronic",
+            "Name": "Overcharged Storage Battery",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_56",
+            "Name": "Crumpled Baptist’s Doodle",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Dottedpaper_05",
+            "Name": "Mechanical Cryptic Vessel",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Databox_Interpretation_05",
+            "Name": "Mechanical Cryptic Vessel Decryption",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_10",
+            "Name": "Guillaume’s Ballad",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_02",
+            "Name": "Miracle Cure",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Dottedpaper_03",
+            "Name": "Old Cryptic Vessel",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Dottedpaper_04",
+            "Name": "Rusty Cryptic Vessel",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Databox_Interpretation_04",
+            "Name": "Rusty Cryptic Vessel Decryption",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_InterviewNote",
+            "Name": "Someone’s Report Notes Notebook",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_CentralStation_03",
+            "Name": "A Letter that cannot arrive",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_15",
+            "Name": "Archbishop's Diary",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_11",
+            "Name": "Descartes’s Note",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_18",
+            "Name": "Have a taste of La Bleiwies, the greatest wine in the world!",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_23",
+            "Name": "The Witch's Tower and Princess Poster",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_SMMockery",
+            "Name": "Letter from Someone Who Has Gone Ahead",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_21",
+            "Name": "Monad Charity House Guide",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_MonadCharity",
+            "Name": "Monad Charity House Concert",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_04",
+            "Name": "Doctor’s Confessions",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_08",
+            "Name": "Venigni’s Guide",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_KratNotedGuide1",
+            "Name": "Venigni's Krat Landmark Guide I",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_KratNotedGuide2",
+            "Name": "Venigni's Krat Landmark Guide II",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_34",
+            "Name": "Venigni's Krat Landmark Guide IV",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Dottedpaper_02",
+            "Name": "Jeweled Cryptic Vessel",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Databox_Interpretation_02",
+            "Name": "Jeweled Cryptic Vessel Decryption",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_MonsterCityLegend",
+            "Name": "Resurrection! Champion Victor has returned!",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_SlummerScrawl",
+            "Name": "Scribbles of Slum Resident",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Dottedpaper_01",
+            "Name": "Crafted Cryptic Vessel",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Databox_Interpretation_01",
+            "Name": "Crafted Cryptic Vessel Decryption",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_05",
+            "Name": "Have you seen this eccentric?!",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_20",
+            "Name": "Cecile’s Written Confession",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_52",
+            "Name": "Wanted: Black Rabbit Brotherhood",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_43",
+            "Name": "Wanted: Alidoro",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_RiddleKingHint",
+            "Name": "King of Riddles’ Hint",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_TragedyofV",
+            "Name": "Scandal! V, the Tragedy Behind the Flamboyance",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_passenger_note",
+            "Name": "Passenger’s Note",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_49",
+            "Name": "Simon Manus’s Confession",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_Remedy_TestRecord",
+            "Name": "Experiment Report of Order - Test Subject 890",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Dottedpaper_06",
+            "Name": "Alidoro’s Cryptic Vessel",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Databox_Interpretation_06",
+            "Name": "Alidoro’s Cryptic Vessel Decryption",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_DearBell",
+            "Name": "Atkinson’s Letter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_26",
+            "Name": "Notes from an Experiment",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_Score",
+            "Name": "Stained Choir Sheet Music",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_Frozenman",
+            "Name": "Frozen Man’s Letter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_12",
+            "Name": "Woman’s Prayer",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_CentralStation_06",
+            "Name": "Lover’s Letter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_55",
+            "Name": "The Letter of the Eternal",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_Artist_Scribble",
+            "Name": "Artist’s Doodle",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_39",
+            "Name": "Bundle of Old Letters",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_Cathedral_Vil_History",
+            "Name": "Moonlight Town Guide",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_51",
+            "Name": "The Great Venigni and Pistris the Submarine",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_StalkerMask",
+            "Name": "[This month’s trend: Stalker masks]",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_25",
+            "Name": "Rose Estate Incident, left as a mystery",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_53",
+            "Name": "Geppetto’s Letter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_KratGrandExposition_SpecialArticle",
+            "Name": "The greatest show on Earth is coming!",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_doodle",
+            "Name": "Torn Doodle",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_CatFake",
+            "Name": "Ripped Venigni's Krat Landmark Guide III",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_19",
+            "Name": "Sweepers Branch Office Newspaper Archives",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_40",
+            "Name": "Cherry-Scented Letter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_33",
+            "Name": "Sentry’s Notebook",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_FirstDiscovery",
+            "Name": "First Discovery, Camille",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_50",
+            "Name": "Note Left at the Counter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_concierge_note",
+            "Name": "Order of Kroud Report",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_KratTimes1124",
+            "Name": "Krat News Issue 1124",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_KratTimes183",
+            "Name": "Krat Times Issue 183",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_StrangerConfession",
+            "Name": "Special Report! Foreigner’s Confession",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_Introduce_ParadeDoll",
+            "Name": "Introducing the Parade Puppet!",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_54",
+            "Name": "The Blue Butterfly’s Letter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_CentralStation_05",
+            "Name": "Bloody Letter",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_41",
+            "Name": "So Said Pistris I",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_42",
+            "Name": "So Said Pistris II",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_47",
+            "Name": "So Said Pistris III",
+            "Category": "Other Collectibles"
+        },
+        {
+            "Id": "Collection_Letter_AlidoroNote",
+            "Name": "Frayed Notebook",
+            "Category": "Other Collectibles"
+        }
+    ]
+}
