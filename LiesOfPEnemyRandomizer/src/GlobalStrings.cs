@@ -29,6 +29,8 @@ namespace LiesOfPEnemyRandomizer.src
         public static readonly string bladeStartWith = "WP_PC_BLD_";
         public static readonly string bossErgo = "Boss_Ergo";
         public static readonly string dialogMonsterMonologueInfoUasset = "DialogMonsterMonologueInfo.uasset";
+        public static readonly string actionTypeBlade = "PC_action_type_bld";
+        public static readonly string actionTypeHandle = "PC_action_type_hnd";
 
 
 

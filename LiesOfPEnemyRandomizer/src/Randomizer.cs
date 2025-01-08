@@ -62,6 +62,10 @@ namespace LiesOfPEnemyRandomizer.src
 
         public bool IncreaseBossAttributes { get; private set; }
 
+        public bool UseWeightedRandomization { get; private set; }
+
+        public bool RandomizeShopItems { get; private set; }
+
         //TEMP
         public bool ScaleBosses { get; set; }
 
@@ -71,18 +75,23 @@ namespace LiesOfPEnemyRandomizer.src
         //TEMP
         public bool EnableDrops { get; set; }
 
+        //Weight Penalty
+        public int WeightPenalty { get; set; }
+
         List<string> enemyPool;
         List<string> bossPool;
         List<string> wanderingPool;
         List<string> bossGuardianPool;
         List<string> itemPool;
+        List<string> dropSetTable;
         Dictionary<string,string> weaponPool;//HANDLE + BLADE
+        Dictionary<string, int> npcWeightedPool;
 
         Random random;
 
 
         public Randomizer(bool includePuppets, bool includeCarcass, bool includeReborner, bool includeMiniBossStalker, bool includeMiniBossPuppet, bool includeBosses, bool includeMiniBossReborner, bool includeMiniBossCarcass, bool includeWanderingBoss, double wanderingBossChance, 
-            ItemDataBase itemData, bool randomizeDrops, bool factionProtection, bool randomizeDropsNpcBalancePercent, bool randomizeDropsNpcImportantItemMaxPercent, bool randomizeWeaponDropStack, double randomizeWeaponDropStackChanceRate, bool increaseBossAttributes)
+            ItemDataBase itemData, bool randomizeDrops, bool factionProtection, bool randomizeDropsNpcBalancePercent, bool randomizeDropsNpcImportantItemMaxPercent, bool randomizeWeaponDropStack, double randomizeWeaponDropStackChanceRate, bool increaseBossAttributes, bool useWeightedRandomization, bool randomizeShopItems, int weightPenalty)
         {
             IncludePuppets = includePuppets;
             IncludeCarcass = includeCarcass;
@@ -109,9 +118,14 @@ namespace LiesOfPEnemyRandomizer.src
             bossGuardianPool = new List<string>();
             itemPool = new List<string>();
             weaponPool = new Dictionary<string, string>();
+            npcWeightedPool = new Dictionary<string, int>(NpcData.WeightedNpc);
             RandomizeWeaponDropStack = randomizeWeaponDropStack;
             RandomizeWeaponDropStackChanceRate = randomizeWeaponDropStackChanceRate;
             IncreaseBossAttributes = increaseBossAttributes;
+            UseWeightedRandomization = useWeightedRandomization;
+            dropSetTable = new List<string>(DropTables.DropSets);
+            RandomizeShopItems = randomizeShopItems;
+            WeightPenalty = weightPenalty;
         }
 
 
@@ -176,7 +190,10 @@ namespace LiesOfPEnemyRandomizer.src
 
             return pool;
         }
-        List<string> GenerateItemPool(ItemDataBase itemdb, bool dropWeapon, bool weaponsOnly)//CONVERT TO ENUM LATER
+        List<string> GenerateItemPool(ItemDataBase itemdb, bool dropWeapon, bool weaponsOnly, bool includeSlaveArms = true, bool includeFrame = true, bool includeGeneral = true, bool includeQuest = true, bool includeMaterials = true, bool includeAmulets = true, 
+            bool includeLiner = true, bool includeConverter = true, bool includeCartridge = true, bool includeBuffConsumables = true, bool includeThrownConsumables = true, bool includeGenericHardErgo = true, bool includeBossHardErgo = false, bool includeWishtones = true, 
+            bool includeGrinderBuffs = true, bool includeGoldTreeBoosters = true, bool includeSupplyBoxes = true, bool includeVenigniCollections = true, bool includeGestures = true, bool includeRecords = true, 
+            bool includeOtherCollectibles = true, bool includeBody = true, bool includeMasks = true, bool includeHeadItems = true)
         {
 
             List<string> items = new List<string>();
@@ -203,79 +220,79 @@ namespace LiesOfPEnemyRandomizer.src
           
             }
 
-            if (itemdb.SlaveArms != null)
+            if (itemdb.SlaveArms != null && includeSlaveArms)
                 items.AddRange(itemdb.SlaveArms.Select(x => x.Id));
 
             if (itemdb.Melee != null && dropWeapon)
                 items.AddRange(itemdb.Melee.Select(x => x.Id));
 
-            if (itemdb.Frame != null)
+            if (itemdb.Frame != null && includeFrame)
                 items.AddRange(itemdb.Frame.Select(x => x.Id));
 
-            if (itemdb.General != null)
+            if (itemdb.General != null && includeGeneral)
                 items.AddRange(itemdb.General.Select(x => x.Id));
 
-            if (itemdb.QuestItems != null)
+            if (itemdb.QuestItems != null && includeQuest)
                 items.AddRange(itemdb.QuestItems.Select(x => x.Id));
 
-            if (itemdb.Materials != null)
+            if (itemdb.Materials != null && includeMaterials)
                 items.AddRange(itemdb.Materials.Select(x => x.Id));
 
-            if (itemdb.Amulets != null)
+            if (itemdb.Amulets != null && includeAmulets)
                 items.AddRange(itemdb.Amulets.Select(x => x.Id));
 
-            if (itemdb.Liner != null)
+            if (itemdb.Liner != null && includeLiner)
                 items.AddRange(itemdb.Liner.Select(x => x.Id));
 
-            if (itemdb.Converter != null)
+            if (itemdb.Converter != null && includeConverter)
                 items.AddRange(itemdb.Converter.Select(x => x.Id));
 
-            if (itemdb.Cartridge != null)
+            if (itemdb.Cartridge != null && includeCartridge)
                 items.AddRange(itemdb.Cartridge.Select(x => x.Id));
 
-            if (itemdb.BuffConsumables != null)
+            if (itemdb.BuffConsumables != null && includeBuffConsumables)
                 items.AddRange(itemdb.BuffConsumables.Select(x => x.Id));
 
-            if (itemdb.ThrownConsumables != null)
+            if (itemdb.ThrownConsumables != null && includeThrownConsumables)
                 items.AddRange(itemdb.ThrownConsumables.Select(x => x.Id));
 
-            if (itemdb.GenericHardErgo != null)
+            if (itemdb.GenericHardErgo != null && includeGenericHardErgo)
                 items.AddRange(itemdb.GenericHardErgo.Select(x => x.Id));
 
-            //if (itemdb.BossHardErgo != null)
-            //    items.AddRange(itemdb.BossHardErgo.Select(x => x.Id));
+            if (itemdb.BossHardErgo != null && includeBossHardErgo)
+                items.AddRange(itemdb.BossHardErgo.Select(x => x.Id));
 
-            if (itemdb.Wishstones != null)
+            if (itemdb.Wishstones != null && includeWishtones)
                 items.AddRange(itemdb.Wishstones.Select(x => x.Id));
 
-            if (itemdb.GrinderBuffs != null)
+            if (itemdb.GrinderBuffs != null && includeGrinderBuffs)
                 items.AddRange(itemdb.GrinderBuffs.Select(x => x.Id));
 
-            if (itemdb.GoldTreeBoosters != null)
+            if (itemdb.GoldTreeBoosters != null && includeGoldTreeBoosters)
                 items.AddRange(itemdb.GoldTreeBoosters.Select(x => x.Id));
 
-            if (itemdb.SupplyBoxes != null)
+            if (itemdb.SupplyBoxes != null && includeSupplyBoxes)
                 items.AddRange(itemdb.SupplyBoxes.Select(x => x.Id));
 
-            if (itemdb.VenigniCollections != null)
+            if (itemdb.VenigniCollections != null && includeVenigniCollections)
                 items.AddRange(itemdb.VenigniCollections.Select(x => x.Id));
 
-            if (itemdb.Gestures != null)
+            if (itemdb.Gestures != null && includeGestures)
                 items.AddRange(itemdb.Gestures.Select(x => x.Id));
 
-            if (itemdb.Records != null)
+            if (itemdb.Records != null && includeRecords)
                 items.AddRange(itemdb.Records.Select(x => x.Id));
 
-            if (itemdb.OtherCollectibles != null)
+            if (itemdb.OtherCollectibles != null && includeOtherCollectibles)
                 items.AddRange(itemdb.OtherCollectibles.Select(x => x.Id));
 
-            if (itemdb.Body != null)
+            if (itemdb.Body != null && includeBody)
                 items.AddRange(itemdb.Body.Select(x => x.Id));
 
-            if (itemdb.Masks != null)
+            if (itemdb.Masks != null && includeMasks)
                 items.AddRange(itemdb.Masks.Select(x => x.Id));
 
-            if (itemdb.HeadItems != null)
+            if (itemdb.HeadItems != null && includeHeadItems)
                 items.AddRange(itemdb.HeadItems.Select(x => x.Id));
 
             return items;
@@ -321,6 +338,9 @@ namespace LiesOfPEnemyRandomizer.src
                 string? itemPackageInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "ItemPackageInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
                 string? itemDropInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "ItemDropInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
                 string? dialogMonsterInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[0]), GlobalStrings.dialogMonsterMonologueInfoUasset, SearchOption.AllDirectories).FirstOrDefault();
+                string? shopInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "ShopInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
+                string? shopSpecialInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "ShopSpecialInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
+                string? commonConstantInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "CommonConstantInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
 
                 //TEST
                 //string? skillInfoAsset = Directory.GetFiles(Path.Combine(fileHandler.tempPath, fileHandler.pakBaseDirectory[2]), "SkillInfo.uasset", SearchOption.AllDirectories).FirstOrDefault();
@@ -333,6 +353,10 @@ namespace LiesOfPEnemyRandomizer.src
                 UAsset itemPackageInfo = new UAsset(itemPackageInfoAsset, EngineVersion.VER_UE4_27, mapping);
                 UAsset itemDropInfo = new UAsset(itemDropInfoAsset, EngineVersion.VER_UE4_27, mapping);
                 UAsset dialogMonsterInfo = new UAsset(dialogMonsterInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                UAsset shopInfo = new UAsset(shopInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                UAsset shopSpecialInfo = new UAsset(shopSpecialInfoAsset, EngineVersion.VER_UE4_27, mapping);
+                UAsset commonConstantInfo = new UAsset(commonConstantInfoAsset, EngineVersion.VER_UE4_27, mapping);
+
                 //TEST
                 //UAsset skillInfo = new UAsset(skillInfoAsset, EngineVersion.VER_UE4_27, mapping);
 
@@ -354,6 +378,7 @@ namespace LiesOfPEnemyRandomizer.src
                     string umap = Path.GetFileName(pakChunksOriginal[i]);
                     umap = umap.Substring(0, umap.IndexOf(GlobalStrings.umapFileIndex));
                     Dictionary<string, string> mapBossAssignments = new Dictionary<string, string>();
+                    int levelWeight = 0;
 
                     //DISGUSTING (BUT WAS IN A HURRY FOR TESTING, CONVERT TO DICTIONARY)
                     switch (umap)
@@ -365,73 +390,62 @@ namespace LiesOfPEnemyRandomizer.src
                             importantNpcs = NpcData.NpcLDOuterStation;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLD)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LD_Outer_Station_DSN).ToString();
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
+                            levelWeight = 1;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                           
                             break;
                         case nameof(MapName.LV_Inner_UpperStreet_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                             myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-
                             importantNpcs = NpcData.NpcLVInnerUpperStreet;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Inner_UpperStreet_DSN).ToString();
-
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs,dontReshuffleNpcs);
-
+                            levelWeight = 2;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs,dontReshuffleNpcs, levelWeight);                          
                             break;
                         case nameof(MapName.LV_Inner_Factory_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                             myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-
                             importantNpcs = NpcData.NpcLVInnerFactory;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Inner_Factory_DSN).ToString();
-
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
-
+                            levelWeight = 3;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                          
                             break;
                         case nameof(MapName.LV_Inner_Cathedral_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                             myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-
                             importantNpcs = NpcData.NpcLVInnerCathedral;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Inner_Cathedral_DSN).ToString();
-
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs,dontReshuffleNpcs);
-
+                            levelWeight = 4;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs,dontReshuffleNpcs, levelWeight);                          
                             break;
                         case nameof(MapName.LV_Outer_Underdark_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                             myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-
                             importantNpcs = NpcData.NpcLVOuterUnderdark;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Outer_Underdark_DSN).ToString();
-
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
-
+                            levelWeight = 11;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                            
                             break;
                         case nameof(MapName.LV_Krat_EastEndWard_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                             myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-
                             importantNpcs = NpcData.NpcLVKratEastEndWard;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Krat_EastEndWard_DSN).ToString();
-
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
-
+                            levelWeight = 6;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                          
                             break;
                         case nameof(MapName.LV_Krat_Old_Town_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
                             myAsset = new UAsset(pChunk, EngineVersion.VER_UE4_27, mapping);
-
                             importantNpcs = NpcData.NpcLVKratOldTown;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Krat_Old_Town_DSN).ToString();
-
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
-
+                            levelWeight = 5;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                            
                             break;
                         case nameof(MapName.LV_Outer_Grave_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
@@ -439,7 +453,8 @@ namespace LiesOfPEnemyRandomizer.src
                             importantNpcs = NpcData.NpcLVOuterGrave;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Outer_Grave_DSN).ToString();
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
+                            levelWeight = 8;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                           
                             break;
                         case nameof(MapName.LV_Monastery_A_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
@@ -447,7 +462,8 @@ namespace LiesOfPEnemyRandomizer.src
                             importantNpcs = NpcData.NpcLVMonasteryA;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Monastery_A_DSN).ToString();
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i],alreadySpawnedNpcs, dontReshuffleNpcs);
+                            levelWeight = 12;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i],alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                           
                             break;
                         case nameof(MapName.LV_Monastery_B_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
@@ -455,7 +471,8 @@ namespace LiesOfPEnemyRandomizer.src
                             importantNpcs = NpcData.NpcLVMonasteryB;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Monastery_B_DSN).ToString();
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
+                            levelWeight = 13;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                         
                             break;
                         case nameof(MapName.LV_Outer_CentralStatinB_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
@@ -463,7 +480,8 @@ namespace LiesOfPEnemyRandomizer.src
                             importantNpcs = NpcData.NpcLVOuterCentralStatinB;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Outer_CentralStatinB_DSN).ToString();
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
+                            levelWeight = 9;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                           
                             break;
                         case nameof(MapName.LV_Outer_Exhibition_DSN):
                             pChunk = pakChunksOriginal[i].ToString();//PAK FILE CONTAINING NPC SPAWN DATA FROM TEMP                  
@@ -471,7 +489,8 @@ namespace LiesOfPEnemyRandomizer.src
                             importantNpcs = NpcData.NpcLVOuterExhibition;//IMPORTANT NPCS (I.E KEY ITEMS, BUTTERFLY ETC)
                             npc = myAsset.Exports.OfType<NormalExport>().Where(x => x.ObjectName.ToString().StartsWith(GlobalStrings.NpcLV)).ToList();//GET ALL SPAWN POINTS
                             assetName = nameof(MapName.LV_Outer_Exhibition_DSN).ToString();
-                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs);
+                            levelWeight = 7;
+                            mapBossAssignments = GenerateEnemies(pChunk, myAsset, mapping, EngineVersion.VER_UE4_27, importantNpcs, npc, true, true, true, true, true, true, false, assetName, pakChunksOriginal[i], alreadySpawnedNpcs, dontReshuffleNpcs, levelWeight);                           
                             break;
                     }
                     alreadySpawnedNpcs.Clear();
@@ -500,8 +519,22 @@ namespace LiesOfPEnemyRandomizer.src
                     RandomizeItems(itemPackageInfoAsset, itemPackageInfo, mapping, EngineVersion.VER_UE4_27, ItemInfo, true);
                     //NPC ITEMS
                     LogGUIMessage("Randomizing NPC Item Drops");
+                    ShufflePool(dropSetTable, random);
                     RandomizeItemsNpc(itemDropInfoAsset, itemDropInfo, mapping, EngineVersion.VER_UE4_27, ItemInfo, false);
+                    
                 }
+                //SHOP
+                if(RandomizeShopItems)
+                {
+                    LogGUIMessage("Randomizing Shops");
+                    RandomizeItemShops(shopInfoAsset, shopInfo, mapping, EngineVersion.VER_UE4_27, ItemInfo, nameof(AssetTableNames._Shop_array));
+                    LogGUIMessage("Randomizing Special Shops");
+                    RandomizeItemShops(shopSpecialInfoAsset, shopSpecialInfo, mapping, EngineVersion.VER_UE4_27, ItemInfo, nameof(AssetTableNames._ShopSpecial_array));
+
+                }
+                //STARTING WEAPON
+                LogGUIMessage("Randomizing Starting Weapons");
+                RandomizeStartingWeapons(commonConstantInfoAsset, commonConstantInfo, mapping, EngineVersion.VER_UE4_27, ItemInfo, nameof(AssetTableNames._CommonConstant_array));
 
 
                 bool result = await fileHandler.UnrealPak(fileHandler.pakBaseDirectory, GlobalStrings.generatedFileDirectory);
@@ -593,6 +626,7 @@ namespace LiesOfPEnemyRandomizer.src
 
                 var handle = test.Where(x => x.Name.Value.Equals("_weapon_item_1_handle")).FirstOrDefault() as PropertyData;
                 var blade = test.Where(x => x.Name.Value.Equals("_weapon_item_1_blade")).FirstOrDefault() as PropertyData;
+                var codename = test.Where(x => x.Name.Value.Equals("_code_name")).FirstOrDefault() as PropertyData;
 
                 string item = itemPool[random.Next(itemPool.Count)];
                 bool alreadySwappedWeapons = false;
@@ -600,21 +634,7 @@ namespace LiesOfPEnemyRandomizer.src
                 if (item.StartsWith(GlobalStrings.wpPC))
                 {
                     string weaponName = item.Substring(10);
-                    //if (item.Contains(GlobalStrings.handleStartWith))
-                    //{
-                    //    weaponName = GlobalStrings.bladeStartWith + weaponName;
-                    //    handle.RawValue = FName.FromString(uasset, item);
-                    //    blade.RawValue = FName.FromString(uasset, weaponName);
-                    //    //weaponName = GlobalStrings.bladeStartWith;
-                    //}
-                    //else
-                    //{
-                    //    weaponName = GlobalStrings.handleStartWith + weaponName;
-                    //    blade.RawValue = FName.FromString(uasset, item);
-                    //    handle.RawValue = FName.FromString(uasset, weaponName);
 
-
-                    //}
                     Dictionary<string, string>? weaponPairSelected = GetBladeAndHandle(weaponName, item, true);
                     if(weaponPairSelected != null)
                     {
@@ -674,7 +694,7 @@ namespace LiesOfPEnemyRandomizer.src
                 itemPool.Remove(item);
                 alreadySpawnedItems.Add(item);
 
-                if (quartzTotal < 11 && random.Next(100) < 10)
+                if (quartzTotal < 11 && random.Next(100) < 5)
                 {
                     item = GlobalStrings.quartz;
                     quartzTotal++;
@@ -711,15 +731,25 @@ namespace LiesOfPEnemyRandomizer.src
             ArrayPropertyData? arrayPropertyDatas = (ArrayPropertyData)itemProperties.Where(x => x.Name.Value.Equals(nameof(AssetTableNames._PackageConfigureInfo_array))).FirstOrDefault();
             PropertyData[] structPropertyData = (PropertyData[])arrayPropertyDatas.RawValue;
             int quartzTotal = 0;
+            int legionTotal = 0;
 
             for (int i = 0; i < structPropertyData.Length; i++)
             {
-                if (itemPool.Count <= 0) { itemPool = ShufflePool(GenerateItemPool(ItemInfo, true, false), random); }
+                if (itemPool.Count <= 0) { itemPool = ShufflePool(GenerateItemPool(ItemInfo, true, false, includeQuest: false), random); }
                 List<PropertyData> test = (List<PropertyData>)structPropertyData[i].RawValue;
                 var itemCodeName = test.Where(x => x.Name.Value.Equals("_item_code_name")).FirstOrDefault() as PropertyData;
+                var dropSetCodeName = test.Where(x => x.Name.Value.Equals("_Drop_Set_Code_name")).FirstOrDefault() as PropertyData;
                 var percent = test.Where(x => x.Name.Value.Equals("_item_acquisition_percentage")).FirstOrDefault() as PropertyData;
-
-                if (itemCodeName?.RawValue == null) { continue; }
+                
+                //BOTH ARE NEVER NOT NULL
+                if (itemCodeName?.RawValue == null && dropSetCodeName?.RawValue != null ) { 
+                    if(dropSetTable.Count <= 0) { dropSetTable.AddRange(DropTables.DropSets); ShufflePool(dropSetTable, random); } //THIS SHOULD NEVER HAPPEN BUT JUST TO BE SAFE
+                    string dropSetItem = dropSetTable[random.Next(dropSetTable.Count)]; ;
+                    dropSetCodeName.RawValue = FName.FromString(uasset, dropSetItem);
+                    dropSetTable.Remove(dropSetItem);
+                    continue; 
+                }
+                    
                 string item;
 
                 if ((itemCodeName.RawValue.ToString().Contains(GlobalStrings.dropEpic, StringComparison.OrdinalIgnoreCase) || itemCodeName.RawValue.ToString().Contains(GlobalStrings.dropKey, StringComparison.OrdinalIgnoreCase))
@@ -765,7 +795,17 @@ namespace LiesOfPEnemyRandomizer.src
                     continue;
                 }
 
-                if (quartzTotal < 15 && random.Next(100) < 10)
+                if (legionTotal < 17 && random.Next(100) < 8)
+                {
+                    item = GlobalStrings.quartz;
+                    legionTotal++;
+                    itemCodeName.RawValue = FName.FromString(uasset, "Reinforce_SlaveArm");
+                    Debug.WriteLine("NPC DROP: LEGION");
+
+                    continue;
+                }
+
+                if (quartzTotal < 15 && random.Next(100) < 5)
                 {
                     item = GlobalStrings.quartz;
                     quartzTotal++;
@@ -786,8 +826,112 @@ namespace LiesOfPEnemyRandomizer.src
 
             }
             uasset.Write(filePath);
+            
         }
 
+        void RandomizeItemShops(string? filePath, UAsset? uasset, Usmap mapping, EngineVersion engineVersion, ItemDataBase itemData, string assetTableName)
+        {
+            NormalExport? itemPackageInfoTable = uasset.Exports.Count > 0 ? uasset.Exports[0] as NormalExport : null;
+            List<PropertyData>? itemProperties = itemPackageInfoTable?.Data.Count > 0 ? itemPackageInfoTable[0].RawValue as List<PropertyData> : null;
+            Debug.WriteLine(itemProperties[0].Name.Value);
+            Debug.WriteLine(nameof(assetTableName));
+            ArrayPropertyData? arrayPropertyDatas = (ArrayPropertyData)itemProperties.Where(x => x.Name.Value.Equals(assetTableName)).FirstOrDefault();
+            PropertyData[] structPropertyData = (PropertyData[])arrayPropertyDatas.RawValue;
+
+            for (int i = 0; i < structPropertyData.Length; i++)
+            {
+                if (itemPool.Count <= 0) { itemPool = ShufflePool(GenerateItemPool(ItemInfo, true, false, includeQuest:false, includeSupplyBoxes:false, includeVenigniCollections:false, includeGestures:false, includeOtherCollectibles:false), random); }
+                List<PropertyData> propData = (List<PropertyData>)structPropertyData[i].RawValue;
+                var itemSlot1 = propData.Where(x => x.Name.Value.Equals("_item_code_name")).FirstOrDefault() as PropertyData;
+                var itemSlot2 = propData.Where(x => x.Name.Value.Equals("_item_code_name2")).FirstOrDefault() as PropertyData;
+
+                string item = itemPool[random.Next(itemPool.Count)];
+                itemSlot1.RawValue = FName.FromString(uasset, item);
+                itemPool.Remove(item);
+                if(itemSlot2?.RawValue == null) { continue; }
+                itemSlot2.RawValue = FName.FromString(uasset, "null");
+                //if (itemPool.Count <= 0) { itemPool = ShufflePool(GenerateItemPool(ItemInfo, true, false), random); }
+                //item = itemPool[random.Next(itemPool.Count)];
+                //itemSlot2.RawValue = FName.FromString(uasset, item);
+                //itemPool.Remove(item);
+
+            }
+            
+            uasset.Write(filePath);
+
+        }
+
+        void RandomizeStartingWeapons(string? filePath, UAsset? uasset, Usmap mapping, EngineVersion engineVersion, ItemDataBase itemData, string assetTableName)
+        {
+            NormalExport? itemPackageInfoTable = uasset.Exports.Count > 0 ? uasset.Exports[0] as NormalExport : null;
+            List<PropertyData>? itemProperties = itemPackageInfoTable?.Data.Count > 0 ? itemPackageInfoTable[0].RawValue as List<PropertyData> : null;
+            Debug.WriteLine(itemProperties[0].Name.Value);
+            Debug.WriteLine(nameof(assetTableName));
+            ArrayPropertyData? arrayPropertyDatas = (ArrayPropertyData)itemProperties.Where(x => x.Name.Value.Equals(assetTableName)).FirstOrDefault();
+            PropertyData[] structPropertyData = (PropertyData[])arrayPropertyDatas.RawValue;
+            if (weaponPool?.Keys?.Count <= 2 || weaponPool?.Keys == null) { GenerateItemPool(ItemInfo, false, true); }
+            
+            //SCREW THIS GARBAGE IM TIRED AND WANT TO GO BED
+            PropertyData? saberHND = null;
+            PropertyData? saberBLD = null;
+            PropertyData? rapierHND = null;
+            PropertyData? rapierBLD = null;
+            PropertyData? baynetHND = null;
+            PropertyData? baynetBLD = null;
+
+            var handles = weaponPool.Keys.ToList();
+            var blades = weaponPool.Values.ToList();
+            ShufflePool(handles, random);
+            ShufflePool(blades,random);
+
+
+            PropertyData? itemSlot2 = null;
+            for (int i = 0; i < structPropertyData.Length; i++)
+            {             
+                List<PropertyData> propData = (List<PropertyData>)structPropertyData[i].RawValue;
+                var itemSlot = propData.Where(x => x.Name.Value.Equals("_code_name")).FirstOrDefault() as PropertyData;
+                if (itemSlot?.RawValue == null) { continue; }
+                itemSlot2 = propData.Where(x => x.Name.Value.Equals("_value")).FirstOrDefault() as PropertyData;
+
+                if (itemSlot.RawValue.ToString().Equals("PC_action_type_hnd_1")){ saberHND = itemSlot2; continue; }
+                if (itemSlot.RawValue.ToString().Equals("PC_action_type_hnd_2")){ rapierHND = itemSlot2; continue; }
+                if (itemSlot.RawValue.ToString().Equals("PC_action_type_hnd_3")){ baynetHND = itemSlot2; continue; }
+
+                if (itemSlot.RawValue.ToString().Equals("PC_action_type_bld_1")){ saberBLD = itemSlot2; continue; }
+                if (itemSlot.RawValue.ToString().Equals("PC_action_type_bld_2")) { rapierBLD = itemSlot2; continue; }
+                if (itemSlot.RawValue.ToString().Equals("PC_action_type_bld_3")) { baynetBLD = itemSlot2; continue; }
+
+          
+            }
+
+            var weapon = handles[random.Next(handles.Count)];
+            saberHND.RawValue = FString.FromString(weapon);
+            handles.Remove(weapon);
+
+            weapon = handles[random.Next(handles.Count)];
+            rapierHND.RawValue = FString.FromString(weapon);
+            handles.Remove(weapon);
+
+            weapon = handles[random.Next(handles.Count)];
+            baynetHND.RawValue = FString.FromString(weapon);
+            handles.Remove(weapon);
+
+            weapon = blades[random.Next(blades.Count)];
+            saberBLD.RawValue = FString.FromString(weapon);
+            blades.Remove(weapon);
+
+            weapon = blades[random.Next(blades.Count)];
+            rapierBLD.RawValue = FString.FromString(weapon);
+            blades.Remove(weapon);
+
+            weapon = blades[random.Next(blades.Count)];
+            baynetBLD.RawValue = FString.FromString(weapon);
+            blades.Remove(weapon);
+
+
+            uasset.Write(filePath);
+
+        }
         int GetDropRatePercent(Dictionary<string, int> table, string item, bool startsWith)
         {
             if (string.IsNullOrEmpty(item)) { return 0; }
@@ -1209,7 +1353,7 @@ namespace LiesOfPEnemyRandomizer.src
 
 
         Dictionary<string, string> GenerateEnemies(string pakChunk, UAsset uAsset, Usmap mapping, EngineVersion engineVersion, List<NpcData.NpcSpotData> importantNpcs, List<NormalExport> npcs,
-    bool skipButterfly, bool skipImportantNpcs, bool skipExiledNpc, bool skipProjectile, bool removeNpcFromPool, bool scaleEnemies, bool scaleBosses, string fileName, string filePath, HashSet<string> alreadySpawnedNpcs, HashSet<string> dontReshuffleNpcs)
+    bool skipButterfly, bool skipImportantNpcs, bool skipExiledNpc, bool skipProjectile, bool removeNpcFromPool, bool scaleEnemies, bool scaleBosses, string fileName, string filePath, HashSet<string> alreadySpawnedNpcs, HashSet<string> dontReshuffleNpcs, int levelWeight)
         {
             npcs = uAsset.Exports.OfType<NormalExport>()
                 .Where(x => x.ObjectName.ToString().StartsWith("Npc-LD", StringComparison.OrdinalIgnoreCase) || x.ObjectName.ToString().StartsWith("Npc-LV", StringComparison.OrdinalIgnoreCase) || x.ObjectName.ToString().StartsWith("BossRoom", StringComparison.OrdinalIgnoreCase))
@@ -1373,9 +1517,26 @@ namespace LiesOfPEnemyRandomizer.src
                     }
                     else
                     {
-                        data.RawValue = FName.FromString(uAsset, enemySelected);
-                        enemyPool.Remove(enemySelected);
-                        alreadySpawnedNpcs.Add(enemySelected);
+                        
+                       
+                        if (UseWeightedRandomization)
+                        {
+                            if (npcWeightedPool.Count <= 0) { /*Debug.WriteLine("weight pool is empty re-filling");*/ npcWeightedPool = new Dictionary<string, int>(NpcData.WeightedNpc); }
+                           
+                            string weightedEnemySelected = GetWeightedEnemyFromDictionary(npcWeightedPool, levelWeight);
+                            data.RawValue = FName.FromString(uAsset, weightedEnemySelected);
+                            //npcWeightedPool.Remove(weightedEnemySelected);
+
+                            //alreadySpawnedNpcs.Add(weightedEnemySelected);
+                            //Debug.WriteLine($"Weighted Enemy Selected: {weightedEnemySelected}" + "Level Weight:" + levelWeight);
+                        }
+                        else
+                        {
+                            //Debug.WriteLine("FALLING BACK TO NORMAL POOL");
+                            data.RawValue = FName.FromString(uAsset, enemySelected);
+                            enemyPool.Remove(enemySelected);
+                            alreadySpawnedNpcs.Add(enemySelected);
+                        }
                         if (NpcData.npcDontReshuffle.Contains(enemySelected))
                         {
                             dontReshuffleNpcs.Add(enemySelected);
@@ -1396,6 +1557,61 @@ namespace LiesOfPEnemyRandomizer.src
 
             return bossAssignmentMap;
         }
+
+
+        private string GetWeightedEnemyFromDictionary(Dictionary<string, int> weightedNpc, int levelWeight)
+        {
+            
+            Dictionary<string, int> adjustedWeights = weightedNpc.ToDictionary(
+                kvp => kvp.Key,
+                kvp =>
+                {
+                   
+                    int distance = Math.Abs(kvp.Value - levelWeight);
+                    int adjustedWeight = Math.Max(0, WeightPenalty - (distance * distance * distance));
+
+                  
+                    //Debug.WriteLine($"Enemy: {kvp.Key}, Original Weight: {kvp.Value}, Level Weight: {levelWeight}, Distance: {distance}, Adjusted Weight: {adjustedWeight}");
+
+                    return adjustedWeight;
+                }
+            );
+
+        
+            adjustedWeights = adjustedWeights.Where(kvp => kvp.Value > 0).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+            if (!adjustedWeights.Any())
+            {
+                //Debug.WriteLine("No valid enemies found after weight adjustment. Falling back to the closest match.");
+
+                return weightedNpc.OrderBy(kvp => Math.Abs(kvp.Value - levelWeight)).First().Key;
+            }
+
+            
+            int totalWeight = adjustedWeights.Values.Sum();
+            //Debug.WriteLine($"Total Adjusted Weight: {totalWeight}");
+
+           
+            int randomValue = random.Next(0, totalWeight);
+            //Debug.WriteLine($"Random Value: {randomValue}");
+
+            int currentSum = 0;
+
+            foreach (var kvp in adjustedWeights)
+            {
+                currentSum += kvp.Value;
+                if (randomValue < currentSum)
+                {
+                    //Debug.WriteLine($"Selected Enemy: {kvp.Key}");
+                    return kvp.Key;
+                }
+            }
+
+        
+           // Debug.WriteLine("Unexpected fallback in GetWeightedEnemyFromDictionary. Returning the first enemy in the original pool.");
+            return weightedNpc.Keys.First();
+        }
+
 
 
 

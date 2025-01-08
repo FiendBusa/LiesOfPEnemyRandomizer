@@ -489,11 +489,11 @@
             "Name": "Falcon Eyes",
             "Category": "Left Arm"
         },
-        {
-            "Id": "SlaveArm_PuppetString",
-            "Name": "Puppet String",
-            "Category": "Left Arm"
-        },
+        //{
+        //    "Id": "SlaveArm_PuppetString",
+        //    "Name": "Puppet String",
+        //    "Category": "Left Arm"
+        //},
         {
             "Id": "SlaveArm_Fulminis",
             "Name": "Fulminis",

@@ -65,6 +65,9 @@ namespace LiesOfPEnemyRandomizer.src
         _param1,
         DialogMonsterMonologueInfo,
         _DialogMonsterMonologue_array,
+        _Shop_array,
+        _ShopSpecial_array,
+        _CommonConstant_array
     };
 
     public enum UassetFileTye
@@ -125,7 +128,7 @@ namespace LiesOfPEnemyRandomizer.src
                         pakChunk2_s4 = new Dictionary<string, string[]>
             {
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\Blueprints\\LevelObjectBP"), new string[] { "BP_NpcSpot.uasset", "BP_ItemSpot.uasset", "BP_BossRoomSpot.uasset", "BP_NpcSpot.uexp", "BP_ItemSpot.uexp", "BP_BossRoomSpot.uexp" } },
-                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp" } },
+                {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\ContentInfo\\InfoAsset"), new string[] { "NPCInfo.uasset", "NPCInfo.uexp", "PatchRewardInfo.uasset", "PatchRewardInfo.uexp", "ItemPackageInfo.uasset", "ItemPackageInfo.uexp", "ItemDropInfo.uasset", "ItemDropInfo.uexp", "ShopInfo.uasset", "ShopInfo.uexp", "ShopSpecialInfo.uasset", "ShopSpecialInfo.uexp", "CommonConstantInfo.uasset", "CommonConstantInfo.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Old_Town"), new string[] { "LV_Krat_Old_Town_DSN.umap", "LV_Krat_Old_Town_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_Krat_Underdark"), new string[] { "LV_Outer_Underdark_A_DSN.umap", "LV_Outer_Underdark_A_DSN.uexp", "LV_Outer_Underdark_DSN.umap", "LV_Outer_Underdark_DSN.uexp" } },
                 {Path.Combine(this.tempPath, pakBaseDirectory[2],"LiesofP\\Content\\MapRelease\\LV_OuterKrat\\LV_Krat_Outer_EastEndWard"), new string[] { "LV_Krat_EastEndWard_DSN.umap", "LV_Krat_EastEndWard_DSN.uexp" } },

@@ -474,11 +474,11 @@
             "Name": "Aegis",
             "Category": "Left Arm"
         },
-        {
-            "Id": "SlaveArm_Normal",
-            "Name": "Left Arm of Steel",
-            "Category": "Left Arm"
-        },
+        //{
+        //    "Id": "SlaveArm_Normal",
+        //    "Name": "Left Arm of Steel",
+        //    "Category": "Left Arm"
+        //},
         {
             "Id": "SlaveArm_AcidLuncher",
             "Name": "Pandemonium",
@@ -489,11 +489,11 @@
             "Name": "Falcon Eyes",
             "Category": "Left Arm"
         },
-        {
-            "Id": "SlaveArm_PuppetString",
-            "Name": "Puppet String",
-            "Category": "Left Arm"
-        },
+        //{
+        //    "Id": "SlaveArm_PuppetString",
+        //    "Name": "Puppet String",
+        //    "Category": "Left Arm"
+        //},
         {
             "Id": "SlaveArm_Fulminis",
             "Name": "Fulminis",

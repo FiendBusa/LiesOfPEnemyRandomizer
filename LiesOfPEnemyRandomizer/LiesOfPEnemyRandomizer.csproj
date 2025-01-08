@@ -26,6 +26,8 @@
     <AvaloniaResource Remove="Assets\BP_ItemSpot.uexp" />
     <AvaloniaResource Remove="Assets\BP_NpcSpot.uasset" />
     <AvaloniaResource Remove="Assets\BP_NpcSpot.uexp" />
+    <AvaloniaResource Remove="Assets\CommonConstantInfo.uasset" />
+    <AvaloniaResource Remove="Assets\CommonConstantInfo.uexp" />
     <AvaloniaResource Remove="Assets\DialogMonsterMonologueInfo.uasset" />
     <AvaloniaResource Remove="Assets\DialogMonsterMonologueInfo.uexp" />
     <AvaloniaResource Remove="Assets\ItemDropInfo.uasset" />
@@ -93,6 +95,10 @@
     <AvaloniaResource Remove="Assets\PatchRewardInfo.uasset" />
     <AvaloniaResource Remove="Assets\PatchRewardInfo.uexp" />
     <AvaloniaResource Remove="Assets\sfx_clock.wav" />
+    <AvaloniaResource Remove="Assets\ShopInfo.uasset" />
+    <AvaloniaResource Remove="Assets\ShopInfo.uexp" />
+    <AvaloniaResource Remove="Assets\ShopSpecialInfo.uasset" />
+    <AvaloniaResource Remove="Assets\ShopSpecialInfo.uexp" />
     <AvaloniaResource Remove="Assets\SkillInfo.uasset" />
     <AvaloniaResource Remove="Assets\SkillInfo.uexp" />
     <AvaloniaResource Remove="Assets\UnrealPak.exe" />
@@ -105,6 +111,8 @@
     <EmbeddedResource Include="Assets\BP_ItemSpot.uexp" />
     <EmbeddedResource Include="Assets\BP_NpcSpot.uasset" />
     <EmbeddedResource Include="Assets\BP_NpcSpot.uexp" />
+    <EmbeddedResource Include="Assets\CommonConstantInfo.uasset" />
+    <EmbeddedResource Include="Assets\CommonConstantInfo.uexp" />
     <EmbeddedResource Include="Assets\DialogMonsterMonologueInfo.uasset" />
     <EmbeddedResource Include="Assets\DialogMonsterMonologueInfo.uexp" />
     <EmbeddedResource Include="Assets\ItemDropInfo.uasset" />
@@ -148,6 +156,10 @@
     <EmbeddedResource Include="Assets\PatchRewardInfo.uasset" />
     <EmbeddedResource Include="Assets\PatchRewardInfo.uexp" />
     <EmbeddedResource Include="Assets\sfx_clock.wav" />
+    <EmbeddedResource Include="Assets\ShopInfo.uasset" />
+    <EmbeddedResource Include="Assets\ShopInfo.uexp" />
+    <EmbeddedResource Include="Assets\ShopSpecialInfo.uasset" />
+    <EmbeddedResource Include="Assets\ShopSpecialInfo.uexp" />
     <EmbeddedResource Include="Assets\SkillInfo.uasset" />
     <EmbeddedResource Include="Assets\SkillInfo.uexp" />
     <EmbeddedResource Include="Assets\UnrealPak.exe" />
